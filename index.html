@@ -1073,6 +1073,16 @@
       this.querySelector('.lbl').textContent = open ? 'Fechar' : 'Sobre a trilha';
     });
   });
+  function scrollToTrilhaConteudo(trilha){
+    if(!trilha) return;
+    var list=trilha.querySelector('.cgroups');
+    if(!list || !list.classList.contains('open')) return;
+    var alvo=list.querySelector('.cgroup .cgroup-h') || list;
+    window.requestAnimationFrame(function(){
+      alvo.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+
   // "Ver trilha": revela/recolhe os conteúdos da trilha
   document.querySelectorAll('[data-cursos]').forEach(function(b){
     b.addEventListener('click',function(){
@@ -1082,6 +1092,7 @@
       var open=list.classList.toggle('open');
       this.querySelector('.lbl').textContent = open ? 'Ocultar conteúdos' : 'Ver trilha';
       this.setAttribute('aria-expanded',String(open));
+      if(open) scrollToTrilhaConteudo(trilha);
     });
   });
   // Lightbox: clicar na imagem do DNA (ou qualquer .zoomable) amplia
@@ -1104,9 +1115,11 @@
       var cat=this.getAttribute('data-prog');
       var tab=document.querySelector('.tabs .tab[data-cat="'+cat+'"]');
       if(tab) tab.click();
-      var host=document.querySelector('.trilha[data-cat="'+cat+'"] .cgroups');
-      var btn=document.querySelector('.trilha[data-cat="'+cat+'"] [data-cursos]');
+      var trilha=document.querySelector('.trilha[data-cat="'+cat+'"]');
+      var host=trilha ? trilha.querySelector('.cgroups') : null;
+      var btn=trilha ? trilha.querySelector('[data-cursos]') : null;
       if(host && btn && !host.classList.contains('open')) btn.click();
+      else scrollToTrilhaConteudo(trilha);
     });
   });
 
