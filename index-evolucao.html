@@ -556,6 +556,19 @@
  body.evolucao .ccard{box-shadow:0 10px 26px rgba(50,28,171,.06)}
  body.evolucao .ccard:hover{box-shadow:0 18px 44px rgba(50,28,171,.16)}
  body.evolucao .reveal{opacity:1}
+ body.evolucao .instrutores-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.15rem;max-width:1120px;margin:2.6rem auto 0}
+ body.evolucao .instrutor-card{aspect-ratio:3/4.25;border-radius:1.15rem;margin:0;box-shadow:0 20px 54px rgba(17,6,29,.18);background:#160831}
+ body.evolucao .instrutor-card::after{content:"";position:absolute;inset:10px;border-radius:.9rem;border:1px solid rgba(217,187,104,.34);z-index:3;pointer-events:none;opacity:.75}
+ body.evolucao .instrutor-card img{object-position:center top;background:#211047}
+ body.evolucao .instrutor-card .tp-front{padding:3.2rem 1.05rem 1.15rem;background:linear-gradient(180deg,transparent,rgba(17,6,29,.94) 68%)}
+ body.evolucao .instrutor-card .tp-front h4{font-size:1.12rem;letter-spacing:.01em}
+ body.evolucao .instrutor-card .cargo{font-size:.77rem}
+ body.evolucao .instrutor-card .tp-bio{justify-content:flex-end;padding:1.05rem;gap:.42rem;background:linear-gradient(180deg,rgba(17,6,29,.10),rgba(17,6,29,.93) 32%,rgba(17,6,29,.98));overflow-y:auto;z-index:4}
+ body.evolucao .instrutor-card .tp-bio h4{font-size:1.06rem;margin-bottom:.1rem}
+ body.evolucao .instrutor-card .tp-bio p{font-size:.74rem;line-height:1.43;margin:0;color:#f6f0ff}
+ @media(max-width:980px){body.evolucao .instrutores-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px}.evolucao .instrutor-card{aspect-ratio:3/3.9}.evolucao .instrutor-card .tp-bio p{font-size:.78rem}}
+ @media(max-width:560px){body.evolucao .instrutores-grid{grid-template-columns:1fr;max-width:360px}.evolucao .instrutor-card{aspect-ratio:3/4.05}.evolucao .instrutor-card .tp-bio p{font-size:.8rem}}
+
  @keyframes evoHeroDrift{0%{transform:scale(1.12) translate3d(-1.4%,.3%,0);filter:blur(.7px) saturate(1.08) brightness(.96) contrast(1.02)}38%{transform:scale(1.18) translate3d(1.6%,-1.3%,0);filter:blur(.3px) saturate(1.22) brightness(1.04) contrast(1.06)}72%{transform:scale(1.145) translate3d(-.8%,-.4%,0);filter:blur(.6px) saturate(1.16) brightness(1.02) contrast(1.05)}100%{transform:scale(1.19) translate3d(.9%,.8%,0);filter:blur(.4px) saturate(1.2) brightness(1.03) contrast(1.07)}}
  @media(prefers-reduced-motion:reduce){body.evolucao .hero::before{animation:none!important;transform:scale(1.04)}body.evolucao *{scroll-behavior:auto!important}}
  @media(max-width:860px){body.evolucao .dna-grid{grid-template-columns:1fr;grid-template-areas:"pessoas" "inov" "digital";max-width:430px;min-height:0;gap:1.1rem}body.evolucao .dna-card,body.evolucao .dna-card:nth-child(1){border-radius:1.5rem;aspect-ratio:auto;min-height:220px;transform:none}body.evolucao .dna-card:nth-child(1):hover,body.evolucao .dna-card:hover{transform:translateY(-5px)}body.evolucao .dna-card::after{border-radius:1.5rem}.evolucao .dna{background:linear-gradient(180deg,#170832 0%,#24105e 42%,#fff 42%,#fff 100%)}}
@@ -766,46 +779,27 @@
       <div class="gold-rule"></div>
       <p class="sub">Nossos instrutores são servidores e especialistas com experiência real no setor público.</p>
     </div>
-    <div class="teach-carousel">
-      <button class="tc-btn tc-prev" type="button" aria-label="Anterior"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-      <div class="tc-viewport"><div class="tc-track">
-        <div class="tslide"><figure class="tcardp" data-comment-anchor="instrutor-anderson-porto">
-          <img loading="lazy" decoding="async" width="296" height="374" src="assets/img/anderson-porto.png" alt="Ânderson Porto">
-          <figcaption class="tp-front"><span class="esp">Equipes Híbridas</span><h4>Ânderson Porto</h4><div class="cargo">Facilitador · Mestrando em Gestão Pública</div></figcaption>
-          <div class="tp-bio"><h4>Ânderson Porto</h4><p>Mais de 12 anos no Poder Judiciário. Vencedor do Prêmio Ser Humano ABRH-DF 2023 com a “Comunidade STJ Officeless”. Mestrando em Gestão Pública (UnB), especialista em metodologias ágeis, gestão da mudança e equipes híbridas.</p><a class="perfil" href="#" data-perfil="anderson-porto">Ver perfil completo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-        </figure></div>
-        <div class="tslide"><figure class="tcardp" data-comment-anchor="instrutor-jeanne-nogueira">
-          <img loading="lazy" decoding="async" width="296" height="374" src="assets/img/jeanne-nogueira.png" alt="Jeanne Nogueira">
-          <figcaption class="tp-front"><span class="esp">Pessoas &amp; Lideranças</span><h4>Jeanne Nogueira</h4><div class="cargo">Pedagoga · Desenvolvimento de Pessoas</div></figcaption>
-          <div class="tp-bio"><h4>Jeanne Nogueira</h4><p>Pedagoga (UnB), pós-graduada em Gestão de Pessoas e mestranda em Gestão Estratégica. Mais de 10 anos em desenvolvimento de pessoas e lideranças, com passagens pela Polícia Federal, TJDFT e STJ, onde geriu o Desenvolvimento Gerencial.</p><a class="perfil" href="#" data-perfil="jeanne-nogueira">Ver perfil completo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-        </figure></div>
-        <div class="tslide"><figure class="tcardp" data-comment-anchor="instrutor-andre-fachin">
-          <img loading="lazy" decoding="async" width="296" height="374" src="assets/img/andre-fachin.png" alt="André Fachin">
-          <figcaption class="tp-front"><span class="esp">Inteligência Emocional</span><h4>André Fachin</h4><div class="cargo">Especialista em Desenvolvimento Humano</div></figcaption>
-          <div class="tp-bio"><h4>André Fachin</h4><p>Especialista em Neurociência, Psicologia Positiva e Mindfulness (PUC-PR). Há mais de 10 anos conecta inteligência emocional e presença ao serviço público. Laboratorista do STJ LAB e facilitador em programas estratégicos da SGP/STJ.</p><a class="perfil" href="#" data-perfil="andre-fachin">Ver perfil completo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-        </figure></div>
-        <div class="tslide"><figure class="tcardp" data-comment-anchor="instrutor-ricardo-marques">
-          <img loading="lazy" decoding="async" width="296" height="374" src="assets/img/ricardo-marques.png" alt="Ricardo Marques">
-          <figcaption class="tp-front"><span class="esp">Transformação Digital</span><h4>Ricardo Marques</h4><div class="cargo">Especialista · Comissão de IA do STJ</div></figcaption>
-          <div class="tp-bio"><h4>Ricardo Marques</h4><p>Especialista em liderança e inteligência artificial. Especialização em Liderança e Transformação Digital na Era da IA (PUCPR) e Dale Carnegie Course. Consultor interno de ferramentas de IA (Copilot) e referência em produtividade digital no Judiciário.</p><a class="perfil" href="#" data-perfil="ricardo-marques">Ver perfil completo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-        </figure></div>
-        <div class="tslide"><figure class="tcardp" data-comment-anchor="instrutor-eduardo-cambuy">
-          <img loading="lazy" decoding="async" width="296" height="374" src="assets/img/eduardo-cambuy.png" alt="Eduardo Cambuy">
-          <figcaption class="tp-front"><span class="esp">Inovação</span><h4>Eduardo Cambuy</h4><div class="cargo">Facilitador de Inovação</div></figcaption>
-          <div class="tp-bio"><h4>Eduardo Cambuy</h4><p>Secretário do Laboratório de Inovação do STJ (STJ LAB). Facilitador que usa criatividade e dinâmicas gamificadas para romper a resistência à mudança, com trajetória na gestão de pessoas e em projetos governamentais de inovação.</p><a class="perfil" href="#" data-perfil="eduardo-cambuy">Ver perfil completo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-        </figure></div>
-        <div class="tslide"><figure class="tcardp" data-comment-anchor="instrutor-jorge-gomes">
-          <img loading="lazy" decoding="async" width="296" height="374" src="assets/img/jorge-gomes.png" alt="Jorge Gomes">
-          <figcaption class="tp-front"><span class="esp">Ambidestria</span><h4>Jorge Gomes</h4><div class="cargo">Administrador · Cientista de Dados</div></figcaption>
-          <div class="tp-bio"><h4>Jorge Gomes</h4><p>Bacharel em Direito, Administrador e Cientista de Dados, com mais de 30 anos no Poder Judiciário (STJ). Liderou projetos de modernização premiados nacionalmente e é especialista em Ambidestria Organizacional: entregar o agora construindo o amanhã.</p><a class="perfil" href="#" data-perfil="jorge-gomes">Ver perfil completo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-        </figure></div>
-        <div class="tslide"><figure class="tcardp" data-comment-anchor="instrutor-priscilla-curado">
-          <img loading="lazy" decoding="async" width="296" height="374" src="assets/img/priscilla-curado.png" alt="Priscilla Curado">
-          <figcaption class="tp-front"><span class="esp">Educação Corporativa</span><h4>Priscilla Curado</h4><div class="cargo">Gestora Pública</div></figcaption>
-          <div class="tp-bio"><h4>Priscilla Curado</h4><p>Gestora pública e líder em educação corporativa e inovação no Judiciário. Especialista em Administração pela FGV (formação executiva). No STJ, dirigiu o Centro de Formação e Gestão Judiciária e liderou planejamento educacional e desenvolvimento de competências.</p><a class="perfil" href="#" data-perfil="priscilla-curado">Ver perfil completo <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-        </figure></div>
-      </div></div>
-      <button class="tc-btn tc-next" type="button" aria-label="Próximo"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+    <div class="instrutores-grid">
+      <figure class="tcardp instrutor-card" data-comment-anchor="instrutor-anderson-porto">
+        <img loading="lazy" decoding="async" src="assets/img/instrutor-anderson-ppt.png" alt="Ânderson Porto">
+        <figcaption class="tp-front"><span class="esp">INSTRUTOR</span><h4>Ânderson Porto</h4><div class="cargo">Gestão Pública · Negociação · Equipes Híbridas</div></figcaption>
+        <div class="tp-bio"><h4>Ânderson Porto</h4><p>Atua há mais de 12 anos como facilitador, palestrante e instrutor em programas formativos para diversos órgãos do Poder Judiciário. É mestrando em Gestão Pública pela UnB e especialista em Inovação em Tecnologias Educacionais, com formações em Negociação pela FGV, Design Thinking, Gestão da Mudança e Gestão de Equipes Híbridas.</p><p>Foi condecorado com a Medalha do Pacificador e recebeu o Prêmio Ser Humano ABRH-DF 2023 pelo case Comunidade STJ Officeless. Criador do Canvas de Negociação Criativa, conduz palestras e capacitações para gestores estratégicos do STJ.</p></div>
+      </figure>
+      <figure class="tcardp instrutor-card" data-comment-anchor="instrutor-jeanne-nogueira">
+        <img loading="lazy" decoding="async" src="assets/img/instrutor-jeanne-ppt.png" alt="Jeanne Nogueira">
+        <figcaption class="tp-front"><span class="esp">PALESTRANTE</span><h4>Jeanne Nogueira</h4><div class="cargo">Pessoas · Comunicação · Lideranças</div></figcaption>
+        <div class="tp-bio"><h4>Jeanne Nogueira</h4><p>Atua há mais de 10 anos no desenvolvimento de pessoas, comunicação eficaz, cultura organizacional e formação de lideranças no serviço público.</p><p>Pedagoga pela UnB, pós-graduada em Gestão de Pessoas e mestre em Gestão Estratégica de Organizações, possui sólida experiência em facilitação e profundo conhecimento sobre aprendizagem do adulto. Construiu sua trajetória no Departamento de Polícia Federal, TJDFT e STJ, onde atuou como gestora da área de Desenvolvimento Gerencial.</p></div>
+      </figure>
+      <figure class="tcardp instrutor-card" data-comment-anchor="instrutor-andre-fachin">
+        <img loading="lazy" decoding="async" src="assets/img/instrutor-andre-ppt.png" alt="André Fachin">
+        <figcaption class="tp-front"><span class="esp">PALESTRANTE</span><h4>André Fachin</h4><div class="cargo">Neurociência · Mindfulness · Liderança Humanizada</div></figcaption>
+        <div class="tp-bio"><h4>André Fachin</h4><p>Atua há mais de 10 anos no desenvolvimento de pessoas, cultura organizacional, inovação e formação de lideranças humanizadas. Conecta neurociência, mindfulness e inteligência emocional para apoiar magistrados e servidores na construção de ambientes mais saudáveis, produtivos e colaborativos.</p><p>Facilitador especializado em inteligência emocional, laboratorista do STJ LAB e facilitador certificado em Design Thinking, Estruturas Libertadoras e metodologias colaborativas.</p></div>
+      </figure>
+      <figure class="tcardp instrutor-card" data-comment-anchor="instrutor-ricardo-marques">
+        <img loading="lazy" decoding="async" src="assets/img/instrutor-ricardo-ppt.png" alt="Ricardo Marques">
+        <figcaption class="tp-front"><span class="esp">PALESTRANTE</span><h4>Ricardo Marques</h4><div class="cargo">Transformação Digital · IA · Liderança</div></figcaption>
+        <div class="tp-bio"><h4>Ricardo Marques</h4><p>Especialista em Liderança na Transformação Digital, atua na qualificação de lideranças e equipes para os desafios da transformação digital no setor público. Sua abordagem une tecnologia, inovação organizacional e desenvolvimento humano, com foco em adaptações sustentáveis ao contexto de cada organização.</p><p>Membro da Comissão de Inteligência Artificial do STJ, integrou a Assessoria de Inteligência Artificial e atualmente atua em gabinete de Ministro, destacado para projetos de inovação e inteligência artificial.</p></div>
+      </figure>
     </div>
   </div>
 </section>
@@ -1246,7 +1240,7 @@
   // Toque: vira o card do instrutor em dispositivos sem hover
   if(window.matchMedia('(hover: none)').matches){
     document.addEventListener('click',function(e){
-      var card=e.target.closest?e.target.closest('.teach-carousel .tcardp'):null;
+      var card=e.target.closest?e.target.closest('.teachers .tcardp'):null;
       if(!card || e.target.closest('.perfil')) return;
       document.querySelectorAll('.tcardp.bio-open').forEach(function(c){ if(c!==card) c.classList.remove('bio-open'); });
       card.classList.toggle('bio-open');
