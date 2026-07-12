@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inova Pública | Experiências para o novo DNA do serviço público</title>
+<meta name="description" content="Experiências de aprendizagem para órgãos públicos que desenvolvem servidores, fortalecem lideranças, ativam inovação e tornam a transformação digital mais humana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f4f4; --ink:#11061d;
+    --c1:#561ea2; --c2:#922092; --c3:#321cab;
+    --muted:#5a4f66; --card:#ffffff; --soft:#ece8f3;
+    --gold:#C2A14D; --gold-deep:#8F7130;
+    --radius:.7rem; --radius-lg:1rem;
+    --shadow:0 1px 2px rgba(17,6,29,.05),0 8px 24px rgba(50,28,171,.12);
+    --shadow-lg:0 2px 4px rgba(17,6,29,.06),0 18px 44px rgba(50,28,171,.18);
+    --spring:cubic-bezier(.34,1.56,.64,1);
+    --serif:'Lora',Georgia,'Times New Roman',serif; --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--serif);color:var(--ink);line-height:1.16;font-weight:600;letter-spacing:.002em;text-wrap:balance}
+  p{text-wrap:pretty}
+  html{scroll-padding-top:84px}
+  :focus-visible{outline:2.5px solid var(--c1);outline-offset:2px;border-radius:3px}
+  .hero :focus-visible,.tcard :focus-visible,footer.site :focus-visible{outline-color:#fff}
+  a{text-decoration:none;color:var(--c1)}
+  img{max-width:100%;display:block}
+  .container{max-width:1140px;margin:0 auto;padding:0 18px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.7rem 1.6rem;border-radius:var(--radius);font-weight:700;transition:background .25s,color .25s,transform .3s var(--spring),box-shadow .3s;cursor:pointer;border:none;font-family:var(--sans);font-size:1rem;letter-spacing:.01em}
+  .btn-primary{background:var(--c1);color:#fff;box-shadow:0 1px 2px rgba(17,6,29,.14),0 6px 16px rgba(86,30,162,.24)}
+  .btn-primary:hover{background:var(--c3);transform:translateY(-2px);box-shadow:0 2px 4px rgba(17,6,29,.12),0 10px 26px rgba(50,28,171,.32)}
+  .btn:active{transform:translateY(0) scale(.98)}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid #fff}
+  .btn-ghost:hover{background:#fff;color:var(--c1)}
+  .btn-sm{padding:.55rem 1.1rem;font-size:.9rem}
+
+  /* HEADER */
+  header.site{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.72);backdrop-filter:blur(14px) saturate(1.5);-webkit-backdrop-filter:blur(14px) saturate(1.5);box-shadow:0 1px 14px rgba(17,6,29,.07);border-bottom:1px solid rgba(255,255,255,.6);z-index:100}
+  header.site .container{display:flex;align-items:center;justify-content:space-between;gap:.7rem;height:74px}
+  .logo{display:flex;align-items:center;gap:.55rem;font-family:var(--serif);font-weight:700;font-size:clamp(1.05rem,4.4vw,1.4rem);color:var(--ink);white-space:nowrap;flex:0 0 auto;min-width:0}
+  .logo .mark{width:40px;height:40px;border-radius:.6rem;background:linear-gradient(135deg,var(--c1),var(--c2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem}
+  .logo .logomark{height:clamp(34px,8.5vw,44px);width:auto;display:block;flex:0 0 auto}
+  .logo-name{white-space:nowrap}
+  .nav-actions{flex:0 0 auto}
+  .cta-header .cta-short{display:none}
+  nav.main ul{display:flex;gap:1.7rem;list-style:none}
+  nav.main a{color:var(--ink);font-weight:600;font-size:.95rem}
+  nav.main a:hover{color:var(--c1);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px}
+  .nav-actions{display:flex;align-items:center;gap:1rem}
+  .burger{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:var(--ink);border-radius:.55rem;transition:background .2s}
+  .burger:hover{background:var(--soft)}
+
+  /* HERO */
+  .hero{position:relative;margin-top:74px;overflow:hidden;color:#fff;isolation:isolate}
+  .hero::before{content:"";position:absolute;inset:-18px;z-index:0;background:url('assets/img/hero-principal.jpg') center 26%/cover no-repeat;filter:blur(1.5px) saturate(1.1) brightness(1);transform:scale(1.03)}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(24,10,76,.88) 0%,rgba(60,22,130,.6) 40%,rgba(146,32,146,.26) 72%,rgba(146,32,146,.12) 100%),linear-gradient(180deg,transparent 55%,rgba(17,6,29,.45) 100%)}
+  .hero .container{position:relative;z-index:2;padding:104px 18px;max-width:780px;margin-left:0}
+  .hero .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.84rem;font-weight:700;color:#e9d3a0;margin-bottom:1.1rem;text-shadow:0 1px 10px rgba(0,0,0,.55)}
+  .hero h1{color:#fff;font-size:clamp(2.35rem,5.6vw,4rem);font-weight:600;line-height:1.08;letter-spacing:-.005em;margin-bottom:1.2rem;text-shadow:0 3px 26px rgba(0,0,0,.62)}
+  .hero p{font-size:1.2rem;margin-bottom:2.2rem;max-width:560px;color:#f6f0fc;text-shadow:0 1px 14px rgba(0,0,0,.55)}
+  .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+
+  /* DNA (segunda dobra) — refeita graficamente */
+  .dna{padding:clamp(56px,8vw,92px) 0;background:linear-gradient(180deg,#fff 0%,#faf8fd 100%);position:relative;overflow:hidden}
+  .dna::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 14% 26%,rgba(86,30,162,.06),transparent 38%),radial-gradient(circle at 86% 74%,rgba(146,32,146,.06),transparent 38%)}
+  .dna-head{max-width:820px;margin:0 auto 2.6rem;text-align:center;position:relative;z-index:2}
+  .dna-eyebrow{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--c2);margin-bottom:.4rem}
+  .dna-head h2{font-size:clamp(1.9rem,5vw,2.9rem);letter-spacing:-.02em}
+  .dna-sub{color:var(--muted);font-size:1.08rem;max-width:680px;margin:1rem auto 0}
+  .dna-sub strong{color:var(--c1);font-weight:700}
+  .dna-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;max-width:1040px;margin:0 auto;position:relative;z-index:2}
+  .dna-card{position:relative;background:var(--card);border:1px solid #ece6f4;border-radius:1rem;padding:2.1rem 1.7rem;box-shadow:0 .5rem 1.4rem rgba(50,28,171,.08);transition:transform .5s var(--spring),box-shadow .4s ease;overflow:hidden}
+  .dna-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--c1),var(--c2))}
+  .dna-card:nth-child(2)::before{background:linear-gradient(90deg,var(--c3),var(--c1))}
+  .dna-card:nth-child(3)::before{background:linear-gradient(90deg,var(--c2),var(--c3))}
+  .dna-card:hover{transform:translateY(-6px);box-shadow:0 1rem 2.2rem rgba(50,28,171,.16)}
+  .dna-ico{width:64px;height:64px;border-radius:1rem;display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:1.2rem;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 .5rem 1rem rgba(86,30,162,.25)}
+  .dna-card:nth-child(2) .dna-ico{background:linear-gradient(135deg,var(--c3),var(--c1))}
+  .dna-card:nth-child(3) .dna-ico{background:linear-gradient(135deg,var(--c2),var(--c3))}
+  .dna-ico .ic{width:30px;height:30px}
+  .dna-card h3{font-size:1.28rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.7rem}
+  .dna-tag{font-family:var(--sans);font-weight:700;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep);background:rgba(194,161,77,.14);padding:.16rem .55rem;border-radius:1rem}
+  .dna-card p{color:var(--muted);font-size:.96rem;line-height:1.6}
+
+  /* LIGHTBOX */
+  .lightbox{position:fixed;inset:0;z-index:1000;background:rgba(10,4,24,.93);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:96vw;max-height:92vh;border-radius:.5rem;box-shadow:0 12px 60px rgba(0,0,0,.6)}
+  .lb-close{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.16);border:none;color:#fff;font-size:1.3rem;width:46px;height:46px;border-radius:50%;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center}
+  .lb-close:hover{background:rgba(255,255,255,.3)}
+
+  /* SLOGAN BAND */
+  .slogan{text-align:center;padding:56px 18px;background:var(--soft)}
+  .slogan h2{font-size:2rem;color:var(--c2);font-style:italic;margin-bottom:.6rem}
+  .slogan p{color:var(--muted);font-size:1.1rem}
+
+  /* PROOF / ORGAOS */
+  .proof{background:#fff;padding:54px 0;border-bottom:1px solid #e7e2ef}
+  .proof h2{text-align:center;font-size:clamp(1.45rem,3vw,1.8rem);margin-bottom:.5rem}
+  .proof p.eyebrow{text-align:center;color:var(--muted);font-size:.98rem;margin-bottom:2.2rem}
+  .orgs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;max-width:840px;margin:0 auto}
+  .org-card{text-align:center;display:flex;flex-direction:column;align-items:center;gap:.9rem}
+  .org-logo{position:relative;width:100%;height:96px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f3eefb,#ece8f3);border:1px solid #ddd4ec;border-radius:var(--radius);overflow:hidden}
+  .org-logo img{position:relative;z-index:2;max-height:80px;max-width:90%;object-fit:contain}
+  .org-acr{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:1.5rem;letter-spacing:.02em;color:var(--c1)}
+  .org-card figcaption{font-weight:700;color:var(--c3);font-size:.95rem;line-height:1.35}
+
+  /* PILLARS */
+  .pillars{padding:clamp(52px,7vw,88px) 0}
+  .intro{text-align:center;max-width:760px;margin:0 auto 3rem}
+  .intro h2{font-size:clamp(1.6rem,3.4vw,2.1rem);margin-bottom:1rem}
+  .intro .sub{color:var(--muted)}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+  .pillar{text-align:center;padding:2rem 1.5rem;background:var(--card);border:1px solid #e7e2ef;border-radius:var(--radius);transition:transform .5s var(--spring),box-shadow .4s,border-color .3s}
+  .pillar:hover{box-shadow:var(--shadow);border-color:transparent;transform:translateY(-4px)}
+  .pillar .ico{width:72px;height:72px;margin:0 auto 1.3rem;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:1.9rem;color:var(--c1)}
+  .pillar:nth-child(2) .ico{color:var(--c2)}
+  .pillar:nth-child(3) .ico{color:var(--c3)}
+  .pillar h3{font-size:1.3rem;margin-bottom:.7rem}
+  .pillar h3 .eixo{display:inline-block;font-family:var(--sans);font-weight:700;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep);background:rgba(194,161,77,.14);padding:.12rem .5rem;border-radius:1rem;vertical-align:middle;margin-left:.3rem}
+  .pillar p{color:var(--muted);font-size:.95rem}
+
+  /* NETWORK */
+  .network{background:var(--soft);padding:clamp(56px,8vw,96px) 0}
+  .network h2{font-size:clamp(1.7rem,3.8vw,2.3rem);margin-bottom:1.2rem}
+  .network .lead{font-size:1.12rem;color:var(--muted);max-width:760px;margin-bottom:1.6rem}
+  .network .purpose{font-family:var(--serif);font-size:1.25rem;color:var(--c1);max-width:720px;margin-bottom:2rem}
+
+  /* PROGRAMS (entradas para o portfólio) */
+  .programs{padding:clamp(56px,8vw,96px) 0;text-align:center}
+  .programs h2{font-size:clamp(1.65rem,3.6vw,2.2rem);margin-bottom:.6rem}
+  .programs .sub{color:var(--muted);margin-bottom:3rem}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem}
+  .prog{position:relative;background:var(--card);border:1px solid #e7e2ef;border-radius:var(--radius-lg);padding:1.7rem 1.5rem 1.5rem;text-align:left;transition:transform .5s var(--spring),box-shadow .4s,border-color .3s;color:var(--ink);display:flex;flex-direction:column;overflow:hidden}
+  .prog::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--c1),var(--c2));opacity:0;transition:opacity .35s}
+  .prog:nth-child(2)::before{background:linear-gradient(90deg,var(--c3),var(--c1))}
+  .prog:nth-child(3)::before{background:linear-gradient(90deg,var(--c2),var(--c3))}
+  .prog:nth-child(4)::before{background:linear-gradient(90deg,var(--gold),var(--c2))}
+  .prog:hover{box-shadow:var(--shadow-lg);border-color:transparent;transform:translateY(-5px)}
+  .prog:hover::before{opacity:1}
+  .prog-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.2rem}
+  .prog-ico{width:52px;height:52px;border-radius:.85rem;display:flex;align-items:center;justify-content:center;color:var(--c1);background:var(--soft);border:1px solid #e3dcf0;transition:background .35s,color .35s,border-color .35s}
+  .prog-ico .ic{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .prog:hover .prog-ico{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border-color:transparent}
+  .prog:nth-child(2):hover .prog-ico{background:linear-gradient(135deg,var(--c3),var(--c1))}
+  .prog:nth-child(3):hover .prog-ico{background:linear-gradient(135deg,var(--c2),var(--c3))}
+  .prog:nth-child(4):hover .prog-ico{background:linear-gradient(135deg,var(--gold-deep),var(--c2))}
+  .prog-num{font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.05rem;color:#c9bfdd;transition:color .35s}
+  .prog:hover .prog-num{color:var(--gold-deep)}
+  .prog h3{font-size:1.15rem;margin-bottom:.55rem}
+  .prog p{font-size:.92rem;color:var(--muted);flex:1}
+  .prog .more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.1rem;font-weight:700;color:var(--c1);font-size:.9rem}
+  .prog .more .ic{transition:transform .35s var(--spring)}
+  .prog:hover .more .ic{transform:translateX(4px)}
+
+  /* PORTFOLIO */
+  .portfolio{padding:clamp(60px,8vw,100px) 0;background:var(--soft)}
+  .cat{max-width:880px;margin:0 auto 2.6rem}
+  .cat-head{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+  .cat-head h3{font-size:1.35rem}
+  .cat-head .count{background:#fff;border:1px solid #ddd4ec;color:var(--muted);font-size:.8rem;font-weight:700;padding:.15rem .6rem;border-radius:1rem}
+  .destaques-lead{text-align:center;font-size:.84rem;color:var(--gold-deep);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:1.1rem}
+  .destaques{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;max-width:880px;margin:0 auto 2.8rem}
+  .dz{display:block;background:linear-gradient(135deg,#fff,#f6f2fb);border:1px solid #e2dbf0;border-radius:var(--radius);padding:1.1rem 1.2rem;transition:transform .45s var(--spring),box-shadow .4s,border-color .3s;color:var(--ink)}
+  .dz:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:transparent}
+  .dz .dz-badge{display:inline-block;font-size:.7rem;font-weight:700;color:var(--gold-deep);background:rgba(194,161,77,.14);padding:.16rem .55rem;border-radius:1rem;margin-bottom:.5rem}
+  .dz h4{font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem;line-height:1.25}
+  .dz p{font-size:.84rem;color:var(--muted)}
+  .dz .dz-go{display:inline-block;margin-top:.6rem;font-weight:700;font-size:.82rem;color:var(--c1)}
+  details.item{scroll-margin-top:90px;background:var(--card);border:1px solid #e7e2ef;border-radius:var(--radius);margin-bottom:.8rem;overflow:hidden;transition:box-shadow .3s}
+  details.item[open]{box-shadow:var(--shadow);border-color:transparent}
+  details.item summary{list-style:none;cursor:pointer;padding:1.1rem 1.4rem;display:flex;flex-direction:column;gap:.25rem;position:relative}
+  details.item summary::-webkit-details-marker{display:none}
+  details.item summary::after{content:"+";position:absolute;right:1.3rem;top:1rem;font-size:1.5rem;color:var(--c1);font-weight:700;transition:.3s}
+  details.item[open] summary::after{content:"\2013";}
+  .item-h{font-family:var(--serif);font-weight:700;font-size:1.08rem;padding-right:2rem}
+  .item-meta{font-size:.85rem;color:var(--muted)}
+  .item-body{padding:0 1.4rem 1.4rem;border-top:1px solid #efebf6}
+  .item-body p{font-size:.95rem;color:#3d3447;margin-top:.9rem}
+  .item-body .label{font-weight:700;color:var(--c3);font-size:.82rem;letter-spacing:.03em;text-transform:uppercase;margin-top:1.1rem;margin-bottom:-.2rem}
+  .item-body ul{margin:.5rem 0 0 1.1rem;font-size:.93rem;color:#3d3447}
+  .item-body ul li{margin-bottom:.3rem}
+  .item-cta{margin-top:1.3rem;display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap}
+  .saiba{font-weight:700;font-size:.9rem;color:var(--c1);border-bottom:1.5px solid transparent;transition:.2s}
+  .saiba:hover{border-bottom-color:var(--c1)}
+
+  /* TRILHAS (estilo istud) */
+  .tf-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1.4rem;max-width:1000px;margin:0 auto 1.9rem;flex-wrap:wrap}
+  .tf-head .seal{display:flex;align-items:center;gap:.5rem;font-family:var(--serif);font-weight:700;color:var(--c1);font-size:.92rem;margin-bottom:.55rem}
+  .tf-head .seal .mark{width:28px;height:28px;border-radius:.45rem;background:linear-gradient(135deg,var(--c1),var(--c2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.85rem}
+ .tf-head .seal .seal-logo{width:30px;height:30px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px rgba(255,255,255,.72),0 0 18px rgba(146,32,146,.24)}
+  .tf-head h2{font-size:clamp(1.6rem,3.4vw,2.1rem)}
+  .tf-head .sub{color:var(--muted);margin-top:.25rem}
+  .tabs{display:flex;gap:.5rem;flex-wrap:wrap}
+  .tab{border:1.5px solid #ddd4ec;background:#fff;color:var(--muted);font-weight:700;font-size:.88rem;min-height:44px;padding:.55rem 1.15rem;border-radius:2rem;cursor:pointer;transition:.2s;font-family:var(--sans)}
+  .tab:hover{border-color:var(--c1);color:var(--c1)}
+  .tab.active{background:var(--c1);border-color:var(--c1);color:#fff}
+
+  .trilha{display:none;max-width:1000px;margin:0 auto}
+  .trilha.active{display:block;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  .tcard{position:relative;border-radius:1rem;overflow:hidden;box-shadow:var(--shadow);color:#fff;min-height:430px;display:flex}
+  .tcard .bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;transform:scale(1.02)}
+  .tcard .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(28,12,84,.93),rgba(86,30,162,.82) 55%,rgba(146,32,146,.55))}
+  .tcard .inner{position:relative;z-index:2;display:flex;width:100%}
+  .tcard .main{flex:1 1 auto;padding:2.4rem;display:flex;flex-direction:column;justify-content:flex-end;min-width:0}
+  .tcard h3{color:#fff;font-size:1.95rem;margin-bottom:.5rem;text-shadow:0 2px 12px rgba(0,0,0,.32)}
+  .tcard .desc{color:#f1ebfa;font-size:1.05rem;max-width:440px;margin-bottom:1.4rem;text-shadow:0 1px 8px rgba(0,0,0,.25)}
+  .tstats{display:flex;gap:1.3rem;flex-wrap:wrap;margin-bottom:1.3rem}
+  .tstat{display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:#efeafa}
+  .tstat .b{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;border:1px solid rgba(255,255,255,.28)}
+  .tmeta{margin-bottom:1.3rem}
+  .tmeta .small{font-size:.74rem;color:#d9cdf2;text-transform:uppercase;letter-spacing:.06em}
+  .tmeta .modalidade{font-family:var(--serif);font-size:1.25rem;color:#fff;font-weight:700}
+  .tmeta .modalidade span{font-size:.92rem;font-weight:400;color:#e7d6ff;font-family:var(--sans)}
+  .tactions{display:flex;gap:.7rem;flex-wrap:wrap}
+  .tbtn{display:inline-flex;align-items:center;gap:.4rem;border:none;cursor:pointer;font-family:var(--sans);font-weight:700;font-size:.9rem;min-height:44px;padding:.6rem 1.1rem;border-radius:.6rem;transition:.2s;text-decoration:none}
+  .tbtn.ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.32)}
+  .tbtn.ghost:hover{background:rgba(255,255,255,.26)}
+  .tbtn.solid{background:#fff;color:var(--c1)}
+  .tbtn.solid:hover{background:#f0e9fb}
+  .tbtn.gold{background:var(--gold);color:#2a1440}
+  .tbtn.gold:hover{background:#d2b25c}
+  .tbtn .chev{transition:transform .35s var(--spring)}
+  .tbtn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+
+  .tcard .side{position:relative;z-index:2;width:0;flex:0 0 auto;overflow:hidden;transition:width .35s ease;background:rgba(13,6,29,.46)}
+  .tcard.open-about .side{width:330px}
+  .tcard .side .side-in{width:330px;padding:2.4rem;height:100%;overflow-y:auto}
+  .tcard .side h4{color:#fff;font-size:1.2rem;margin-bottom:.8rem}
+  .tcard .side p{color:#e9e1f5;font-size:.95rem}
+  .tcard .side .side-pdf{display:inline-block;margin-top:1.1rem;color:#fff;font-weight:700;font-size:.86rem;border-bottom:1.5px solid rgba(255,255,255,.5);padding-bottom:.1rem}
+  .tcard .side .side-pdf:hover{border-bottom-color:#fff}
+
+  .cursos{margin-top:1.3rem;display:none}
+  .cursos.open{display:block;animation:fade .3s ease}
+  .cursos-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+  .cursos-head .ch{font-family:var(--serif);font-weight:700;font-size:1.15rem}
+  .cursos-head .cs{font-size:.86rem;color:var(--muted)}
+  .cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  .ccard{background:#fff;border:1px solid #e7e2ef;border-radius:.9rem;padding:1.15rem 1.25rem 1.05rem;display:flex;flex-direction:column;overflow:hidden}
+  .ccard::before{content:"";position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--c1),var(--c2))}
+  .ccard.tone1::before{background:linear-gradient(180deg,var(--c3),var(--c1))}
+  .ccard.tone2::before{background:linear-gradient(180deg,var(--c2),var(--c3))}
+  .ccard.tone3::before{background:linear-gradient(180deg,var(--gold),var(--gold-deep))}
+  .crow{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-bottom:.7rem}
+  .ccard .cdur{display:inline-flex;align-items:center;gap:.32rem;font-size:.76rem;font-weight:700;color:var(--muted);white-space:nowrap}
+  .ccard .cdur .ic{width:.95rem;height:.95rem}
+  .ccard h5{font-size:.98rem;margin-bottom:.35rem;font-family:var(--serif);color:var(--ink);line-height:1.32}
+  .ccard p{font-size:.84rem;color:var(--muted);line-height:1.55}
+
+  /* SÓ ENSINA QUEM FAZ */
+  .teachers{padding:clamp(60px,8vw,100px) 0;background:#fff}
+  .tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;max-width:1020px;margin:2.4rem auto 0}
+  .tcardp{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:3/3.8;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:var(--shadow);transition:transform .5s var(--spring),box-shadow .4s;cursor:pointer}
+  .tcardp:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+  .tcardp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .65s ease,filter .5s}
+  .tcardp:hover img,.tcardp:focus-within img,.tcardp.bio-open img{transform:scale(1.06);filter:brightness(.38) saturate(.8) blur(1px)}
+  .tp-front{position:absolute;left:0;right:0;bottom:0;padding:3.4rem 1.35rem 1.3rem;background:linear-gradient(180deg,transparent,rgba(17,6,29,.9) 66%);color:#fff;transition:opacity .35s,transform .4s;text-align:left}
+  .tp-front h4{color:#fff;font-size:1.28rem;margin:.4rem 0 .15rem}
+  .tp-front .cargo{font-size:.85rem;color:#e4dbf2;line-height:1.4}
+  .tcardp .esp{display:inline-block;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#f3e3b5;background:rgba(194,161,77,.26);border:1px solid rgba(194,161,77,.42);padding:.18rem .6rem;border-radius:1rem}
+  .tp-bio{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:.55rem;padding:1.35rem;color:#fff;text-align:left;opacity:0;transform:translateY(14px);transition:opacity .4s,transform .5s var(--spring);pointer-events:none}
+  .tcardp:hover .tp-bio,.tcardp:focus-within .tp-bio,.tcardp.bio-open .tp-bio{opacity:1;transform:none;pointer-events:auto}
+  .tcardp:hover .tp-front,.tcardp:focus-within .tp-front,.tcardp.bio-open .tp-front{opacity:0;transform:translateY(10px)}
+  .tp-bio h4{color:#fff;font-size:1.16rem}
+  .tp-bio p{font-size:.84rem;line-height:1.55;color:#f0eaf9}
+  .tcardp .perfil{display:inline-flex;align-items:center;gap:.35rem;font-weight:700;font-size:.9rem;color:#fff;margin-top:.25rem;border-bottom:1.5px solid rgba(255,255,255,.5);padding-bottom:.1rem;align-self:flex-start}
+  .tcardp .perfil:hover{border-bottom-color:#fff}
+  .tcardp :focus-visible{outline-color:#fff}
+
+  /* RESULTADOS / DEPOIMENTOS */
+  .results{padding:clamp(60px,8vw,100px) 0;background:#fff}
+  .gold-rule{width:56px;height:3px;background:var(--gold);border-radius:2px;margin:.1rem auto 1.4rem}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;max-width:820px;margin:0 auto 3.8rem}
+  .stat{padding:1.6rem 1rem;background:var(--soft);border-radius:var(--radius);text-align:center;border-top:3px solid var(--gold)}
+  .stat .num{font-family:var(--serif);font-weight:700;font-size:2rem;color:var(--c1);line-height:1.05}
+  .stat .lbl{font-size:.84rem;color:var(--muted);margin-top:.45rem}
+
+  .depo-lead{text-align:center;font-family:var(--serif);font-size:1.4rem;color:var(--c1);max-width:730px;margin:0 auto 2.2rem;line-height:1.4}
+  .videos{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;max-width:980px;margin:0 auto 2.6rem}
+  .vid{background:var(--card);border:1px solid #e7e2ef;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .vid video{width:100%;display:block;aspect-ratio:16/9;background:#000;object-fit:cover}
+  .vcap{padding:1rem 1.2rem 1.2rem}
+  .vcap .vtag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gold-deep);background:rgba(194,161,77,.13);padding:.22rem .6rem;border-radius:1rem;margin-bottom:.55rem}
+  .vcap .vt{font-family:var(--serif);font-weight:700;font-size:1.08rem}
+  .vcap .vs{font-size:.86rem;color:var(--muted);margin-top:.25rem}
+
+  .depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;max-width:980px;margin:0 auto}
+  .depo{background:var(--card);border:1px solid #e7e2ef;border-top:3px solid var(--gold);border-radius:var(--radius);padding:1.5rem 1.55rem}
+  .depo .mk{font-family:var(--serif);font-size:2.2rem;color:var(--gold);line-height:.2;display:block;height:.7rem}
+  .depo p{font-size:.95rem;color:#2f2740;font-style:italic;margin:.6rem 0 1rem}
+  .depo .who{font-size:.82rem;color:var(--muted);font-weight:600}
+  .depo.feature{grid-column:1 / -1;background:linear-gradient(120deg,#f6f2fb,#fff)}
+  .depo.feature p{font-size:1.12rem}
+
+  /* FORM */
+  .proposta{padding:clamp(60px,8vw,100px) 0}
+  .form-wrap{max-width:720px;margin:0 auto;background:var(--card);border:1px solid #e7e2ef;border-radius:var(--radius);padding:2.6rem;box-shadow:var(--shadow)}
+  .form-wrap h2{font-size:clamp(1.55rem,3.2vw,2rem);margin-bottom:.5rem}
+  .form-wrap .sub{color:var(--muted);margin-bottom:1.8rem}
+  .field{margin-bottom:1.1rem}
+  .field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.35rem}
+  .field input,.field select,.field textarea{width:100%;padding:.7rem .9rem;border:1.5px solid #ddd4ec;border-radius:.5rem;font-family:var(--sans);font-size:1rem;background:#fff;color:var(--ink)}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--c1);box-shadow:0 0 0 3px rgba(86,30,162,.14)}
+  .field textarea{min-height:110px;resize:vertical}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+  .form-alt{text-align:center;color:var(--muted);font-size:.92rem;margin-top:1.3rem}
+
+  /* FOOTER */
+  footer.site{background:var(--ink);color:#d6cfe0;padding:64px 0 26px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1.3fr;gap:2.5rem;margin-bottom:2.5rem}
+  footer.site h4{color:#fff;font-family:var(--serif);margin-bottom:1rem;font-size:1.08rem}
+  footer.site ul{list-style:none}
+  footer.site li{margin-bottom:.6rem}
+  footer.site a,footer.site p{color:#d6cfe0;font-size:.93rem;margin-bottom:.5rem}
+  footer.site a:hover{color:#fff}
+  .social a{display:inline-block;margin-right:.8rem}
+  .copy{border-top:1px solid rgba(255,255,255,.14);padding-top:1.4rem;text-align:center;font-size:.82rem;color:#a99cbb}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .grid-3,.grid-4,.foot-grid,.stats,.cgrid,.tgrid{grid-template-columns:1fr 1fr}
+    .depo-grid{grid-template-columns:1fr}
+    .tf-head{flex-direction:column;align-items:flex-start}
+    .tcard .inner{flex-direction:column}
+    .tcard .side,.tcard.open-about .side,.tcard .side .side-in{width:100%}
+  }
+  @media(max-width:1000px){
+    nav.main{display:none;position:absolute;top:74px;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(14px) saturate(1.5);-webkit-backdrop-filter:blur(14px) saturate(1.5);box-shadow:0 14px 26px rgba(17,6,29,.12);border-top:1px solid #ece8f3}
+    nav.main ul{flex-direction:column;gap:0;padding:.3rem 0}
+    nav.main li{border-bottom:1px solid #f1edf7}
+    nav.main li:last-child{border-bottom:none}
+    nav.main a{display:block;padding:.9rem 18px;font-size:1rem}
+    .burger{display:flex}
+    .cta-header .cta-full{display:none}
+    .cta-header .cta-short{display:inline}
+    .cta-header{padding:.52rem .95rem}
+  }
+  @media(max-width:620px){
+    .grid-3,.grid-4,.foot-grid,.row2,.orgs,.stats,.depo-grid,.videos,.cgrid,.tgrid,.dna-grid{grid-template-columns:1fr}
+    .hero .container{padding:64px 18px}
+    .hero p{font-size:1.05rem}.slogan h2{font-size:1.6rem}
+    .form-wrap{padding:1.7rem}
+    .tcard .main{padding:1.6rem}.tcard h3{font-size:1.55rem}
+    .dna{padding:54px 0}.dna-card{padding:1.8rem 1.5rem}
+    section{scroll-margin-top:74px}
+  }
+  @media(max-width:380px){
+    .logo{font-size:1rem}.logo .logomark{height:30px}
+    .hero h1{font-size:2rem}
+    .cta-header{padding:.46rem .72rem;font-size:.8rem}
+  }
+
+  /* === RECURSOS MODERNOS (v2) === */
+  html{scroll-behavior:smooth}
+  .ic{width:1em;height:1em;display:inline-block;vertical-align:-.125em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+  .tstat .b{overflow:visible}
+  .tstat .b .ic{width:18px;height:18px}
+  .tbtn .ic{width:17px;height:17px}
+  .perfil .ic,.more .ic{width:1.05em;height:1.05em;vertical-align:-.18em;margin-left:.15rem}
+  .side-pdf .ic{width:1em;height:1em;vertical-align:-.12em}
+  footer.site .ic,.form-alt .ic{width:1.05em;height:1.05em;vertical-align:-.18em;margin-right:.15rem}
+  .tbtn{transition:all .3s ease}
+  .tbtn.ghost:hover,.tbtn.solid:hover{transform:translateY(-2px)}
+
+  /* Carrossel de vídeos */
+  .vcarousel{position:relative;max-width:760px;margin:0 auto 2.6rem}
+  .vc-viewport{overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow)}
+  .vc-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+  .vc-track .vid{flex:0 0 100%;min-width:0;box-shadow:none;border:none;border-radius:0}
+  .vid{position:relative}
+  .vplay{position:absolute;top:0;left:0;width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:rgba(28,12,84,.20);border:none;cursor:pointer;transition:background .25s;z-index:3}
+  .vplay:hover{background:rgba(28,12,84,.34)}
+  .vplay .ic{width:64px;height:64px;color:#fff;background:rgba(86,30,162,.9);border-radius:50%;padding:16px;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .25s}
+  .vplay:hover .ic{transform:scale(1.08)}
+  .vplay.hidden{display:none}
+  .vc-btn{position:absolute;top:32%;transform:translateY(-50%);z-index:5;width:46px;height:46px;border-radius:50%;border:none;background:rgba(255,255,255,.94);color:var(--c1);box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s}
+  .vc-btn .ic{width:22px;height:22px}
+  .vc-btn:hover{background:#fff;transform:translateY(-50%) scale(1.1)}
+  .vc-prev{left:-14px}.vc-next{right:-14px}
+  .vc-dots{display:flex;gap:.5rem;justify-content:center;margin-top:1.1rem}
+  .vc-dot{position:relative;width:26px;height:26px;border:none;background:transparent;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
+  .vc-dot::after{content:"";width:9px;height:9px;border-radius:5px;background:#cdbfe6;transition:all .25s}
+  .vc-dot:hover::after{background:#b6a3d9}
+  .vc-dot.active{width:34px}
+  .vc-dot.active::after{background:var(--c1);width:26px}
+
+  /* Animações de entrada escalonadas */
+  @keyframes fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .reveal{opacity:0}
+  .reveal.in{animation:fade-up .6s ease-out both}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important}.reveal.in{animation:none}}
+
+  @media(max-width:1000px){
+    nav.main{display:none;position:absolute;top:74px;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(14px) saturate(1.5);-webkit-backdrop-filter:blur(14px) saturate(1.5);box-shadow:0 14px 26px rgba(17,6,29,.12);border-top:1px solid #ece8f3}
+    nav.main ul{flex-direction:column;gap:0;padding:.3rem 0}
+    nav.main li{border-bottom:1px solid #f1edf7}
+    nav.main li:last-child{border-bottom:none}
+    nav.main a{display:block;padding:.9rem 18px;font-size:1rem}
+    .burger{display:flex}
+    .cta-header .cta-full{display:none}
+    .cta-header .cta-short{display:inline}
+    .cta-header{padding:.52rem .95rem}
+  }
+  @media(max-width:620px){
+    .vc-prev{left:2px}.vc-next{right:2px}
+    .vc-btn{background:rgba(255,255,255,.85)}
+  }
+
+  /* === MARQUEE ÓRGÃOS (v2) === */
+  .orgs-marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .orgs-track{display:flex;align-items:stretch;gap:2.6rem;width:max-content;animation:org-marquee 26s linear infinite}
+  .orgs-marquee:hover .orgs-track{animation-play-state:paused}
+  @keyframes org-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .org-item{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:.7rem;width:210px}
+  .org-item .lbox{height:104px;width:100%;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #ece6f4;border-radius:var(--radius);padding:.9rem;box-shadow:0 .3rem .9rem rgba(50,28,171,.07)}
+  .org-item .lbox img{max-height:80px;max-width:92%;object-fit:contain}
+  .org-item .lbox .sig{font-family:var(--serif);font-weight:700;font-size:1.6rem;color:var(--c1)}
+  .org-item .nm{font-size:.82rem;font-weight:700;color:var(--c3);text-align:center;line-height:1.3}
+  @media(prefers-reduced-motion:reduce){
+    .orgs-marquee{-webkit-mask-image:none;mask-image:none}
+    .orgs-track{animation:none;width:100%;flex-wrap:wrap;justify-content:center;gap:1.6rem}
+    .org-item.dup{display:none}
+  }
+
+  /* === CARROSSEL INSTRUTORES (v2) === */
+  .teach-carousel{position:relative;max-width:1040px;margin:2.4rem auto 0;padding:0 6px}
+  .tc-viewport{overflow:hidden}
+  .tc-track{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+  .tslide{flex:0 0 50%;box-sizing:border-box;padding:0 .65rem}
+  .tslide .tcardp{height:100%}
+  .tc-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:none;background:#fff;color:var(--c1);box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s}
+  .tc-btn:hover{background:#fff;transform:translateY(-50%) scale(1.1)}
+  .tc-btn .ic{width:22px;height:22px}
+  .tc-prev{left:-12px}.tc-next{right:-12px}
+  @media(max-width:680px){.tslide{flex:0 0 100%}.tc-prev{left:0}.tc-next{right:0}}
+
+  /* === MODAL PERFIL (v2) === */
+  .modal{position:fixed;inset:0;z-index:1100;background:rgba(10,4,24,.62);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px}
+  .modal.open{display:flex}
+  .modal-box{position:relative;background:#fff;border-radius:1rem;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;padding:2.2rem;box-shadow:0 22px 64px rgba(0,0,0,.45);animation:fade-up .35s ease-out both}
+  .modal-close{position:absolute;top:13px;right:14px;width:34px;height:34px;border-radius:50%;border:none;background:var(--soft);color:var(--c3);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:4;transition:background .2s}
+  .modal-close:hover{background:#e2d8f0}
+  .modal-logo{position:absolute;top:20px;right:60px;height:34px;width:auto;z-index:3}
+  .modal-head{display:flex;align-items:center;gap:1.3rem;margin-bottom:1.3rem;padding-top:.6rem;padding-right:2.5rem}
+  .modal-photo{width:96px;height:96px;border-radius:50%;object-fit:cover;flex:0 0 auto;background:linear-gradient(135deg,var(--c1),var(--c2))}
+  .modal-name{font-size:1.3rem;margin-bottom:.2rem}
+  .modal-cargo{font-size:.9rem;color:var(--muted)}
+  .modal-esp{display:inline-block;margin-top:.55rem;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--gold-deep);background:rgba(194,161,77,.14);padding:.16rem .55rem;border-radius:1rem}
+  .modal-bio{font-size:.96rem;color:#3d3447;line-height:1.7;border-top:1px solid #eee;padding-top:1.2rem}
+  @media(max-width:560px){.modal-head{flex-direction:column;text-align:center}.modal-logo{height:28px;right:54px}}
+
+  /* === PORTFÓLIO v3 : grupos, cards clicáveis, modal, catálogo ampliado === */
+  .cgroups{margin-top:1.5rem;display:none}
+  .cgroups.open{display:block;animation:fade .35s ease}
+  .cgroup{margin-top:1.9rem}
+  .cgroup-h{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-weight:800;font-size:clamp(1rem,1.5vw,1.18rem);color:var(--c1);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1.1rem;padding:.72rem 1rem;background:var(--soft);border-left:4px solid var(--gold);border-radius:.55rem;transition:background .25s ease,color .25s ease}
+  .cgroup-h:hover{background:#e2d7f2}
+  .cgroup:nth-of-type(even) .cgroup-h{background:#efeaf7}
+  .cgroup:nth-of-type(even) .cgroup-h:hover{background:#e6dcf4}
+  .ccard{cursor:pointer;position:relative;transition:transform .5s var(--spring),box-shadow .4s}
+  .ccard:hover{transform:translateY(-5px);box-shadow:0 .8rem 1.7rem rgba(50,28,171,.18)}
+  .ccard:focus-visible{outline:2px solid var(--c1);outline-offset:2px}
+  .ccard .cap{position:relative}
+  .ccard .ctype{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--c1);background:var(--soft);border:1px solid #e3dcf0;padding:.2rem .6rem;border-radius:1rem}
+  .ccard.tone3 .ctype{color:var(--gold-deep);background:rgba(194,161,77,.12);border-color:rgba(194,161,77,.32)}
+  .ccard .cmore{display:inline-block;margin-top:auto;padding-top:.85rem;font-size:.78rem;font-weight:700;color:var(--c1);opacity:.6;transition:.3s}
+  .ccard:hover .cmore{opacity:1;transform:translateX(3px)}
+  .ccard h5 .star{color:var(--gold-deep)}
+  .catalog-full{margin-top:1.7rem;border-top:1px solid var(--soft);padding-top:1.1rem}
+  .catalog-full summary{cursor:pointer;font-weight:800;color:var(--c1);font-size:.92rem;list-style:none;display:inline-flex;align-items:center;gap:.4rem}
+  .catalog-full summary::-webkit-details-marker{display:none}
+  .catalog-full summary::before{content:"＋";color:var(--gold-deep);font-weight:800}
+  .catalog-full[open] summary::before{content:"－"}
+  .catalog-full ul{margin:.9rem 0 0;padding-left:1.1rem;columns:2;column-gap:2.4rem}
+  .catalog-full li{margin-bottom:.45rem;font-size:.86rem;color:var(--muted);break-inside:avoid}
+  @media(max-width:680px){.catalog-full ul{columns:1}}
+  /* Modal de detalhe */
+  .cmodal{position:fixed;inset:0;background:rgba(17,6,29,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
+  .cmodal.open{display:flex;animation:cmfade .25s ease}
+  @keyframes cmfade{from{opacity:0}to{opacity:1}}
+  .cmodal-box{background:var(--card);border-radius:1rem;max-width:560px;width:100%;max-height:88vh;overflow:auto;box-shadow:0 1.4rem 3rem rgba(17,6,29,.35);position:relative}
+  .cmodal-top{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;padding:1.7rem 1.7rem 1.4rem}
+  .cmodal-top .ctype{display:inline-block;background:rgba(255,255,255,.2);color:#fff;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:.2rem .55rem;border-radius:.4rem}
+  .cmodal-top h3{color:#fff;margin:.6rem 0 .35rem;font-size:1.4rem;line-height:1.2}
+  .cmodal-top .tagline{opacity:.94;font-size:.96rem;line-height:1.5}
+  .cmodal-body{padding:1.4rem 1.7rem 1.8rem}
+  .cmodal-body .row{margin-bottom:1.05rem}
+  .cmodal-body .lab{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--c1);margin-bottom:.3rem}
+  .cmodal-body .val{color:var(--ink);font-size:.95rem;line-height:1.55}
+  .cmodal-body ul{margin:.35rem 0 0;padding-left:1.15rem}
+  .cmodal-body li{margin-bottom:.28rem;font-size:.9rem;color:var(--muted)}
+  .cmodal-cta{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.2rem;background:#25D366;color:#fff;border:none;border-radius:.6rem;padding:.72rem 1.2rem;font-family:inherit;font-weight:700;font-size:.95rem;line-height:1;cursor:pointer;transition:transform .2s ease,background .2s ease}
+  .cmodal-cta:hover{background:#1da851;transform:translateY(-1px)}
+  .cmodal-cta:focus-visible{outline:2px solid #128C7E;outline-offset:2px}
+  .cmodal-cta .ic{width:18px;height:18px;flex:0 0 auto}
+  .cmodal-close{position:absolute;top:.85rem;right:.85rem;width:36px;height:36px;border:none;border-radius:50%;background:rgba(255,255,255,.25);color:#fff;font-size:1.1rem;cursor:pointer;line-height:1;z-index:2}
+  .cmodal-close:hover{background:rgba(255,255,255,.4)}
+  .chip{display:inline-block;background:var(--soft);color:var(--c3);font-weight:700;font-size:.8rem;padding:.24rem .65rem;border-radius:.45rem;margin:0 .45rem .35rem 0}
+
+  /* Botão WhatsApp em cada card de curso */
+  .cactions{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-top:.7rem;flex-wrap:wrap}
+  .card-wa{display:inline-flex;align-items:center;gap:.35rem;background:#25D366;color:#fff;border:none;border-radius:.5rem;padding:.42rem .72rem;font-family:inherit;font-weight:700;font-size:.76rem;line-height:1;cursor:pointer;transition:transform .2s ease,background .2s ease}
+  .card-wa:hover{background:#1da851;transform:translateY(-1px)}
+  .card-wa:focus-visible{outline:2px solid #128C7E;outline-offset:2px}
+  .card-wa .ic{width:15px;height:15px;flex:0 0 auto}
+
+
+
+ /* === VERSÃO EVOLUÇÃO · estudo visual sem alterar a página original === */
+ body.evolucao{--evo-night:#12072f;--evo-deep:#24106a;--evo-royal:#4a1a9d;--evo-plum:#7f1d83;--evo-gold:#d9bb68;--evo-glow:rgba(217,187,104,.34);--evo-veil:rgba(255,255,255,.12);background:#130a2a}
+ body.evolucao header.site{background:rgba(255,255,255,.82);box-shadow:0 10px 30px rgba(18,7,47,.12)}
+ body.evolucao .hero{min-height:calc(100vh - 74px);background:#12072f}
+ body.evolucao .hero::before{transform:scale(1.12);filter:blur(.7px) saturate(1.18) brightness(1.02) contrast(1.04);animation:evoHeroDrift 18s ease-in-out infinite alternate;will-change:transform,filter;background-position:center 28%}
+ body.evolucao .hero::after{background:radial-gradient(circle at 72% 24%,rgba(217,187,104,.34),transparent 29%),radial-gradient(circle at 28% 72%,rgba(146,32,146,.32),transparent 36%),linear-gradient(100deg,rgba(14,5,42,.94) 0%,rgba(38,16,111,.78) 42%,rgba(86,30,162,.44) 72%,rgba(146,32,146,.18) 100%),linear-gradient(180deg,rgba(17,6,29,.08) 0%,rgba(17,6,29,.68) 100%)}
+ body.evolucao .hero .container{padding-top:118px;padding-bottom:118px}
+ body.evolucao .hero .container::before{content:"";display:block;width:92px;height:2px;margin-bottom:1.25rem;background:linear-gradient(90deg,var(--evo-gold),transparent);box-shadow:0 0 26px var(--evo-glow)}
+ body.evolucao .hero .eyebrow{color:#f5d989;text-shadow:0 2px 18px rgba(0,0,0,.55)}
+ body.evolucao .hero h1{letter-spacing:-.028em;text-shadow:0 4px 34px rgba(0,0,0,.78),0 0 32px rgba(86,30,162,.34)}
+ body.evolucao .hero p{max-width:650px;color:#fff;background:linear-gradient(90deg,rgba(18,7,47,.58),rgba(18,7,47,.22));border-left:3px solid var(--evo-gold);padding:1rem 1.15rem;border-radius:.2rem .9rem .9rem .2rem;box-shadow:0 18px 46px rgba(0,0,0,.24);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);text-shadow:0 2px 12px rgba(0,0,0,.72)}
+ body.evolucao .btn-primary{background:linear-gradient(135deg,var(--evo-royal),var(--evo-deep));box-shadow:0 12px 32px rgba(50,28,171,.36), inset 0 1px 0 rgba(255,255,255,.18)}
+ body.evolucao .btn-ghost{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+ body.evolucao .dna{background:radial-gradient(circle at 50% 18%,rgba(217,187,104,.14),transparent 28%),linear-gradient(180deg,#170832 0%,#24105e 58%,#f7f4fb 58%,#fff 100%);color:#fff}
+ body.evolucao .dna-head h2,body.evolucao .dna-eyebrow{color:#fff;text-shadow:0 10px 30px rgba(0,0,0,.35)}
+ body.evolucao .dna-sub{color:#eee7fb}.evolucao .dna-sub strong{color:#ffe19a}
+ body.evolucao .dna-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-areas:"inov pessoas digital";align-items:center;gap:1.6rem;max-width:980px;min-height:390px}
+ body.evolucao .dna-card{border-radius:50%;aspect-ratio:1/1;padding:2rem 1.45rem;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.42);background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(246,242,251,.9));box-shadow:0 28px 70px rgba(17,6,29,.22), inset 0 1px 0 rgba(255,255,255,.8);overflow:visible}
+ body.evolucao .dna-card:nth-child(1){grid-area:pessoas;transform:scale(1.08);z-index:3;background:linear-gradient(145deg,#fff,#f7f1ff);box-shadow:0 34px 80px rgba(17,6,29,.28),0 0 0 12px rgba(217,187,104,.10)}
+ body.evolucao .dna-card:nth-child(2){grid-area:inov;z-index:2}.evolucao .dna-card:nth-child(3){grid-area:digital;z-index:2}
+ body.evolucao .dna-card::before{display:none}
+ body.evolucao .dna-card::after{content:"";position:absolute;inset:-11px;border-radius:50%;border:1px solid rgba(217,187,104,.30);pointer-events:none}
+ body.evolucao .dna-card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 36px 86px rgba(17,6,29,.30)}
+ body.evolucao .dna-card:nth-child(1):hover{transform:translateY(-8px) scale(1.11)}
+ body.evolucao .dna-card h3{justify-content:center;margin-bottom:.55rem;flex-direction:column;gap:.2rem}.evolucao .dna-card p{font-size:.86rem;line-height:1.48}.evolucao .dna-tag{display:block;background:transparent;color:var(--gold-deep);padding:0;border-radius:0;font-size:.76rem;letter-spacing:.03em}
+
+ body.evolucao .dna-card:nth-child(3) p{font-size:.78rem;line-height:1.34}
+ body.evolucao .dna-card:nth-child(3) h3{font-size:1.12rem}
+ body.evolucao .dna-ico,body.evolucao .prog-ico,body.evolucao .pillar .ico{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 18px 40px rgba(50,28,171,.18), inset 0 1px 0 rgba(255,255,255,.22)}
+ body.evolucao .dna-ico{width:58px;height:58px;margin-bottom:.75rem;border-radius:50%}
+ body.evolucao .dna-ico::after,body.evolucao .prog-ico::after,body.evolucao .pillar .ico::after{content:"";position:absolute;inset:9px;border-radius:inherit;border:1px solid rgba(255,255,255,.24);opacity:.75;pointer-events:none}
+ body.evolucao .dna-ico .ic,body.evolucao .prog-ico .ic{transition:transform .55s var(--spring),filter .35s;filter:drop-shadow(0 5px 10px rgba(17,6,29,.18))}
+ body.evolucao .dna-card:hover .dna-ico .ic,body.evolucao .prog:hover .prog-ico .ic{transform:translateY(-2px) scale(1.08)}
+ body.evolucao .programs,body.evolucao .portfolio{background:linear-gradient(180deg,#fff 0%,#f3eff9 100%)}
+ body.evolucao .programs h2,body.evolucao .portfolio h2,body.evolucao .intro h2{position:relative;display:inline-block}
+ body.evolucao .programs h2::after,body.evolucao .portfolio h2::after,body.evolucao .intro h2::after{content:"";position:absolute;left:0;right:18%;bottom:-.35rem;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--evo-gold),transparent);transform-origin:left;transform:scaleX(.72);transition:transform .55s var(--spring)}
+ body.evolucao .programs h2:hover::after,body.evolucao .portfolio h2:hover::after,body.evolucao .intro h2:hover::after{transform:scaleX(1)}
+ body.evolucao .prog{background:linear-gradient(145deg,#fff 0%,#faf8fd 100%);box-shadow:0 12px 34px rgba(50,28,171,.08)}
+ body.evolucao .prog::after{content:"";position:absolute;inset:auto 1rem 1rem auto;width:42px;height:42px;border-radius:50%;background:radial-gradient(circle,rgba(194,161,77,.18),transparent 70%);opacity:0;transition:opacity .35s,transform .45s var(--spring)}
+ body.evolucao .prog:hover::after{opacity:1;transform:scale(1.8)}
+ body.evolucao .tcard{box-shadow:0 24px 70px rgba(17,6,29,.24)}
+ body.evolucao .tcard .bg{transform:scale(1.07);transition:transform 1.8s ease,filter 1.8s ease;filter:saturate(1.06)}
+ body.evolucao .tcard:hover .bg{transform:scale(1.12);filter:saturate(1.14) contrast(1.04)}
+ body.evolucao .cgroup-h{position:relative;padding-left:1.25rem;background:linear-gradient(90deg,#ece8f3,rgba(236,232,243,.42));border-left:0;box-shadow:inset 4px 0 0 var(--gold)}
+ body.evolucao .ccard{box-shadow:0 10px 26px rgba(50,28,171,.06)}
+ body.evolucao .ccard:hover{box-shadow:0 18px 44px rgba(50,28,171,.16)}
+ body.evolucao .reveal{opacity:1}
+ body.evolucao .instrutores-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.15rem;max-width:1120px;margin:2.6rem auto 0}
+ body.evolucao .instrutor-card{aspect-ratio:3/4.25;border-radius:1.15rem;margin:0;box-shadow:0 20px 54px rgba(17,6,29,.18);background:#160831}
+ body.evolucao .instrutor-card::after{content:"";position:absolute;inset:10px;border-radius:.9rem;border:1px solid rgba(217,187,104,.34);z-index:3;pointer-events:none;opacity:.75}
+ body.evolucao .instrutor-card img{object-position:center top;background:#211047}
+  body.evolucao .instrutor-card[data-comment-anchor="instrutor-eduardo-cambuy"] img{object-position:center center}
+ body.evolucao .instrutor-card[data-comment-anchor="instrutor-priscilla-curado"] img{object-position:center top}
+ body.evolucao .instrutor-card .tp-front{padding:3.8rem 1.1rem 1.25rem;background:linear-gradient(180deg,transparent,rgba(17,6,29,.94) 66%)}
+ body.evolucao .instrutor-card .tp-front h4{font-size:1.36rem;letter-spacing:.005em;margin-bottom:.32rem;line-height:1.12}
+ body.evolucao .instrutor-card .cargo{font-size:.9rem;line-height:1.34;color:#eee3fb;font-weight:600}
+ body.evolucao .instrutor-card .tp-bio{justify-content:center;align-items:center;text-align:center;padding:1.2rem;gap:.55rem;background:linear-gradient(180deg,rgba(17,6,29,.18),rgba(17,6,29,.91) 24%,rgba(17,6,29,.98));overflow-y:auto;z-index:4}
+ body.evolucao .instrutor-card .tp-bio h4{font-size:1.18rem;margin-bottom:.08rem}
+ body.evolucao .instrutor-card .tp-bio p{font-size:.82rem;line-height:1.5;margin:0;color:#f6f0ff;max-width:30ch}
+ @media(max-width:980px){body.evolucao .instrutores-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px}.evolucao .instrutor-card{aspect-ratio:3/4.1}.evolucao .instrutor-card .tp-bio{padding:1.25rem}.evolucao .instrutor-card .tp-bio h4{font-size:1.26rem}.evolucao .instrutor-card .tp-bio p{font-size:.92rem;line-height:1.52;max-width:31ch}}
+ @media(max-width:560px){body.evolucao .instrutores-grid{grid-template-columns:1fr;max-width:380px}.evolucao .instrutor-card{aspect-ratio:3/4.45}.evolucao .instrutor-card .tp-bio{padding:1.35rem 1.25rem;gap:.62rem}.evolucao .instrutor-card .tp-bio h4{font-size:1.34rem}.evolucao .instrutor-card .tp-bio p{font-size:.98rem;line-height:1.55;max-width:32ch}}
+
+ @keyframes evoHeroDrift{0%{transform:scale(1.12) translate3d(-1.4%,.3%,0);filter:blur(.7px) saturate(1.08) brightness(.96) contrast(1.02)}38%{transform:scale(1.18) translate3d(1.6%,-1.3%,0);filter:blur(.3px) saturate(1.22) brightness(1.04) contrast(1.06)}72%{transform:scale(1.145) translate3d(-.8%,-.4%,0);filter:blur(.6px) saturate(1.16) brightness(1.02) contrast(1.05)}100%{transform:scale(1.19) translate3d(.9%,.8%,0);filter:blur(.4px) saturate(1.2) brightness(1.03) contrast(1.07)}}
+ @media(prefers-reduced-motion:reduce){body.evolucao .hero::before{animation:none!important;transform:scale(1.04)}body.evolucao *{scroll-behavior:auto!important}}
+ @media(max-width:860px){body.evolucao .dna-grid{grid-template-columns:1fr;grid-template-areas:"pessoas" "inov" "digital";max-width:430px;min-height:0;gap:1.1rem}body.evolucao .dna-card,body.evolucao .dna-card:nth-child(1){border-radius:1.5rem;aspect-ratio:auto;min-height:220px;transform:none}body.evolucao .dna-card:nth-child(1):hover,body.evolucao .dna-card:hover{transform:translateY(-5px)}body.evolucao .dna-card::after{border-radius:1.5rem}.evolucao .dna{background:linear-gradient(180deg,#170832 0%,#24105e 42%,#fff 42%,#fff 100%)}}
+ @media(max-width:620px){body.evolucao .hero{min-height:auto}body.evolucao .hero .container{padding-top:74px;padding-bottom:74px}body.evolucao .hero p{font-size:1rem;padding:.85rem .95rem}body.evolucao .dna-card p{font-size:.9rem}}
+
+
+
+ /* Logo Inova Pública: destaque e brilho */
+ .logo{position:relative}
+ .logo .logomark{border-radius:50%;filter:drop-shadow(0 8px 18px rgba(86,30,162,.28));box-shadow:0 0 0 1px rgba(255,255,255,.7),0 0 22px rgba(146,32,146,.24)}
+ .logo::after{content:"";position:absolute;left:0;top:50%;width:46px;height:46px;border-radius:50%;transform:translateY(-50%) translateX(-140%) rotate(24deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.82),transparent);opacity:0;pointer-events:none;mix-blend-mode:screen}
+ .logo:hover::after{animation:logoSweep 1.1s ease-out}
+ .hero-logo-glow{position:relative;width:92px;height:92px;margin-bottom:1.35rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.28),rgba(255,255,255,.08) 45%,rgba(86,30,162,.08));box-shadow:0 0 0 1px rgba(255,255,255,.28),0 0 36px rgba(217,187,104,.28),0 20px 46px rgba(17,6,29,.30);overflow:hidden}
+ .hero-logo-glow img{width:74px;height:74px;border-radius:50%;object-fit:cover;filter:drop-shadow(0 8px 18px rgba(0,0,0,.28))}
+ .hero-logo-glow::before{content:"";position:absolute;inset:-45%;background:conic-gradient(from 180deg,transparent,rgba(217,187,104,.32),transparent 34%,rgba(255,255,255,.30),transparent 58%);animation:logoAura 7s linear infinite;opacity:.9}
+ .hero-logo-glow::after{content:"";position:absolute;top:-20%;bottom:-20%;width:34%;left:-52%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.88),transparent);transform:rotate(23deg);animation:heroLogoSweep 3.8s ease-in-out infinite;mix-blend-mode:screen}
+ @keyframes logoSweep{0%{opacity:0;transform:translateY(-50%) translateX(-140%) rotate(24deg)}18%{opacity:.85}100%{opacity:0;transform:translateY(-50%) translateX(126px) rotate(24deg)}}
+ @keyframes logoAura{to{transform:rotate(360deg)}}
+ @keyframes heroLogoSweep{0%,42%{left:-55%;opacity:0}52%{opacity:.9}70%,100%{left:122%;opacity:0}}
+ @media(prefers-reduced-motion:reduce){.hero-logo-glow::before,.hero-logo-glow::after,.logo:hover::after{animation:none!important}}
+ @media(max-width:620px){.hero-logo-glow{width:78px;height:78px}.hero-logo-glow img{width:62px;height:62px}}
+
+
+
+  /* === VERSÃO INTEGRADA AUTORAL === */
+  .strategy{background:linear-gradient(180deg,#fff,#f6f1e6);padding:clamp(58px,8vw,104px) 0;position:relative;overflow:hidden}
+  .strategy::before{content:"";position:absolute;inset:-28% -18% auto auto;width:58%;height:72%;background:radial-gradient(circle,rgba(146,32,146,.13),transparent 58%);filter:blur(18px)}
+  .strategy .wrap{position:relative;display:grid;gap:1.4rem;align-items:stretch}
+  .strategy-card{background:#fff;border:1px solid rgba(19,7,31,.10);border-radius:1.45rem;padding:clamp(1.35rem,3vw,2.25rem);box-shadow:0 22px 70px rgba(17,6,29,.09)}
+  .strategy-card.hero-idea{background:linear-gradient(135deg,#170824,#321cab 62%,#922092);color:#fff}
+  .strategy-card.hero-idea .eyebrow{color:#f3d98c}
+  .strategy-card.hero-idea h2{color:#fff;font-size:clamp(1.9rem,4vw,3.4rem);line-height:1.05;margin-bottom:1rem}
+  .strategy-card.hero-idea p{color:rgba(255,255,255,.78);font-size:1.08rem;max-width:720px}
+  .strategy-list{display:grid;gap:.85rem;margin:1.2rem 0 0;padding:0;list-style:none}
+  .strategy-list li{display:flex;gap:.75rem;align-items:flex-start;color:#5a4f66}
+  .strategy-list li::before{content:"";width:.72rem;height:.72rem;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--gold));margin-top:.46rem;flex:0 0 .72rem}
+  .pathway{display:grid;gap:1rem;margin-top:1.2rem}
+  .path-step{padding:1.1rem;border-radius:1rem;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.35)}
+  .path-step b{display:block;color:#fff;font-family:var(--serif);font-size:1.12rem;margin-bottom:.25rem}
+  .path-step span{color:rgba(255,255,255,.74);font-size:.95rem}
+  body.integrada .hero h1{max-width:970px}
+  body.integrada .hero p{max-width:780px}
+  body.integrada .portfolio{background:linear-gradient(180deg,#fff,#f6f1e6 42%,#fff)}
+  body.integrada .tf-head{align-items:flex-end}
+  body.integrada .tf-head h2{max-width:760px}
+  body.integrada .teachers{background:linear-gradient(180deg,#160824,#211047)}
+  body.integrada .results{background:#fff}
+  @media(min-width:860px){.strategy .wrap{grid-template-columns:1.08fr .92fr}.pathway{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.strategy-card{border-radius:1.15rem}.pathway{gap:.75rem}}
+
+</style>
+</head>
+<body class="evolucao integrada">
+
+<header class="site">
+  <div class="container">
+    <a class="logo" href="#"><img class="logomark" src="assets/img/logo-inova.jpg" alt="Inova Pública"> <span class="logo-name">Inova Pública</span></a>
+    <nav class="main">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li><a href="#programas">Programas</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+        <li><a href="#rede">Rede</a></li>
+        <li><a href="#proposta">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm cta-header" href="#proposta"><span class="cta-full">Solicitar proposta</span><span class="cta-short">Proposta</span></a>
+      <button class="burger" aria-label="Abrir menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">O novo DNA do serviço público</p>
+    <h1>Cultura pública se transforma por dentro.</h1>
+    <p>Experiências de aprendizagem para órgãos públicos que precisam desenvolver servidores, fortalecer lideranças e transformar inovação e tecnologia em valor público.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#proposta">Solicitar proposta</a>
+      <a class="btn btn-ghost" href="#portfolio">Ver portfólio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ESTRATÉGIA INTEGRADA -->
+<section class="strategy" id="estrategia">
+  <div class="container wrap">
+    <article class="strategy-card hero-idea reveal">
+      <p class="eyebrow">A tese da Inova Pública</p>
+      <h2>Ferramentas novas não mudam culturas antigas.</h2>
+      <p>A mudança pública se sustenta quando servidores reencontram propósito, lideranças aprendem a mobilizar pessoas e a tecnologia passa a servir melhor o cidadão.</p>
+      <div class="pathway" aria-label="Caminho de transformação">
+        <div class="path-step"><b>Escuta</b><span>Entender o contexto real do órgão.</span></div>
+        <div class="path-step"><b>Formação</b><span>Desenvolver competências humanas, inovadoras e digitais.</span></div>
+        <div class="path-step"><b>Prática</b><span>Aplicar métodos em desafios concretos.</span></div>
+        <div class="path-step"><b>Rede</b><span>Formar protagonistas que multiplicam a mudança.</span></div>
+      </div>
+    </article>
+    <article class="strategy-card reveal">
+      <p class="eyebrow dark">Para órgãos e servidores públicos</p>
+      <h2>Não oferecemos apenas cursos. Criamos capacidade institucional.</h2>
+      <p class="lead">A Inova Pública combina palestras, trilhas, cursos, oficinas, mentorias e programas sob medida para ativar um novo DNA institucional.</p>
+      <ul class="strategy-list">
+        <li>Servidores deixam de ser espectadores e passam a atuar como protagonistas da transformação.</li>
+        <li>Lideranças aprendem a sustentar mudança com confiança, diálogo e clareza.</li>
+        <li>Laboratórios, equipes e áreas finalísticas ganham método para transformar problemas em valor público.</li>
+        <li>IA, automação e Microsoft 365 entram como aliadas da inteligência humana.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- DNA (segunda dobra) -->
+<section class="dna" id="dna">
+  <div class="container">
+    <div class="dna-head">
+      <p class="dna-eyebrow">inovar é servir com propósito</p>
+      <h2>O DNA da Inova Pública</h2>
+      <div class="gold-rule"></div>
+      <p class="dna-sub">Nossa missão é unir <strong>Pessoas</strong>, <strong>Inovação</strong> e <strong>Transformação Digital</strong> para fortalecer lideranças, desenvolver a gestão pública e ampliar o valor entregue à sociedade.</p>
+    </div>
+    <div class="dna-grid">
+      <article class="dna-card reveal">
+        <div class="dna-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.2" r="3.1"/><path d="M6.6 20.5v-1a5.4 5.4 0 0 1 10.8 0v1"/><circle cx="4.7" cy="9.6" r="2.1"/><path d="M1.5 17.6v-.5a3.5 3.5 0 0 1 3.2-3.5"/><circle cx="19.3" cy="9.6" r="2.1"/><path d="M22.5 17.6v-.5a3.5 3.5 0 0 0-3.2-3.5"/></svg></div>
+        <h3>Pessoas <span class="dna-tag">(Cultura)</span></h3>
+        <p>Nossos programas desenvolvem competências comportamentais, promovem a colaboração em equipes e preparam líderes para inspirar e engajar com propósito.</p>
+      </article>
+      <article class="dna-card reveal">
+        <div class="dna-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.8 16.8v-.6c0-.9-.5-1.7-1.2-2.4a5.9 5.9 0 0 1-1.8-4.2A6 6 0 0 1 11.8 3.6a6 6 0 0 1 6.2 6 5.9 5.9 0 0 1-1.8 4.2c-.7.7-1.2 1.5-1.2 2.4v.6"/><path d="M8.8 16.8h6.4"/><path d="M9.8 20.3h4.4"/><path d="M11.8 6.8a3 3 0 0 0-3 3"/><path d="M20.2 1.8v2.6M18.9 3.1h2.6"/></svg></div>
+        <h3>Inovação <span class="dna-tag">(Liderança)</span></h3>
+        <p>Apoiamos a liderança e equipes na inovação no setor público, fortalecendo laboratórios e desenvolvendo competências para gerar valor público com criatividade e colaboração.</p>
+      </article>
+      <article class="dna-card reveal">
+        <div class="dna-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.7"/><circle cx="4.4" cy="4.4" r="1.9"/><circle cx="19.6" cy="4.4" r="1.9"/><circle cx="4.4" cy="19.6" r="1.9"/><circle cx="19.6" cy="19.6" r="1.9"/><path d="M6 6l4 4M18 6l-4 4M6 18l4-4M18 18l-4-4"/></svg></div>
+        <h3>Transformação Digital <span class="dna-tag">(Efetividade)</span></h3>
+        <p>Apoiamos pessoas e equipes a aproveitar o potencial da transformação digital, repensando formas de trabalho e usando inteligência artificial e automação como aliadas estratégicas.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL / ÓRGÃOS -->
+<section class="proof">
+  <div class="container">
+    <h2>Onde a Inova já chegou</h2>
+    <p class="eyebrow">Capacitações realizadas e atestadas por instituições da Justiça brasileira.</p>
+    <div class="orgs-marquee">
+      <div class="orgs-track"><div class="org-item"><div class="lbox"><img loading="lazy" decoding="async" src="assets/logos/tjac.jpg" alt="Tribunal de Justiça do Acre"></div><div class="nm">Tribunal de Justiça do Acre</div></div><div class="org-item"><div class="lbox"><img loading="lazy" decoding="async" src="assets/logos/trt13.png" alt="TRT da 13ª Região"></div><div class="nm">TRT da 13ª Região</div></div><div class="org-item"><div class="lbox"><img loading="lazy" decoding="async" src="assets/logos/jfsp.jpg" alt="Justiça Federal de São Paulo"></div><div class="nm">Justiça Federal de São Paulo</div></div><div class="org-item dup" aria-hidden="true"><div class="lbox"><img loading="lazy" decoding="async" src="assets/logos/tjac.jpg" alt="Tribunal de Justiça do Acre"></div><div class="nm">Tribunal de Justiça do Acre</div></div><div class="org-item dup" aria-hidden="true"><div class="lbox"><img loading="lazy" decoding="async" src="assets/logos/trt13.png" alt="TRT da 13ª Região"></div><div class="nm">TRT da 13ª Região</div></div><div class="org-item dup" aria-hidden="true"><div class="lbox"><img loading="lazy" decoding="async" src="assets/logos/jfsp.jpg" alt="Justiça Federal de São Paulo"></div><div class="nm">Justiça Federal de São Paulo</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS (entradas para o portfólio) -->
+<section class="programs" id="programas">
+  <div class="container">
+    <h2>Escolha a porta de entrada para a transformação.</h2>
+    <p class="sub">Cada trilha organiza experiências por intenção estratégica: liderar melhor, inovar com método, digitalizar com humanidade ou construir uma solução sob medida para o seu órgão.</p>
+    <div class="grid-4">
+      <a class="prog" href="#portfolio" data-prog="lideranca"><span class="prog-top"><span class="prog-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21v-8.4c0-.9.7-1.6 1.6-1.6h2.8c.9 0 1.6.7 1.6 1.6V21"/><path d="M9 21v-13c0-.9.7-1.6 1.6-1.6h2.8c.9 0 1.6.7 1.6 1.6V21"/><path d="M15 21V7.5"/><path d="M15 7.5 18.4 3l2.1 2.8"/><path d="M2 21h20"/></svg></span><span class="prog-num">01</span></span><h3>Liderança e Equipes</h3><p>Gestores, sucessores e equipes que inspiram e transformam o serviço público.</p><span class="more">Ver trilha <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="prog" href="#portfolio" data-prog="inovacao"><span class="prog-top"><span class="prog-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.8 16.8v-.6c0-.9-.5-1.7-1.2-2.4a5.9 5.9 0 0 1-1.8-4.2A6 6 0 0 1 11.8 3.6a6 6 0 0 1 6.2 6 5.9 5.9 0 0 1-1.8 4.2c-.7.7-1.2 1.5-1.2 2.4v.6"/><path d="M8.8 16.8h6.4"/><path d="M9.8 20.3h4.4"/><path d="M20.2 1.8v2.6M18.9 3.1h2.6"/></svg></span><span class="prog-num">02</span></span><h3>Inovação</h3><p>Agentes e laboratórios que transformam desafios reais em soluções de valor.</p><span class="more">Ver trilha <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="prog" href="#portfolio" data-prog="tecnologia"><span class="prog-top"><span class="prog-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.7"/><circle cx="4.4" cy="4.4" r="1.9"/><circle cx="19.6" cy="4.4" r="1.9"/><circle cx="4.4" cy="19.6" r="1.9"/><circle cx="19.6" cy="19.6" r="1.9"/><path d="M6 6l4 4M18 6l-4 4M6 18l4-4M18 18l-4-4"/></svg></span><span class="prog-num">03</span></span><h3>Transformação Digital</h3><p>Tecnologia, IA e Microsoft 365 como aliadas da inteligência humana.</p><span class="more">Ver trilha <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="prog" href="#proposta"><span class="prog-top"><span class="prog-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3"/><path d="M1.5 14h5M9.5 8h5M17.5 16h5"/></svg></span><span class="prog-num">04</span></span><h3>Customizável</h3><p>Cada desafio é único. Cada solução também.</p><span class="more">Solicitar proposta <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFÓLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="tf-head">
+      <div>
+        <div class="seal"><img class="seal-logo" src="assets/img/logo-inova.jpg" alt="Inova Pública"> <span>Inova Pública · Formação</span></div>
+        <h2>Portfólio completo, organizado por desafios do serviço público.</h2>
+        <p class="sub">Veja palestras, cursos, formações, mentorias e programas. Os cards mostram objetivo, público, formato e possibilidades de aplicação no órgão.</p>
+      </div>
+      <div class="tabs" role="tablist"><button class="tab active" type="button" role="tab" aria-selected="true" data-cat="lideranca">Liderança e Equipes</button><button class="tab" type="button" role="tab" aria-selected="false" data-cat="inovacao">Inovação</button><button class="tab" type="button" role="tab" aria-selected="false" data-cat="tecnologia">Transformação Digital</button></div>
+    </div>
+
+    <div class="trilha active" data-cat="lideranca">
+      <div class="tcard">
+        <div class="bg" style="background-image:url('assets/img/trilha-lideranca.jpg')"></div>
+        <div class="inner">
+          <div class="main">
+            <h3>Liderança e Equipes</h3>
+            <p class="desc">Do controle à confiança: desenvolva gestores, sucessores e equipes com clareza, diálogo e propósito.</p>
+            <div class="tstats">
+              <div class="tstat"><span class="b">20+</span> cursos &amp; palestras</div>
+              <div class="tstat"><span class="b"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span> 1h a 40h por ação</div>
+              <div class="tstat"><span class="b"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M22 9 12 5 2 9l10 4 10-4Z"/><path d="M6 11v4c0 1.3 2.7 2.6 6 2.6s6-1.3 6-2.6v-4"/></svg></span> Certificado</div>
+            </div>
+            <div class="tmeta">
+              <div class="small">Presencial ou online</div>
+              <div class="modalidade">Sob proposta <span>· sob medida para o seu órgão</span></div>
+            </div>
+            <div class="tactions">
+              <button class="tbtn gold" type="button" data-cursos aria-expanded="false"><span aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span> <span class="lbl">Ver trilha</span> <svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <button class="tbtn ghost" type="button" data-about aria-label="Sobre a trilha"><span aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg></span> <span class="lbl">Sobre a trilha</span></button>
+              <a class="tbtn solid" href="#proposta" data-interesse="Trilha — Liderança e Equipes"><span aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span> Solicitar proposta</a>
+            </div>
+          </div>
+          <aside class="side"><div class="side-in">
+            <h4>Liderança e Equipes</h4>
+            <p>Desenvolvimento de gestores, sucessores e equipes: liderança humanizada, comunicação, inteligência emocional, gestão de pessoas e do trabalho híbrido no serviço público — alinhado às diretrizes do CNJ.</p>
+          </div></aside>
+        </div>
+      </div>
+      <div class="cgroups" data-cat="lideranca"></div>
+    </div>
+    <div class="trilha" data-cat="inovacao">
+      <div class="tcard">
+        <div class="bg" style="background-image:url('assets/img/trilha-inovacao.jpg')"></div>
+        <div class="inner">
+          <div class="main">
+            <h3>Inovação</h3>
+            <p class="desc">Metodologias que resolvem problemas reais — longe das oficinas decorativas.</p>
+            <div class="tstats">
+              <div class="tstat"><span class="b">11</span> cursos &amp; palestras</div>
+              <div class="tstat"><span class="b"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span> 1h a 80h por ação</div>
+              <div class="tstat"><span class="b"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M22 9 12 5 2 9l10 4 10-4Z"/><path d="M6 11v4c0 1.3 2.7 2.6 6 2.6s6-1.3 6-2.6v-4"/></svg></span> Certificado</div>
+            </div>
+            <div class="tmeta">
+              <div class="small">Presencial ou online</div>
+              <div class="modalidade">Sob proposta <span>· sob medida para o seu órgão</span></div>
+            </div>
+            <div class="tactions">
+              <button class="tbtn gold" type="button" data-cursos aria-expanded="false"><span aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span> <span class="lbl">Ver trilha</span> <svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <button class="tbtn ghost" type="button" data-about aria-label="Sobre a trilha"><span aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg></span> <span class="lbl">Sobre a trilha</span></button>
+              <a class="tbtn solid" href="#proposta" data-interesse="Trilha — Inovação"><span aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span> Solicitar proposta</a>
+            </div>
+          </div>
+          <aside class="side"><div class="side-in">
+            <h4>Inovação</h4>
+            <p>Formação de agentes e laboratórios de inovação, criatividade aplicada, facilitação de processos colaborativos e design centrado no cidadão, alinhados à Política Nacional de Inovação do Judiciário (Res. CNJ nº 395/2021).</p>
+          </div></aside>
+        </div>
+      </div>
+      <div class="cgroups" data-cat="inovacao"></div>
+    </div>
+    <div class="trilha" data-cat="tecnologia">
+      <div class="tcard">
+        <div class="bg" style="background-image:url('assets/img/trilha-tecnologia.jpg')"></div>
+        <div class="inner">
+          <div class="main">
+            <h3>Transformação Digital</h3>
+            <p class="desc">A tecnologia como ponte para aproximar o servidor do cidadão. O digital não substitui pessoas: potencializa.</p>
+            <div class="tstats">
+              <div class="tstat"><span class="b">8</span> cursos &amp; palestras</div>
+              <div class="tstat"><span class="b"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span> 1h a 30h por ação</div>
+              <div class="tstat"><span class="b"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M22 9 12 5 2 9l10 4 10-4Z"/><path d="M6 11v4c0 1.3 2.7 2.6 6 2.6s6-1.3 6-2.6v-4"/></svg></span> Certificado</div>
+            </div>
+            <div class="tmeta">
+              <div class="small">Presencial ou online</div>
+              <div class="modalidade">Sob proposta <span>· sob medida para o seu órgão</span></div>
+            </div>
+            <div class="tactions">
+              <button class="tbtn gold" type="button" data-cursos aria-expanded="false"><span aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span> <span class="lbl">Ver trilha</span> <svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <button class="tbtn ghost" type="button" data-about aria-label="Sobre a trilha"><span aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg></span> <span class="lbl">Sobre a trilha</span></button>
+              <a class="tbtn solid" href="#proposta" data-interesse="Trilha — Transformação Digital"><span aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span> Solicitar proposta</a>
+            </div>
+          </div>
+          <aside class="side"><div class="side-in">
+            <h4>Transformação Digital</h4>
+            <p>IA aplicada, Microsoft 365 e Copilot, Power Platform, trabalho híbrido e liderança digital — repensando formas de trabalho sem perder o olhar humano.</p>
+          </div></aside>
+        </div>
+      </div>
+      <div class="cgroups" data-cat="tecnologia"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SÓ ENSINA QUEM FAZ -->
+<section class="teachers" id="instrutores">
+  <div class="container">
+    <div class="intro">
+      <h2>Potencializadores dos verdadeiros protagonistas</h2>
+      <div class="gold-rule"></div>
+      <p class="sub">O nosso papel é oportunizar experiências de aprendizagem que potencializem líderes e equipes rumo ao novo DNA do serviço público.</p>
+    </div>
+    <div class="instrutores-grid">
+      <figure class="tcardp instrutor-card" data-comment-anchor="instrutor-jeanne-nogueira">
+        <img loading="lazy" decoding="async" src="assets/img/instrutor-jeanne-ppt.png" alt="Jeanne Nogueira">
+        <figcaption class="tp-front"><h4>Jeanne Nogueira</h4><div class="cargo">Comunicação. Feedback. Pessoas. Liderança Feminina</div></figcaption>
+        <div class="tp-bio"><h4>Jeanne Nogueira</h4><p>Atua há mais de 10 anos no desenvolvimento de pessoas, comunicação eficaz, cultura organizacional e formação de lideranças no serviço público.</p><p>Pedagoga pela UnB, pós-graduada em Gestão de Pessoas e mestre em Gestão Estratégica de Organizações, possui sólida experiência em facilitação e profundo conhecimento sobre aprendizagem do adulto. Construiu sua trajetória no Departamento de Polícia Federal, TJDFT e STJ, onde atuou como gestora da área de Desenvolvimento Gerencial.</p></div>
+      </figure>
+      <figure class="tcardp instrutor-card" data-comment-anchor="instrutor-anderson-porto">
+        <img loading="lazy" decoding="async" src="assets/img/instrutor-anderson-ppt.png" alt="Ânderson Porto">
+        <figcaption class="tp-front"><h4>Ânderson Porto</h4><div class="cargo">Gestão Pública. Inovação. Negociação. Equipes híbridas</div></figcaption>
+        <div class="tp-bio"><h4>Ânderson Porto</h4><p>Atua há mais de 12 anos como facilitador, palestrante e instrutor em programas formativos para diversos órgãos do Poder Judiciário. É mestrando em Gestão Pública pela UnB e especialista em Inovação em Tecnologias Educacionais, com formações em Negociação pela FGV, Design Thinking, Gestão da Mudança e Gestão de Equipes Híbridas.</p><p>Foi condecorado com a Medalha do Pacificador e recebeu o Prêmio Ser Humano ABRH-DF 2023 pelo case Comunidade STJ Officeless. Criador do Canvas de Negociação Criativa, conduz palestras e capacitações para gestores estratégicos do STJ.</p></div>
+      </figure>
+      <figure class="tcardp instrutor-card" data-comment-anchor="instrutor-andre-fachin">
+        <img loading="lazy" decoding="async" src="assets/img/instrutor-andre-ppt.png" alt="André Fachin">
+        <figcaption class="tp-front"><h4>André Fachin</h4><div class="cargo">Neurociência · Mindfulness · Liderança Humanizada</div></figcaption>
+        <div class="tp-bio"><h4>André Fachin</h4><p>Atua há mais de 10 anos no desenvolvimento de pessoas, cultura organizacional, inovação e formação de lideranças humanizadas. Conecta neurociência, mindfulness e inteligência emocional para apoiar magistrados e servidores na construção de ambientes mais saudáveis, produtivos e colaborativos.</p><p>Facilitador especializado em inteligência emocional, laboratorista do STJ LAB e facilitador certificado em Design Thinking, Estruturas Libertadoras e metodologias colaborativas.</p></div>
+      </figure>
+      <figure class="tcardp instrutor-card" data-comment-anchor="instrutor-priscilla-curado">
+        <img loading="lazy" decoding="async" src="assets/img/instrutor-priscilla-ppt.png" alt="Priscilla Curado">
+        <figcaption class="tp-front"><h4>Priscilla Curado</h4><div class="cargo">Gestão da Mudança. Inovação. Educação Corporativa</div></figcaption>
+        <div class="tp-bio"><h4>Priscilla Curado</h4><p>Gestora pública e líder em educação corporativa e inovação no Judiciário. Especialista em Administração pela FGV, com formação executiva.</p><p>No STJ, dirigiu o Centro de Formação e Gestão Judiciária e liderou planejamento educacional e desenvolvimento de competências.</p></div>
+      </figure>
+      <figure class="tcardp instrutor-card" data-comment-anchor="instrutor-ricardo-marques">
+        <img loading="lazy" decoding="async" src="assets/img/instrutor-ricardo-ppt.png" alt="Ricardo Marques">
+        <figcaption class="tp-front"><h4>Ricardo Marques</h4><div class="cargo">Transformação Digital · IA · Liderança</div></figcaption>
+        <div class="tp-bio"><h4>Ricardo Marques</h4><p>Especialista em Liderança na Transformação Digital, atua na qualificação de lideranças e equipes para os desafios da transformação digital no setor público. Sua abordagem une tecnologia, inovação organizacional e desenvolvimento humano, com foco em adaptações sustentáveis ao contexto de cada organização.</p><p>Membro da Comissão de Inteligência Artificial do STJ, integrou a Assessoria de Inteligência Artificial e atualmente atua em gabinete de Ministro, destacado para projetos de inovação e inteligência artificial.</p></div>
+      </figure>
+      <figure class="tcardp instrutor-card" data-comment-anchor="instrutor-jorge-gomes">
+        <img loading="lazy" decoding="async" src="assets/img/instrutor-jorge-ppt.png" alt="Jorge Gomes">
+        <figcaption class="tp-front"><h4>Jorge Gomes</h4><div class="cargo">Ambidestria organizacional. Gestão de processos e ciência de dados.</div></figcaption>
+        <div class="tp-bio"><h4>Jorge Gomes</h4><p>Bacharel em Direito, administrador e cientista de dados, com mais de 30 anos no Poder Judiciário, no STJ.</p><p>Liderou projetos de modernização premiados nacionalmente e é especialista em Ambidestria Organizacional: entregar o agora construindo o amanhã.</p></div>
+      </figure>
+      <figure class="tcardp instrutor-card" data-comment-anchor="instrutor-eduardo-cambuy">
+        <img loading="lazy" decoding="async" src="assets/img/instrutor-eduardo-ppt.png" alt="Eduardo Cambuy">
+        <figcaption class="tp-front"><h4>Eduardo Cambuy</h4><div class="cargo">Inovação · Facilitação · Gamificação</div></figcaption>
+        <div class="tp-bio"><h4>Eduardo Cambuy</h4><p>Secretário do Laboratório de Inovação do STJ, o STJ LAB.</p><p>Facilitador que usa criatividade e dinâmicas gamificadas para romper a resistência à mudança, com trajetória na gestão de pessoas e em projetos governamentais de inovação.</p></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS / DEPOIMENTOS -->
+<section class="results" id="resultados">
+  <div class="container">
+    <div class="intro">
+      <h2>De quem vive o serviço público para quem deseja novos caminhos de mudança</h2>
+      <div class="gold-rule"></div>
+    </div>
+
+
+    <p class="depo-lead">"Importante ter sido ministrado por servidores públicos. Em outros cursos, para empresas privadas, o conteúdo acaba não se aplicando ao nosso dia a dia. Aqui, foi diferente."</p>
+
+    <!--
+      VÍDEOS: hoje servidos localmente (assets/videos/*.mp4, ~144MB e ~187MB) com preload="none",
+      então só baixam quando a pessoa dá play. Para PRODUÇÃO, recomenda-se hospedar no YouTube/Vimeo
+      e trocar cada <video>…</video> por um iframe leve. Modelo (basta inserir o ID do vídeo):
+
+      <div class="vembed">
+        <iframe src="https://www.youtube-nocookie.com/embed/SEU_VIDEO_ID" title="Depoimento"
+          loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      CSS sugerido: .vembed{position:relative;aspect-ratio:16/9}.vembed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    -->
+    <div class="vcarousel">
+      <button class="vc-btn vc-prev" type="button" aria-label="Anterior"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+      <div class="vc-viewport"><div class="vc-track">
+    
+        <figure class="vid">
+          <video controls preload="none" poster="assets/img/poster-trt-2.jpg">
+            <source src="assets/videos/depoimento-trt-2.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo HTML5.
+          </video>
+          <button class="vplay" type="button" aria-label="Reproduzir depoimento"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <figcaption class="vcap">
+            <span class="vtag">Depoimento em vídeo</span>
+            <div class="vt">Imersão e aprendizado</div>
+            <div class="vs">Participante sobre os três dias de formação prática.</div>
+          </figcaption>
+        </figure>
+        <figure class="vid">
+          <video controls preload="none" poster="assets/img/poster-trt-3.jpg">
+            <source src="assets/videos/depoimento-trt-3.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo HTML5.
+          </video>
+          <button class="vplay" type="button" aria-label="Reproduzir depoimento"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <figcaption class="vcap">
+            <span class="vtag">Depoimento em vídeo</span>
+            <div class="vt">Transformação do servidor</div>
+            <div class="vs">Relato sobre o impacto da formação no dia a dia.</div>
+          </figcaption>
+        </figure>
+      
+        <figure class="vid">
+          <video controls preload="none" poster="assets/img/poster-trt13.jpg">
+            <source src="assets/videos/depoimento-trt13.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo HTML5.
+          </video>
+          <button class="vplay" type="button" aria-label="Reproduzir depoimento"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <figcaption class="vcap">
+            <span class="vtag">Depoimento em vídeo</span>
+            <div class="vt">Depoimento — TRT-13</div>
+            <div class="vs">Servidor do TRT-13 sobre a formação e seus resultados.</div>
+          </figcaption>
+        </figure>
+        <figure class="vid">
+          <video controls preload="none" poster="assets/img/poster-silvio.jpg">
+            <source src="assets/videos/depoimento-silvio.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo HTML5.
+          </video>
+          <button class="vplay" type="button" aria-label="Reproduzir depoimento"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <figcaption class="vcap">
+            <span class="vtag">Depoimento em vídeo</span>
+            <div class="vt">A experiência de Silvio</div>
+            <div class="vs">Relato sobre liderança, propósito e serviço público.</div>
+          </figcaption>
+        </figure>
+        <figure class="vid">
+          <video controls preload="none" poster="assets/img/poster-trt-4.jpg">
+            <source src="assets/videos/depoimento-trt-4.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo HTML5.
+          </video>
+          <button class="vplay" type="button" aria-label="Reproduzir depoimento"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <figcaption class="vcap">
+            <span class="vtag">Depoimento em vídeo</span>
+            <div class="vt">Aprendizado que transforma</div>
+            <div class="vs">Participante sobre o que levou da formação para a rotina.</div>
+          </figcaption>
+        </figure>
+        <figure class="vid">
+          <video controls preload="none" poster="assets/img/poster-trt-5.jpg">
+            <source src="assets/videos/depoimento-trt-5.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo HTML5.
+          </video>
+          <button class="vplay" type="button" aria-label="Reproduzir depoimento"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <figcaption class="vcap">
+            <span class="vtag">Depoimento em vídeo</span>
+            <div class="vt">Inovação no setor público</div>
+            <div class="vs">Servidor sobre aplicar a inovação no dia a dia.</div>
+          </figcaption>
+        </figure>
+        <figure class="vid">
+          <video controls preload="none" poster="assets/img/poster-trt-6.jpg">
+            <source src="assets/videos/depoimento-trt-6.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo HTML5.
+          </video>
+          <button class="vplay" type="button" aria-label="Reproduzir depoimento"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <figcaption class="vcap">
+            <span class="vtag">Depoimento em vídeo</span>
+            <div class="vt">O valor da prática</div>
+            <div class="vs">Relato sobre a vivência prática da capacitação.</div>
+          </figcaption>
+        </figure>
+      
+        <figure class="vid">
+          <video controls preload="none" poster="assets/img/poster-trt-1.jpg">
+            <source src="assets/videos/depoimento-trt-1.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo HTML5.
+          </video>
+          <button class="vplay" type="button" aria-label="Reproduzir depoimento"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          <figcaption class="vcap">
+            <span class="vtag">Depoimento em vídeo</span>
+            <div class="vt">Inovação na prática</div>
+            <div class="vs">Servidor sobre a vivência da Formação de Laboratoristas.</div>
+          </figcaption>
+        </figure>
+      </div></div>
+      <button class="vc-btn vc-next" type="button" aria-label="Próximo"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+      <div class="vc-dots" aria-label="Navegação dos vídeos"></div>
+    </div>
+
+    <div class="depo-grid">
+      <figure class="depo">
+        <span class="mk">&ldquo;</span>
+        <p>Curso muito importante, não só para o trabalho, mas para a vida pessoal. Este curso abriu meus olhos e já estou repassando para os servidores.</p>
+        <figcaption class="who">Participante · Produtividade com Copilot e LLMs — Justiça Federal/SP</figcaption>
+      </figure>
+      <figure class="depo">
+        <span class="mk">&ldquo;</span>
+        <p>A qualidade das exposições e o notável saber dos palestrantes foram, sem dúvida, pontos altos do evento. Aprendi muito com o conteúdo apresentado.</p>
+        <figcaption class="who">Diretor de Secretaria · Encontro de Diretores 2025 — Justiça Federal/SP</figcaption>
+      </figure>
+      <figure class="depo">
+        <span class="mk">&ldquo;</span>
+        <p>O curso superou as expectativas e os formadores demonstraram domínio do conteúdo, não deixaram pergunta sem resposta e proporcionaram a imersão no conteúdo.</p>
+        <figcaption class="who">Participante · Formação de Laboratoristas de Inovação — TJAC</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- NETWORK -->
+<section class="network" id="rede">
+  <div class="container">
+    <h2>Lideramos uma rede de servidores protagonistas de um novo serviço público.</h2>
+    <p class="lead">Para fazer parte da Rede Inova Pública, preencha o formulário. Nós avaliaremos sua proposta e momento e você receberá o nosso contato.</p>
+    <a class="btn btn-primary" href="https://inovainstruc-sgrjeadp.manus.space/" target="_blank" rel="noopener">Quer fazer parte da Rede Inova Pública? Preencha o formulário</a>
+  </div>
+</section>
+
+<!-- PROPOSTA / CONTATO -->
+<section class="proposta" id="proposta">
+  <div class="container">
+    <div class="form-wrap">
+      <h2>Solicite uma proposta sob medida</h2>
+      <p class="sub">Conte sobre o desafio do seu órgão. Retornamos com uma proposta adaptada ao seu contexto, formato e carga horária.</p>
+      <form id="propostaForm">
+        <div class="row2">
+          <div class="field">
+            <label for="nome">Nome *</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          <div class="field">
+            <label for="orgao">Órgão / Instituição *</label>
+            <input type="text" id="orgao" name="orgao" required>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone">
+          </div>
+        </div>
+        <div class="field">
+          <label for="interesse">Capacitação de interesse</label>
+          <select id="interesse" name="interesse">
+            <option value="">Selecione (opcional)</option>
+            <option>Programa customizado / outro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Descreva o desafio, o público estimado e o formato desejado."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar pelo WhatsApp</button>
+        <p class="form-alt">Ao enviar, abrimos o WhatsApp com sua mensagem pronta. Prefere e-mail? <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg> inovapublica.adm@gmail.com · <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg> (61) 9 9915-8686</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <h4>Inova Pública</h4>
+        <p>inovar é servir com propósito.</p>
+        <p>Esse é o nosso DNA e o do novo serviço público.</p>
+      </div>
+      <div>
+        <h4>Navegue</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="quem-somos.html">Quem Somos</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#rede">Rede</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <p><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg> (61) 9 9915-8686</p>
+        <p><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg> inovapublica.adm@gmail.com</p>
+        <div class="social" style="margin-top:.8rem">
+          <a href="#">Instagram @inova.publica</a><br>
+          <a href="#">YouTube @InovaPública</a><br>
+          <a href="#">LinkedIn Inova Pública</a>
+        </div>
+      </div>
+    </div>
+    <div class="copy">© Inova Pública — inovar é servir com propósito.</div>
+  </div>
+</footer>
+
+
+<!-- MODAL PERFIL -->
+<div class="modal" id="perfilModal" aria-hidden="true" role="dialog" aria-label="Perfil do instrutor">
+  <div class="modal-box">
+    <button class="modal-close" type="button" aria-label="Fechar">✕</button>
+    <img class="modal-logo" src="assets/img/logo-inova.jpg" alt="Inova Pública">
+    <div class="modal-head">
+      <img class="modal-photo" alt="">
+      <div class="modal-name-block">
+        <h3 class="modal-name"></h3>
+        <div class="modal-cargo"></div>
+        <span class="modal-esp"></span>
+      </div>
+    </div>
+    <div class="modal-bio"></div>
+  </div>
+</div>
+<!-- MODAL DETALHE DE CURSO -->
+<div class="cmodal" id="cursoModal" aria-hidden="true" role="dialog" aria-label="Detalhes do curso">
+  <div class="cmodal-box"><div class="cmodal-inner"></div></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Imagem ampliada">
+  <button class="lb-close" aria-label="Fechar">✕</button>
+  <img alt="">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+  // Menu mobile
+  document.querySelector('.burger').addEventListener('click',function(){
+    var n=document.querySelector('nav.main');
+    var open=n.style.display==='block';
+    n.style.display=open?'none':'block';
+    this.setAttribute('aria-expanded',String(!open));
+  });
+  // Fecha o menu mobile ao tocar num link de navegação
+  document.querySelectorAll('nav.main a').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window.innerWidth<=1000){ document.querySelector('nav.main').style.display='none'; }
+    });
+  });
+
+  // Pré-preenche a capacitação de interesse ao clicar em "Quero esta capacitação"
+  document.querySelectorAll('[data-interesse]').forEach(function(a){
+    a.addEventListener('click',function(){
+      var val=this.getAttribute('data-interesse');
+      var sel=document.getElementById('interesse');
+      for(var i=0;i<sel.options.length;i++){
+        if(sel.options[i].value===val || sel.options[i].text===val){ sel.selectedIndex=i; break; }
+      }
+    });
+  });
+
+  // Trilhas: troca de categoria pelas tabs
+  document.querySelectorAll('.tabs .tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var cat=this.getAttribute('data-cat');
+      document.querySelectorAll('.tabs .tab').forEach(function(x){x.classList.toggle('active',x===tab);x.setAttribute('aria-selected',x===tab?'true':'false');});
+      document.querySelectorAll('.trilha').forEach(function(tr){
+        tr.classList.toggle('active', tr.getAttribute('data-cat')===cat);
+      });
+    });
+  });
+  // "Sobre a trilha": abre/fecha o painel lateral dentro do card
+  document.querySelectorAll('[data-about]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var card=this.closest('.tcard');
+      var open=card.classList.toggle('open-about');
+      this.querySelector('.lbl').textContent = open ? 'Fechar' : 'Sobre a trilha';
+    });
+  });
+  function scrollToTrilhaConteudo(trilha){
+    if(!trilha) return;
+    var list=trilha.querySelector('.cgroups');
+    if(!list || !list.classList.contains('open')) return;
+    var alvo=list.querySelector('.cgroup .cgroup-h') || list;
+    window.requestAnimationFrame(function(){
+      alvo.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+
+  // "Ver trilha": revela/recolhe os conteúdos da trilha
+  document.querySelectorAll('[data-cursos]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var trilha=this.closest('.trilha');
+      var list=trilha.querySelector('.cgroups');
+      if(!list) return;
+      var open=list.classList.toggle('open');
+      this.querySelector('.lbl').textContent = open ? 'Ocultar conteúdos' : 'Ver trilha';
+      this.setAttribute('aria-expanded',String(open));
+      if(open) scrollToTrilhaConteudo(trilha);
+    });
+  });
+  // Lightbox: clicar na imagem do DNA (ou qualquer .zoomable) amplia
+  (function(){
+    var lb=document.getElementById('lightbox'); if(!lb) return;
+    var lbImg=lb.querySelector('img');
+    function open(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.classList.add('open');lb.setAttribute('aria-hidden','false');}
+    function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';}
+    document.querySelectorAll('.zoomable').forEach(function(im){
+      im.addEventListener('click',function(){open(this.src,this.alt);});
+      im.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(this.src,this.alt);}});
+    });
+    lb.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  })();
+
+  // Cards "Programas" ativam a tab da trilha correspondente
+  document.querySelectorAll('.prog[data-prog]').forEach(function(a){
+    a.addEventListener('click',function(){
+      var cat=this.getAttribute('data-prog');
+      var tab=document.querySelector('.tabs .tab[data-cat="'+cat+'"]');
+      if(tab) tab.click();
+      var trilha=document.querySelector('.trilha[data-cat="'+cat+'"]');
+      var host=trilha ? trilha.querySelector('.cgroups') : null;
+      var btn=trilha ? trilha.querySelector('[data-cursos]') : null;
+      if(host && btn && !host.classList.contains('open')) btn.click();
+      else scrollToTrilhaConteudo(trilha);
+    });
+  });
+
+  // Envio do formulário via WhatsApp (sem backend) — número (61) 9 9915-8686
+  var WHATSAPP = '5561999158686';
+  document.getElementById('propostaForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
+    var linhas=[
+      '*Solicitação de proposta — Inova Pública*','',
+      'Nome: '+v('nome'),
+      'Órgão/Instituição: '+v('orgao'),
+      'E-mail: '+v('email'),
+      v('telefone')?'Telefone: '+v('telefone'):'',
+      v('interesse')?'Interesse: '+v('interesse'):'',
+      v('mensagem')?'Mensagem: '+v('mensagem'):''
+    ].filter(Boolean);
+    var url='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(linhas.join('\n'));
+    window.open(url,'_blank','noopener');
+  });
+
+  // === RECURSOS MODERNOS (v2) ===
+  // Carrossel de vídeos de depoimento
+  (function(){
+    var car=document.querySelector('.vcarousel'); if(!car) return;
+    var track=car.querySelector('.vc-track');
+    var slides=track.querySelectorAll('.vid');
+    var dotsC=car.querySelector('.vc-dots');
+    var n=slides.length, i=0;
+    function reset(){ slides.forEach(function(sl){ var v=sl.querySelector('video'); if(v) v.pause(); var p=sl.querySelector('.vplay'); if(p) p.classList.remove('hidden'); }); }
+    function go(idx){ i=(idx+n)%n; track.style.transform='translateX(-'+(i*100)+'%)'; dotsC.querySelectorAll('.vc-dot').forEach(function(x,k){x.classList.toggle('active',k===i);}); reset(); }
+    for(var d=0; d<n; d++){ (function(d){ var b=document.createElement('button'); b.className='vc-dot'+(d===0?' active':''); b.type='button'; b.setAttribute('aria-label','Ir para o vídeo '+(d+1)); b.addEventListener('click',function(){go(d);}); dotsC.appendChild(b); })(d); }
+    var pv=car.querySelector('.vc-prev'), nx=car.querySelector('.vc-next');
+    if(pv) pv.addEventListener('click',function(){go(i-1);});
+    if(nx) nx.addEventListener('click',function(){go(i+1);});
+  })();
+
+  // Overlay de play dos vídeos
+  document.querySelectorAll('.vplay').forEach(function(btn){
+    btn.addEventListener('click',function(){ var v=this.parentNode.querySelector('video'); if(v){ v.play(); this.classList.add('hidden'); } });
+  });
+  document.querySelectorAll('.vid video').forEach(function(v){
+    v.addEventListener('play',function(){ var b=this.parentNode.querySelector('.vplay'); if(b) b.classList.add('hidden'); });
+  });
+
+  // Animações de entrada (scroll reveal) com stagger
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    ['.intro','.dna-head','.dna-card','.tf-head','.prog','.org-card','.stat','.depo','.tcardp'].forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el,k){ el.classList.add('reveal'); el.style.animationDelay=((k%4)*80)+'ms'; io.observe(el); });
+    });
+  })();
+
+
+  // === DADOS DE PERFIL (v2) ===
+  var PERFIS={"anderson-porto": {"nome": "Ânderson Porto", "cargo": "Facilitador · Mestrando em Gestão Pública", "esp": "Equipes Híbridas", "bio": "Atua há mais de 12 anos como facilitador, palestrante e instrutor em programas formativos no Poder Judiciário. Mestrando em Gestão Pública pela Universidade de Brasília (UnB) e especialista em Inovação em Tecnologias Educacionais, com formações em Negociação pela Fundação Getulio Vargas (FGV), Design Thinking, Gestão da Mudança e Gestão de Equipes Híbridas. Foi condecorado pelo Exército Brasileiro com a Medalha do Pacificador e recebeu o Prêmio Ser Humano ABRH-DF (2023) com o case “Comunidade STJ Officeless”. É criador da metodologia Canvas de Negociação Criativa e conduziu capacitações para gestores estratégicos do STJ.", "foto": "assets/img/anderson-porto.png"}, "jeanne-nogueira": {"nome": "Jeanne Nogueira", "cargo": "Pedagoga · Desenvolvimento de Pessoas", "esp": "Pessoas & Lideranças", "bio": "Atua há mais de 10 anos no desenvolvimento de pessoas, comunicação eficaz, cultura organizacional e formação de lideranças no serviço público. Pedagoga pela UnB, pós-graduada em Gestão de Pessoas e mestre em Gestão Estratégica de Organizações. Formada pelo Instituto de Formação de Instrutores de Massaru Ogata, com capacitação em Estruturas Libertadoras e metodologias ativas. Construiu sua trajetória em instituições federais como o Departamento de Polícia Federal, o TJDFT e o STJ, onde atuou como gestora da área de Desenvolvimento Gerencial.", "foto": "assets/img/jeanne-nogueira.png"}, "andre-fachin": {"nome": "André Fachin", "cargo": "Especialista em Desenvolvimento Humano", "esp": "Inteligência Emocional", "bio": "Atua há mais de 10 anos no desenvolvimento de pessoas, cultura organizacional, inovação e formação de lideranças humanizadas. Especialista em Neurociência, Psicologia Positiva e Mindfulness pela PUC-PR, conecta rigor científico e prática para apoiar magistrados e servidores na construção de ambientes mais saudáveis, produtivos e colaborativos. Instrutor de programas de autoconhecimento, inteligência emocional, Eneagrama e comunicação consciente. Laboratorista do STJ LAB e facilitador certificado em Design Thinking e Estruturas Libertadoras. Integrante da Rede Inova Pública.", "foto": "assets/img/andre-fachin.png"}, "ricardo-marques": {"nome": "Ricardo Marques", "cargo": "Especialista · Comissão de IA do STJ", "esp": "Transformação Digital", "bio": "Especialista em Liderança na Transformação Digital, atua na interseção entre tecnologia de ponta e desenvolvimento humano. Combina uma base jurídica sólida com certificações em comportamento humano e tecnologias exponenciais, traduzindo temas complexos como transformação digital e IA em experiências acessíveis e aplicáveis ao cotidiano institucional. É um dos membros da Comissão de Inteligência Artificial do STJ, integrou a Assessoria de Inteligência Artificial e atua como assessor em Gabinete de Ministro.", "foto": "assets/img/ricardo-marques.png"}, "eduardo-cambuy": {"nome": "Eduardo Cambuy", "cargo": "Facilitador de Inovação", "esp": "Inovação", "bio": "Especialista em Inovação, com vasta trajetória na gestão de pessoas e no desenvolvimento de projetos governamentais. Facilitador que utiliza a criatividade para romper barreiras de resistência à mudança, lidera workshops que integram criatividade e ferramentas digitais para fortalecer a comunicação entre líderes e equipes. É desenvolvedor de soluções lúdicas, criando dinâmicas e processos gamificados que aumentam o engajamento dos servidores em projetos de transformação organizacional.", "foto": "assets/img/eduardo-cambuy.png"}, "jorge-gomes": {"nome": "Jorge Gomes", "cargo": "Administrador · Cientista de Dados", "esp": "Ambidestria", "bio": "Especialista em Ambidestria Organizacional, possui uma base intelectual e técnica construída ao longo de décadas, especializando-se na fronteira entre a gestão tradicional de alto desempenho e as novas metodologias de inovação. Bacharel em Direito, Administrador e Cientista de Dados, exerceu a liderança de projetos de modernização nacional: à frente de iniciativas reconhecidas e premiadas, conduziu processos de mudança estruturante que serviram de modelo para diversos órgãos do Poder Judiciário.", "foto": "assets/img/jorge-gomes.png"}, "priscilla-curado": {"nome": "Priscilla Curado", "cargo": "Gestora Pública", "esp": "Educação Corporativa", "bio": "Gestora pública e líder em educação corporativa e inovação no Poder Judiciário, com experiência na direção de unidade estratégica, articulação institucional, coordenação de programas de capacitação e liderança de iniciativas que conectam inovação, gestão da mudança e desenvolvimento de pessoas no setor público. Especialista em Administração de Empresas pela Fundação Getulio Vargas (FGV), em nível de pós-graduação lato sensu com características de formação executiva (equivalente a MBA).", "foto": "assets/img/priscilla-curado.png"}};
+  // Modal de perfil (delegação cobre cards clonados pelo carrossel)
+  (function(){
+    var modal=document.getElementById('perfilModal'); if(!modal) return;
+    var f=modal.querySelector('.modal-photo'), nm=modal.querySelector('.modal-name'), cg=modal.querySelector('.modal-cargo'), es=modal.querySelector('.modal-esp'), bo=modal.querySelector('.modal-bio');
+    function open(id){ var d=PERFIS[id]; if(!d) return; f.src=d.foto; f.alt=d.nome; nm.textContent=d.nome; cg.textContent=d.cargo; es.textContent=d.esp; bo.textContent=d.bio; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function close(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+    document.addEventListener('click',function(e){ var a=e.target.closest?e.target.closest('.perfil[data-perfil]'):null; if(a){ e.preventDefault(); open(a.getAttribute('data-perfil')); } });
+    modal.querySelector('.modal-close').addEventListener('click',close);
+    modal.addEventListener('click',function(e){ if(e.target===modal) close(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  })();
+
+  // Toque: vira o card do instrutor em dispositivos sem hover
+  if(window.matchMedia('(hover: none)').matches){
+    document.addEventListener('click',function(e){
+      var card=e.target.closest?e.target.closest('.teachers .tcardp'):null;
+      if(!card || e.target.closest('.perfil')) return;
+      document.querySelectorAll('.tcardp.bio-open').forEach(function(c){ if(c!==card) c.classList.remove('bio-open'); });
+      card.classList.toggle('bio-open');
+    });
+  }
+
+  // Carrossel de instrutores: 2 por vez, deslizando da direita para a esquerda
+  (function(){
+    var car=document.querySelector('.teach-carousel'); if(!car) return;
+    var track=car.querySelector('.tc-track');
+    var orig=track.children.length;
+    for(var c=0;c<orig;c++){ track.appendChild(track.children[c].cloneNode(true)); }
+    track.querySelectorAll('.tcardp').forEach(function(el){ el.classList.remove('reveal'); });
+    var index=0, timer=null;
+    function w(){ return track.children[0].getBoundingClientRect().width; }
+    function set(anim){ track.style.transition=anim?'transform .6s cubic-bezier(.4,0,.2,1)':'none'; track.style.transform='translateX('+(-index*w())+'px)'; }
+    function next(){ index++; set(true); if(index>=orig){ window.setTimeout(function(){ index=0; set(false); },650); } }
+    function prev(){ if(index<=0){ index=orig; set(false); window.setTimeout(function(){ index--; set(true); },20); } else { index--; set(true); } }
+    car.querySelector('.tc-next').addEventListener('click',function(){ next(); });
+    car.querySelector('.tc-prev').addEventListener('click',function(){ prev(); });
+    function start(){ timer=window.setInterval(next,3500); }
+    function stop(){ window.clearInterval(timer); }
+    car.addEventListener('mouseenter',stop); car.addEventListener('mouseleave',start);
+    window.addEventListener('resize',function(){ set(false); });
+    set(false); start();
+  })();
+
+
+  /* ============================================================
+     PORTFÓLIO v3 — dados, render de cards e modal de detalhe
+     ============================================================ */
+  var CURSOS = [
+    /* --- LIDERANÇA E EQUIPES : Palestras --- */
+    {id:"le-p2",cat:"lideranca",sub:"Palestras",tipo:"Palestra",carga:"2h",nome:"Ana Descobre o Assédio Moral",tag:"Storytelling que dá rosto, história e contexto à luta contra o assédio moral.",oquee:"Usa casos reais e narrativa envolvente para capacitar servidores a identificar, prevenir e enfrentar o assédio moral, fortalecendo o compromisso coletivo com a dignidade no serviço público.",quem:"Servidores públicos.",formato:"Palestra · 2h · presencial/online",dest:["Prevenção e enfrentamento","Cultura de respeito e ética"]},
+    {id:"le-p3",cat:"lideranca",sub:"Palestras",tipo:"Palestra",carga:"1h",nome:"O Líder Nu",tag:"Feedback honesto e a coragem de se mostrar vulnerável.",oquee:"Inspirada em A Roupa Nova do Rei, revela as barreiras invisíveis que impedem o feedback ascendente e fortalece a escuta ativa para construir ambientes de confiança.",quem:"Líderes e servidores públicos.",formato:"Palestra · 1h · presencial/online",dest:["Feedback ascendente","Vulnerabilidade e confiança","Comunicação transparente"]},
+    {id:"le-p4",cat:"lideranca",sub:"Palestras",tipo:"Palestra",carga:"1h a 2h",nome:"Autoconhecimento e Produtividade — 20 Lições",tag:"Duas décadas de serviço público em lições que provocam riso e transformação.",oquee:"Com leveza e profundidade, compartilha aprendizados sobre postura, comunicação, imagem e gestão emocional — fatores decisivos para uma presença profissional autêntica.",quem:"Servidores públicos.",formato:"Palestra · 1h a 2h · presencial/online",dest:["Autoconhecimento","Postura e imagem","Protagonismo"]},
+    {id:"le-p5",cat:"lideranca",sub:"Palestras",tipo:"Palestra",carga:"2h",nome:"O Aprendiz ao Longo da Vida",tag:"Transformar o cotidiano em escola e a carreira em jornada contínua de evolução.",oquee:"Inspira servidores a enxergar o aprendizado como fonte de crescimento e reinvenção — prazeroso, autônomo e conectado ao propósito.",quem:"Servidores públicos.",formato:"Palestra · 2h · presencial/online",dest:["Aprendizagem contínua","Adaptabilidade","Propósito"]},
+    {id:"le-p6",cat:"lideranca",sub:"Palestras",tipo:"Palestra",carga:"1h",nome:"Comunicação Criativa para Líderes Públicos",tag:"Comunicar é mobilizar, conectar e encantar.",oquee:"Líderes aprendem a transformar sua presença comunicativa com narrativa estratégica, recursos audiovisuais e uso criativo do digital, unindo clareza, inspiração e engajamento.",quem:"Líderes públicos.",formato:"Palestra · 1h · presencial/online",dest:["Narrativa estratégica","Comunicação audiovisual"]},
+    {id:"le-p7",cat:"lideranca",sub:"Palestras",tipo:"Palestra",carga:"1h",nome:"Liderança Transformadora em Tempos de Incerteza",tag:"Transformar a incerteza em potência.",oquee:"Desenvolve uma liderança empática, adaptativa e visionária, com estratégias práticas para liderar com propósito em cenários imprevisíveis.",quem:"Lideranças públicas.",formato:"Palestra · 1h · presencial/online",dest:["Liderança adaptativa","Coragem e empatia","Visão estratégica"]},
+    {id:"le-p8",cat:"lideranca",sub:"Palestras",tipo:"Palestra",carga:"1h",nome:"Por que Projetos Falham?",tag:"Não oferece fórmulas mágicas — oferece lucidez.",oquee:"Expõe as causas reais do fracasso de projetos públicos e posiciona a gestão da mudança como eixo estratégico que transforma planos em resultados.",quem:"Líderes e equipes.",formato:"Palestra · 1h · presencial/online",dest:["Gestão da mudança","Causas de insucesso","Cultura de prevenção"]},
+    /* --- LIDERANÇA E EQUIPES : Cursos --- */
+    {id:"le-c1",cat:"lideranca",sub:"Cursos e workshops",tipo:"Curso",carga:"8h a 12h",nome:"Inteligência Emocional e Mindfulness para Ambientes Complexos",tag:"Foco, presença e autorregulação para atuar com clareza mesmo sob pressão.",oquee:"Vivência que integra mindfulness, neurociência e autorregulação emocional para ajudar servidores e líderes a manter equilíbrio diante de demandas intensas.",quem:"Servidores e líderes.",formato:"Curso vivencial · 8h a 12h · presencial/online",dest:["Mais foco e presença","Menos impulsividade","Decisões mais conscientes"]},
+    {id:"le-c2",cat:"lideranca",sub:"Cursos e workshops",tipo:"Curso",carga:"8h a 12h",nome:"Comunicação Consciente e Escuta Ativa",tag:"Comunicar com clareza, respeito e intencionalidade em ambientes complexos.",oquee:"Workshop que capacita equipes e lideranças a reduzir ruídos, praticar escuta ativa e fortalecer a colaboração entre setores.",quem:"Equipes e lideranças.",formato:"Curso vivencial · 8h a 12h · presencial/online",dest:["Equipes mais alinhadas","Menos conflitos","Relações mais saudáveis"]},
+    {id:"le-c3",cat:"lideranca",sub:"Cursos e workshops",tipo:"Curso",carga:"12h a 16h",nome:"Eneagrama Aplicado à Liderança e Equipes",tag:"Autoconhecimento profundo para melhorar convivência, confiança e colaboração.",oquee:"Apresenta os nove padrões motivacionais do Eneagrama e como influenciam decisões, relações e estilos de liderança, conectando desenvolvimento pessoal à performance coletiva.",quem:"Líderes e equipes.",formato:"Curso imersivo · 12h a 16h · presencial/online",dest:["Melhor clima","Mais empatia","Liderança mais consciente"]},
+    {id:"le-c4",cat:"lideranca",sub:"Cursos e workshops",tipo:"Curso",carga:"12h",nome:"Feedback na Prática",tag:"Dar e receber feedback de forma clara, respeitosa e assertiva.",oquee:"Fortalece as relações de trabalho com técnicas estruturadas de feedback — incluindo feedback ascendente e conversas difíceis — com base em CNV, técnica SBI e Fato–Impacto–Manutenção.",quem:"Gestores e lideranças.",formato:"Curso · 12h · presencial",dest:["Cinco direções do feedback","CNV","Conversas difíceis"]},
+    {id:"le-c5",cat:"lideranca",sub:"Cursos e workshops",tipo:"Curso",carga:"9h",nome:"Motivação e Engajamento de Equipes",tag:"Engajamento que fortalece propósito e pertencimento em equipes híbridas.",oquee:"Capacita gestores a compreender fatores motivacionais do servidor e a construir rituais de pertencimento e reconhecimento genuíno, especialmente no trabalho híbrido.",quem:"Gestores do serviço público.",formato:"Curso · 9h · presencial",dest:["Diagnóstico motivacional","Liderança situacional","Rituais de pertencimento"]},
+    {id:"le-c6",cat:"lideranca",sub:"Cursos e workshops",tipo:"Curso",carga:"9h",nome:"Análise de Cenários com o Framework Cynefin",tag:"Decidir bem em contextos de alta complexidade e incerteza.",oquee:"Desenvolve a capacidade de classificar problemas pelos cinco domínios do Cynefin e adaptar o estilo de decisão a cada tipo, do procedimento à experimentação guiada.",quem:"Gestores.",formato:"Curso · 9h · presencial",dest:["Decisão adaptativa","Gestão de crises","Visão sistêmica"]},
+    {id:"le-c7",cat:"lideranca",sub:"Cursos e workshops",tipo:"Curso",carga:"8h a 20h",nome:"Visão Sistêmica Aplicada ao Serviço Público",tag:"Enxergar a organização como um todo e ampliar a qualidade das decisões.",oquee:"Aplica as leis do pensamento sistêmico de Peter Senge à realidade do serviço público, com simulação vivencial, desenvolvendo a compreensão da organização como sistema interdependente.",quem:"Gestores e servidores.",formato:"Curso · 8h a 20h · presencial",dest:["Pensamento sistêmico (Senge)","Interdependência entre áreas","Perguntas estratégicas"]},
+    /* --- LIDERANÇA E EQUIPES : Formações, mentorias e programas --- */
+    {id:"le-f1",cat:"lideranca",sub:"Formações, mentorias e programas",tipo:"Formação",carga:"15h",nome:"Ela Lidera — Lideranças Femininas",tag:"Fortalece mulheres para liderar com confiança, equilíbrio e propósito.",oquee:"Desenvolve autoconhecimento, inteligência emocional, comunicação e posicionamento das lideranças femininas, fortalecendo redes de apoio e ampliando o impacto das mulheres em espaços de decisão.",quem:"Servidoras em funções de liderança (ou que desejam ocupá-las).",formato:"Formação · 15h (adaptável) · presencial/online/híbrido",dest:["Autoconhecimento","Comunicação e negociação","Prevenção ao assédio"],base:"Diretrizes do CNJ · já ministrada no TRT-24 e TRT-13."},
+    {id:"le-f2",cat:"lideranca",sub:"Formações, mentorias e programas",tipo:"Formação",carga:"30h",nome:"Desenvolvimento em Liderança Humanizada",tag:"Líderes que conduzem equipes com presença, clareza, empatia e maturidade emocional.",oquee:"Jornada prática que integra neurociência, inteligência emocional e mindfulness para formar líderes conscientes, capazes de criar ambientes mais colaborativos, seguros e produtivos.",quem:"Gestores, chefes de seção, coordenadores e supervisores.",formato:"Formação · 30h (adaptável) · presencial/online/híbrido",dest:["Autoconsciência","IE aplicada","Conversas difíceis","Mindfulness e produtividade"]},
+    {id:"le-f3",cat:"lideranca",sub:"Formações, mentorias e programas",tipo:"Formação",carga:"20h",nome:"Conexão que Lidera",tag:"Liderar com presença, humanidade e responsabilidade.",oquee:"Formação leve e prática que desenvolve autoconhecimento, gestão emocional e relações saudáveis, integrando diversidade e inclusão de pessoas com deficiência.",quem:"Servidores e gestores.",formato:"Formação · 20h · presencial/online/híbrido",dest:["Comunicação Não Violenta","Diversidade e acessibilidade","Prevenção ao assédio"],base:"Diretrizes do CNJ · já ministrada no TRF da 1ª Região."},
+    {id:"le-f4",cat:"lideranca",sub:"Formações, mentorias e programas",tipo:"Programa",carga:"40h",star:true,nome:"Gestão do Futuro — Formação de Sucessores",tag:"Um programa completo que prepara servidores para assumir a liderança com segurança.",oquee:"Programa robusto de formação de sucessores, inspirado no Na Trilha da Gestão do STJ, que desperta a consciência sobre o papel na sucessão e desenvolve, de ponta a ponta, as competências comportamentais essenciais à gestão de pessoas.",quem:"Servidores que almejam ou iniciam a jornada de liderança.",formato:"Programa de formação · 40h · presencial/online/híbrido",dest:["Autoconhecimento (Quinn e Freitas)","Gestão do tempo","Relacionamentos e CNV","Prevenção ao assédio"],base:"Diretrizes do CNJ · já aplicada no TRF da 1ª Região."},
+    {id:"le-f5",cat:"lideranca",sub:"Formações, mentorias e programas",tipo:"Mentoria",carga:"6 a 12 sessões",nome:"Desenvolvimento de Competências Gerenciais",tag:"Um percurso de desenvolvimento gerencial totalmente sob medida para cada gestor.",oquee:"Programa personalizado que integra diagnóstico DISC, o Modelo de Freitas e sessões individuais, trabalhando uma competência por encontro e alinhando as expectativas do órgão aos objetivos do participante.",quem:"Gestores ou servidores indicados pela organização.",formato:"Mentoria · 6 a 12 sessões · presencial/online",dest:["Diagnóstico DISC","Sessões por competência","Avaliação de resultados"],base:"Formato já aplicado no STJ e no MCTIC."},
+    {id:"le-f6",cat:"lideranca",sub:"Formações, mentorias e programas",tipo:"Programa",carga:"8 ações",nome:"Desenvolvimento de Lideranças e Gestores (modelo CNJ)",tag:"Trilha institucional de 8 ações formativas progressivas, sob medida para o órgão.",oquee:"Programa guarda-chuva alinhado ao PDP/LND 2026-2027, com Bloco Digital (M365, Copilot, Power Platform) e Bloco de Liderança (feedback, motivação, Cynefin, resolução criativa, visão sistêmica). Modelo pedagógico: Ciclo de Kolb.",quem:"Gestores públicos (até 30 por turma).",formato:"Programa modular · 8 ações · híbrido",dest:["Cenário Digital, Liderança ou Completo","Aprendizagem experiencial","Contratação por vaga"]},
+
+    /* --- INOVAÇÃO : Palestras --- */
+    {id:"in-p1",cat:"inovacao",sub:"Palestras",tipo:"Palestra",carga:"2h",nome:"DNA Criativo",tag:"Criatividade não é dom, é escolha.",oquee:"Rompe os mitos que limitam a imaginação e convida cada participante a transformar o trabalho em laboratório vivo de curiosidade e experimentação. Também disponível como curso (8h a 16h).",quem:"Servidores e equipes públicas.",formato:"Palestra 2h (ou curso 8h a 16h) · presencial/online",dest:["Mitos e bloqueios","Geração de ideias","Criatividade aplicada a problemas reais"]},
+    {id:"in-p2",cat:"inovacao",sub:"Palestras",tipo:"Palestra",carga:"1h",nome:"Gamificação no Setor Público",tag:"Jogos são linguagem, ferramenta e ponte entre motivação e resultado.",oquee:"Transforma a gamificação em estratégia real de engajamento e mudança de cultura, com técnicas lúdicas e casos reais que aproximam equipes das metas com leveza e propósito.",quem:"Servidores públicos.",formato:"Palestra · 1h · presencial/online",dest:["Gamificação","Engajamento","Mudança de cultura"]},
+    {id:"in-p3",cat:"inovacao",sub:"Palestras",tipo:"Palestra",carga:"2h",nome:"Líder Inovador — Gestão da Inovação",tag:"Conecta liderança e inovação de forma prática e inspiradora.",oquee:"Traduz tendências globais em ações simples e aplicáveis ao dia a dia dos líderes, inspirando mudanças de atitude para engajar equipes e fortalecer a cultura organizacional.",quem:"Líderes e profissionais.",formato:"Palestra · 2h · presencial/online",dest:["Mentalidade inovadora","Gestão da inovação","Engajamento"]},
+    {id:"in-p4",cat:"inovacao",sub:"Palestras",tipo:"Palestra / Curso",carga:"2h ou 9h",nome:"Negociação Criativa",tag:"Transformar conflitos em oportunidades de cooperação e valor público.",oquee:"Supera a barganha tradicional com abordagens colaborativas, estimulando pensamento estratégico, criatividade e coragem para gerar valor público sustentável. Disponível como palestra (2h) ou curso (9h).",quem:"Gestores públicos.",formato:"Palestra 2h ou curso 9h · presencial/online",dest:["Negociação colaborativa","Influência ética","Geração de valor mútuo"]},
+    /* --- INOVAÇÃO : Formações, mentorias e programas --- */
+    {id:"in-f1",cat:"inovacao",sub:"Formações, mentorias e programas",tipo:"Formação",carga:"30h",star:true,nome:"Formação de Laboratoristas de Inovação",tag:"Forma agentes capazes de transformar desafios institucionais reais em soluções de valor.",oquee:"Programa prático e imersivo que capacita servidores e magistrados a atuar em laboratórios de inovação, integrando Design Thinking, CPS, DofPISA e Estruturas Libertadoras a desafios reais — da imersão ao pitch.",quem:"Servidores, magistrados e gestores públicos.",formato:"Formação · 30h (6h online + 24h presenciais) · híbrido",dest:["Diagnóstico e imersão","Ideação e prototipagem","Validação e pitch"],base:"Res. CNJ nº 395/2021 · Prêmio CNJ de Qualidade · proposta ao TCE-AC."},
+    {id:"in-f2",cat:"inovacao",sub:"Formações, mentorias e programas",tipo:"Formação",carga:"16h a 24h",nome:"Formação de Facilitadores de Processos Colaborativos",tag:"Conduzir reuniões, oficinas e cocriações que geram participação e resultados reais.",oquee:"Desenvolve competências de facilitação de grupos, capacitando participantes a desenhar e conduzir conversas produtivas e decisões coletivas em contextos complexos.",quem:"Servidores, gestores e profissionais que conduzem reuniões e oficinas.",formato:"Formação · 16h a 24h · presencial/online/híbrido",dest:["Processos participativos","Estruturas Libertadoras","Design Thinking"]},
+    {id:"in-f3",cat:"inovacao",sub:"Formações, mentorias e programas",tipo:"Curso",carga:"9h",nome:"Resolução Criativa de Desafios (CPS)",tag:"Transformar reuniões improdutivas em espaços de inovação real.",oquee:"Capacita gestores a facilitar processos colaborativos e decisão coletiva com o processo CPS e Estruturas Libertadoras (1-2-4-Todos, TRIZ, Wise Crowds, Fishbowl).",quem:"Gestores.",formato:"Curso · 9h · presencial",dest:["Processo CPS","Perguntas ‘Como poderíamos...?’","Brainstorming estruturado"]},
+    {id:"in-f4",cat:"inovacao",sub:"Formações, mentorias e programas",tipo:"Mentoria",carga:"20h a 40h",nome:"Liderança para Inovação no Setor Público",tag:"Apoia gestores a mobilizar equipes, estruturar soluções e fortalecer a cultura de inovação.",oquee:"Combina reflexão estratégica, desenvolvimento de liderança e acompanhamento prático de iniciativas, integrando inovação e estratégia institucional a partir de desafios reais.",quem:"Gestores, magistrados e servidores que conduzem inovação.",formato:"Mentoria · 20h a 40h (3 a 6 meses) · online/presencial",dest:["Diagnóstico estratégico","Condução de iniciativas","Aprendizagem institucional"]},
+    {id:"in-f5",cat:"inovacao",sub:"Formações, mentorias e programas",tipo:"Mentoria",carga:"20h a 40h",nome:"Mentoria para Equipe de Laboratório de Inovação",tag:"Estruturar, fortalecer e consolidar o laboratório de inovação da instituição.",oquee:"Acompanhamento consultivo, metodológico e estratégico voltado à realidade do laboratório, apoiando a condução contínua de iniciativas alinhadas à estratégia.",quem:"Equipes de laboratórios, laboratoristas e gestores.",formato:"Mentoria · 20h a 40h (3 a 6 meses) · online/presencial",dest:["Diagnóstico do laboratório","Modelo de atuação","Consolidação e disseminação"]},
+    {id:"in-f6",cat:"inovacao",sub:"Formações, mentorias e programas",tipo:"Programa",carga:"40h a 80h",nome:"Fortalecimento de Laboratórios de Inovação",tag:"Ampliar a capacidade de identificar desafios, mobilizar equipes e criar soluções.",oquee:"Combina formação, mentoria e apoio metodológico para estruturar e amadurecer laboratórios, conduzindo sprints de inovação e testes piloto até a consolidação das soluções.",quem:"Equipes de laboratórios, gestores e servidores de projetos de inovação.",formato:"Programa · 40h a 80h (2 a 4 meses) · presencial/online/híbrido",dest:["Design Thinking, CPS e DofPISA","Design Sprint","Scrum"]},
+    {id:"in-f7",cat:"inovacao",sub:"Formações, mentorias e programas",tipo:"Programa",carga:"58h",star:true,nome:"Facilitadores de Inovação + Laboratório de Desafios",tag:"Não oferecemos cursos, oportunizamos transformação — o novo DNA em ação.",oquee:"Programa modular que forma 25–30 facilitadores internos certificados e realiza um Laboratório de Desafios com gestores, criando uma rede distribuída de agentes de mudança com entregáveis concretos. Inclui a opção de estruturar um Laboratório de Inovação.",quem:"Servidores (futuros facilitadores) e gestores regionais.",formato:"Programa · 58h (Módulo 1: 40h + Módulo 2: 18h) · híbrido",dest:["DofPISA e Design Thinking","Rede de facilitadores","Entregáveis institucionais"],base:"Lei 10.973/2004 e Decreto 9.283/2018 · proposta à Codevasf."},
+
+    /* --- TRANSFORMAÇÃO DIGITAL : Palestras --- */
+    {id:"td-p1",cat:"tecnologia",sub:"Palestras",tipo:"Palestra",carga:"1h",nome:"Liderança na Era da I.A.",tag:"A IA não substitui líderes — redefine o que se espera deles.",oquee:"Reflexão estratégica sobre o novo papel da liderança pública num mundo com IA, mostrando como conduzir (e não apenas reagir a) as transformações tecnológicas com empatia e pensamento crítico.",quem:"Líderes públicos.",formato:"Palestra · 1h · presencial/online",dest:["Papel da liderança na era da IA","Decisão e impacto","Sensibilidade humana"]},
+    {id:"td-p2",cat:"tecnologia",sub:"Palestras",tipo:"Palestra",carga:"2h",nome:"Do Controle à Confiança — Equipes Híbridas",tag:"Substituir o microgerenciamento pela confiança e a autonomia responsável.",oquee:"Experiência imersiva que provoca líderes e equipes a amadurecer o modelo híbrido, estruturando cultura de confiança, um Escritório Virtual organizado e comunicação assíncrona com OKRs.",quem:"Líderes e equipes.",formato:"Palestra · 2h · presencial/online",dest:["Cultura de confiança","Escritório virtual","Comunicação assíncrona"],base:"Base no case STJ Officeless (Prêmio Ser Humano ABRH-DF 2023)."},
+    /* --- TRANSFORMAÇÃO DIGITAL : Cursos, mentorias e implementações --- */
+    {id:"td-c1",cat:"tecnologia",sub:"Cursos, mentorias e implementações",tipo:"Curso",carga:"14h",nome:"Comunicação Eficaz no Teletrabalho",tag:"Eliminar a cultura do ‘ASAP’ e dominar a comunicação assíncrona.",oquee:"Trabalha o ponto mais crítico e negligenciado do teletrabalho — a comunicação assíncrona — construindo rituais digitais, rotinas de foco e confiança em equipes remotas e híbridas.",quem:"Líderes e equipes em teletrabalho/híbrido.",formato:"Curso · 14h · presencial/online/híbrido",dest:["Síncrono × assíncrono × emergencial","Rituais digitais","Confiança em equipes remotas"]},
+    {id:"td-c2",cat:"tecnologia",sub:"Cursos, mentorias e implementações",tipo:"Curso",carga:"12h",nome:"Escritório Digital — Microsoft 365 e Teams",tag:"Transformar o Microsoft 365 em um escritório digital de alta performance.",oquee:"Capacitação prática para organizar comunicação, arquivos, tarefas e rituais da equipe no Teams/M365, reduzindo interrupções e sobrecarga do gestor, com delegação clara via Planner.",quem:"Equipes e gestores híbridos.",formato:"Curso · 12h · presencial/online/híbrido",dest:["Team Workspace","SharePoint/OneDrive","Planner e Viva Insights"],base:"Requer licença Microsoft 365 E3/E5."},
+    {id:"td-c3",cat:"tecnologia",sub:"Cursos, mentorias e implementações",tipo:"Curso",carga:"12h",nome:"IA Aplicada com Microsoft Copilot 365",tag:"IA generativa como aliada da autonomia — fazer melhor, com foco e estratégia.",oquee:"Capacita gestores e servidores a usar o Copilot no cotidiano (Word, Excel, Outlook, Teams), com engenharia de prompt e uso ético e responsável da IA no serviço público.",quem:"Gestores e servidores públicos.",formato:"Curso · 12h · online síncrono",dest:["IA generativa","Copilot no M365","Engenharia de prompt","Uso ético e seguro"],base:"Requer licença Microsoft Copilot for M365."},
+    {id:"td-c4",cat:"tecnologia",sub:"Cursos, mentorias e implementações",tipo:"Curso",carga:"24h",nome:"Do Dado à Decisão — Power Platform (curso)",tag:"Transformar dados institucionais em decisões — sem programação avançada.",oquee:"Curso que capacita gestores a automatizar processos e criar painéis de gestão com a Power Platform (Power Apps, Power Automate, Power BI), aplicando storytelling com dados.",quem:"Gestores e equipes administrativas/finalísticas.",formato:"Curso · 24h · híbrido",dest:["Power Apps/Automate/BI","Dashboards e KPIs","Governança de dados"],base:"Requer licença Microsoft 365 + Copilot."},
+    {id:"td-c5",cat:"tecnologia",sub:"Cursos, mentorias e implementações",tipo:"Programa",carga:"por fases",nome:"Implementação Tecnológica — Power Platform",tag:"Sair da capacitação e implantar, de ponta a ponta, a arquitetura digital da unidade.",oquee:"Diferente do curso, é um programa de implementação: estrutura processos, apps e painéis reais da unidade com a Power Platform, forma Citizen Developers internos e deixa a solução em produção. Conduzido por fases.",quem:"Unidades administrativas e finalísticas que querem digitalizar processos.",formato:"Programa de implementação · por fases (sob medida) · presencial/online",dest:["Process mining","Apps e automações","Dashboards em produção","Autonomia e governança"],base:"Requer licença Microsoft 365 + Copilot."},
+    {id:"td-c6",cat:"tecnologia",sub:"Cursos, mentorias e implementações",tipo:"Mentoria",carga:"30h",nome:"Mentoria — Liderança Digital 4.0",tag:"Do comando e controle presencial à gestão baseada em confiança, dados e resultados.",oquee:"Jornada estruturada que leva o gestor da Gestão Aquário (microgerenciamento) à liderança assíncrona, dominando o ecossistema Copilot 365, a metodologia OKR e rituais de acompanhamento por dados.",quem:"Gestores públicos.",formato:"Mentoria · 30h por grupo · híbrido",dest:["PDI Digital","Escritório virtual e Copilot","OKR (Planner/Loop)","Check-ins e dashboards"]}
+  ];
+
+  var GROUP_ORDER = {
+    lideranca:["Palestras","Cursos e workshops","Formações, mentorias e programas"],
+    inovacao:["Palestras","Formações, mentorias e programas"],
+    tecnologia:["Palestras","Cursos, mentorias e implementações"]
+  };
+
+  var AMPLIADO = {
+    lideranca:["OKR para Todos","Produtividade, Tempo e Teletrabalho","Construindo Equipes Resilientes","Times de Alto Desempenho","Coaching de Equipes","Diagnóstico e Desenvolvimento de Equipes","Team Building com Jogos (indoor/outdoor/online)","Gestão de Conflitos (Harmonia em Ação)","Gestão da Mudança (Adaptar e Evoluir, base Kotter)","Liderança e IE para Gestão de Pessoas","Habilidades Políticas, Networking e Influência","Mentoria para Líderes de Transformação","Planejamento de Sucessão","Comunicação Não Violenta na Prática","Gestão do Tempo","Oratória na Prática","Apresentações de Impacto","Storytelling com Dados","Coaching Individual","Linha Mindfulness (palestra e cursos)","Cine Debates"],
+    inovacao:["Inovação no Setor Público (palestra)","Cultura de Inovação","Design Thinking para Soluções Institucionais","Design Sprint em 5 dias","Gerenciando Projetos com Scrum","Metodologias Ágeis no Setor Público","Framework de Inovação passo a passo","Melhore Seus Processos (PDCA/Kaizen/Lean)","Ambidestria Organizacional","Reuniões Colaborativas com Miro","Planejando Sua Unidade para o Futuro","Inovação e Neurociência Aplicada","Estruturas Libertadoras para equipes e líderes"],
+    tecnologia:["IA Aplicada ao Setor Público","Engenharia de Prompt para LLMs","Ferramentas de IA para Produtividade","Transformação Digital e IA no Judiciário","Adaptabilidade Profissional diante da Transformação Digital","Trabalho Remoto e Equipes Híbridas (O Concreto Já Rachou)","Diagnóstico de Funções Impactadas","Automação de Processos Internos","Facilitação Online","Luz, Câmera e Educação"]
+  };
+
+  function _esc(s){ var d=document.createElement('div'); d.textContent=(s==null?'':s); return d.innerHTML; }
+
+  var WA_ICON='<svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20Zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3A2.8 2.8 0 0 0 6 8.3a4.9 4.9 0 0 0 1 2.6 11 11 0 0 0 4.3 3.8c1.6.7 1.9.6 2.3.5a2.4 2.4 0 0 0 1.5-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3Z"/></svg>';
+  function renderTrilhas(){
+    Object.keys(GROUP_ORDER).forEach(function(cat){
+      var host=document.querySelector('.cgroups[data-cat="'+cat+'"]'); if(!host) return;
+      var html=''; var idx=0;
+      GROUP_ORDER[cat].forEach(function(grp){
+        var items=CURSOS.filter(function(c){return c.cat===cat && c.sub===grp;});
+        if(!items.length) return;
+        html+='<div class="cgroup"><div class="cgroup-h">'+_esc(grp)+'</div><div class="cgrid">';
+        items.forEach(function(c){
+          var tone='tone'+(idx%4); idx++;
+          html+='<div class="ccard '+tone+'" tabindex="0" role="button" aria-label="'+_esc(c.nome)+'" data-id="'+_esc(c.id)+'">'
+            +'<div class="crow"><span class="ctype">'+_esc(c.tipo)+'</span><span class="cdur"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'+_esc(c.carga)+'</span></div>'
+            +'<h5>'+(c.star?'<span class="star">★</span> ':'')+_esc(c.nome)+'</h5><p>'+_esc(c.tag)+'</p><span class="cmore">Ver detalhes →</span>'
+            +'</div>';
+        });
+        html+='</div></div>';
+      });
+      if(AMPLIADO[cat] && AMPLIADO[cat].length){
+        html+='<details class="catalog-full"><summary>Catálogo ampliado — '+AMPLIADO[cat].length+' ações adicionais</summary><ul>';
+        AMPLIADO[cat].forEach(function(t){ html+='<li>'+_esc(t)+'</li>'; });
+        html+='</ul></details>';
+      }
+      host.innerHTML=html;
+    });
+  }
+  renderTrilhas();
+
+  /* preenche o select "Capacitação de interesse" do formulário com todas as ações */
+  (function(){
+    var sel=document.getElementById('interesse'); if(!sel || typeof CURSOS==='undefined') return;
+    var CATS={lideranca:"Liderança e Equipes", inovacao:"Inovação", tecnologia:"Transformação Digital"};
+    var custom=null;
+    for(var i=0;i<sel.options.length;i++){ if(/customizado/i.test(sel.options[i].text)){ custom=sel.options[i]; break; } }
+    Object.keys(CATS).forEach(function(cat){
+      var og=document.createElement('optgroup'); og.label=CATS[cat];
+      CURSOS.filter(function(c){return c.cat===cat;}).forEach(function(c){
+        var o=document.createElement('option'); o.textContent=c.tipo+" — "+c.nome+" ("+c.carga+")"; og.appendChild(o);
+      });
+      if(custom) sel.insertBefore(og, custom); else sel.appendChild(og);
+    });
+  })();
+
+  /* modal de detalhe */
+  (function(){
+    var m=document.getElementById('cursoModal'); if(!m) return;
+    var inner=m.querySelector('.cmodal-inner');
+    function byId(id){ for(var i=0;i<CURSOS.length;i++){ if(CURSOS[i].id===id) return CURSOS[i]; } return null; }
+    function waProposal(c){
+      if(!c) return;
+      var linhas=[
+        '*Solicitação de proposta — Inova Pública*','',
+        'Gostaria de uma proposta para:',
+        (c.tipo+' — '+c.nome+' ('+c.carga+')'),
+        (c.formato? 'Formato: '+c.formato : ''),
+        '',
+        'Meu órgão/instituição: '
+      ].filter(function(x){return x!==null && x!==undefined;});
+      window.open('https://wa.me/5561999158686?text='+encodeURIComponent(linhas.join('\n')),'_blank','noopener');
+    }
+    function prefill(nome){
+      var sel=document.getElementById('interesse'); if(!sel) return;
+      for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text.indexOf(nome)>-1||sel.options[i].value.indexOf(nome)>-1){ sel.selectedIndex=i; return; } }
+    }
+    function open(id){
+      var c=byId(id); if(!c) return;
+      var dest=(c.dest||[]).map(function(d){return '<li>'+_esc(d)+'</li>';}).join('');
+      inner.innerHTML =
+        '<button class="cmodal-close" aria-label="Fechar">✕</button>'
+        +'<div class="cmodal-top"><span class="ctype">'+_esc(c.tipo)+'</span><h3>'+(c.star?'<span class="star">★</span> ':'')+_esc(c.nome)+'</h3><p class="tagline">'+_esc(c.tag)+'</p></div>'
+        +'<div class="cmodal-body">'
+        +'<div class="row"><span class="chip">'+_esc(c.carga)+'</span><span class="chip">'+_esc((c.formato||'').split(' · ').slice(-1)[0])+'</span></div>'
+        +'<div class="row"><div class="lab">O que é</div><div class="val">'+_esc(c.oquee)+'</div></div>'
+        +(c.quem?'<div class="row"><div class="lab">Para quem</div><div class="val">'+_esc(c.quem)+'</div></div>':'')
+        +(c.formato?'<div class="row"><div class="lab">Formato</div><div class="val">'+_esc(c.formato)+'</div></div>':'')
+        +(dest?'<div class="row"><div class="lab">Destaques</div><ul>'+dest+'</ul></div>':'')
+        +(c.base?'<div class="row"><div class="lab">Base / prova social</div><div class="val">'+_esc(c.base)+'</div></div>':'')
+        +'<button type="button" class="cmodal-cta">'+WA_ICON+'Solicitar proposta pelo WhatsApp</button>'
+        +'</div>';
+      var cta=inner.querySelector('.cmodal-cta');
+      if(cta) cta.addEventListener('click',function(){ waProposal(c); close(); });
+      m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+      var cl=inner.querySelector('.cmodal-close'); if(cl) cl.addEventListener('click',close);
+    }
+    function close(){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+    document.addEventListener('click',function(e){
+      var card=e.target.closest?e.target.closest('.ccard[data-id]'):null;
+      if(card){ open(card.getAttribute('data-id')); return; }
+      if(e.target===m) close();
+    });
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'){ close(); }
+      if((e.key==='Enter'||e.key===' ')&&document.activeElement&&document.activeElement.classList&&document.activeElement.classList.contains('ccard')){ e.preventDefault(); open(document.activeElement.getAttribute('data-id')); }
+    });
+  })();
+
+
+
+  /* Versão evolução: motion system sutil, com fallback se GSAP não carregar */
+  (function(){
+    if(!document.body.classList.contains('evolucao')) return;
+    var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce || !window.gsap) return;
+    if(window.ScrollTrigger){ gsap.registerPlugin(ScrollTrigger); }
+    gsap.from('.hero .eyebrow,.hero h1,.hero p,.hero-cta',{
+      y:28,opacity:0,duration:1.05,stagger:.13,ease:'power3.out',delay:.12
+    });
+    gsap.utils.toArray('h2,.tcard h3').forEach(function(el){
+      gsap.from(el,{scrollTrigger:{trigger:el,start:'top 88%',once:true},y:18,opacity:0,duration:.68,ease:'power3.out'});
+    });
+    gsap.utils.toArray('.dna-card,.prog,.tcard,.depo,.stat').forEach(function(el){
+      gsap.from(el,{scrollTrigger:{trigger:el,start:'top 86%',once:true},y:30,opacity:0,duration:.76,ease:'power3.out'});
+    });
+    gsap.utils.toArray('.dna-ico,.prog-ico').forEach(function(el){
+      el.addEventListener('mouseenter',function(){gsap.to(el,{rotate:-2,scale:1.035,duration:.35,ease:'back.out(2)'});});
+      el.addEventListener('mouseleave',function(){gsap.to(el,{rotate:0,scale:1,duration:.35,ease:'power2.out'});});
+    });
+  })();
+</script>
+</body>
+</html>
