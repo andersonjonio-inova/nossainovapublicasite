@@ -73,6 +73,14 @@ h1,h2,h3,p{margin-top:0} h1,h2,h3{letter-spacing:-.045em;line-height:1.02} h1{fo
 .trail-side{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:20px}.trail-side h4{margin:0 0 8px;color:#fff;font-size:1.15rem}.trail-side p{font-size:.95rem;margin:0}.trail-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.trail-stat{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.10);border-radius:16px;padding:12px;font-size:.85rem;color:rgba(255,255,255,.72)}.trail-stat b{display:block;color:#fff;font-size:1.25rem}
 .course-area{display:none;margin-top:18px}.course-area.open{display:block}.course-group{margin:22px 0}.course-group h4{font-size:1.22rem;margin-bottom:12px;color:var(--ink)}.course-grid{display:grid;gap:14px}.course-card{position:relative;border-radius:24px;background:#fff;border:1px solid rgba(19,7,31,.09);box-shadow:0 14px 42px rgba(19,7,31,.07);padding:20px;overflow:hidden}.course-card::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:linear-gradient(180deg,var(--purple),var(--gold))}.course-card .meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}.course-card .pill{border-radius:999px;background:rgba(85,29,157,.08);color:var(--purple);padding:.28rem .56rem;font-size:.75rem;font-weight:900}.course-card h5{font-size:1.12rem;line-height:1.18;margin:0 0 8px;color:var(--ink);letter-spacing:-.025em}.course-card .tagline{font-family:Lora,serif;color:#7a5a12;font-size:1rem;margin-bottom:10px}.course-card p{font-size:.94rem;color:var(--muted);margin-bottom:10px}.course-card .dest{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.course-card .dest span{font-size:.78rem;border:1px solid rgba(19,7,31,.10);border-radius:999px;padding:.26rem .52rem;color:#51445f;background:#fbf8f1}
 .people.full .people-grid{grid-template-columns:1fr}.person-full{position:relative;min-height:430px;border-radius:30px;overflow:hidden;background:#251236;border:1px solid rgba(255,255,255,.12);cursor:pointer}.person-full img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .45s ease,filter .45s ease}.person-full::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 28%,rgba(19,7,31,.94) 78%)}.person-front,.person-bio{position:absolute;z-index:2;inset:auto 0 0;padding:22px;transition:.35s ease}.person-front h3,.person-bio h3{color:#fff;margin:0 0 6px}.person-front p{color:rgba(255,255,255,.78);margin:0;font-weight:800}.person-bio{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,rgba(19,7,31,.84),rgba(19,7,31,.97));opacity:0;transform:translateY(12px);overflow:auto}.person-bio p{color:rgba(255,255,255,.82);font-size:.9rem;line-height:1.5;max-width:34ch;margin:.35rem 0}.person-full:hover img,.person-full.bio-open img{transform:scale(1.05);filter:brightness(.5) saturate(.85) blur(1px)}.person-full:hover .person-front,.person-full.bio-open .person-front{opacity:0;transform:translateY(10px)}.person-full:hover .person-bio,.person-full.bio-open .person-bio{opacity:1;transform:none}.proof.full{background:#fff}.video-grid{display:grid;gap:16px;margin-top:28px}.video-proof{border-radius:26px;overflow:hidden;background:#160824;box-shadow:var(--shadow)}.video-proof video{width:100%;aspect-ratio:16/9;object-fit:cover}.video-proof figcaption{padding:16px 18px;color:#fff}.video-proof b{display:block;margin-bottom:4px}.video-proof span{color:rgba(255,255,255,.68);font-size:.9rem}.text-depos{display:grid;gap:16px;margin-top:18px}.text-depo{background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:24px;padding:20px;box-shadow:0 14px 44px rgba(19,7,31,.06)}.text-depo p{font-family:Lora,serif;font-size:1.08rem;color:var(--ink);line-height:1.42}.text-depo span{font-size:.86rem;color:var(--muted);font-weight:800}
+
+.course-detail-btn{margin-top:12px;border:0;border-radius:999px;background:var(--ink);color:#fff;padding:.72rem .9rem;font-weight:900;cursor:pointer;transition:.22s ease}.course-detail-btn:hover{transform:translateY(-1px);background:var(--purple)}
+.course-card.compact p{display:none}.course-card.compact .dest{margin-top:12px}.course-card.compact .tagline{min-height:2.7em}
+.course-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(9,3,16,.72);backdrop-filter:blur(12px)}
+.course-modal.open{display:flex}.course-dialog{width:min(720px,100%);max-height:min(82vh,760px);overflow:auto;border-radius:28px;background:#fff;color:var(--ink);box-shadow:0 32px 110px rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.24)}
+.course-dialog-head{padding:22px 24px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:16px}.course-dialog-head h3{font-size:clamp(1.45rem,3vw,2.15rem);margin:6px 0 0}.course-close{border:0;background:#f2edf7;color:var(--ink);border-radius:999px;width:42px;height:42px;font-size:1.4rem;line-height:1;cursor:pointer}.course-dialog-body{padding:18px 24px 24px}.course-dialog-body p{color:var(--muted)}.course-dialog-body .detail-block{margin:16px 0;padding:16px;border-radius:18px;background:#fbf8f1;border:1px solid rgba(19,7,31,.08)}.course-dialog-body .detail-block strong{display:block;color:var(--ink);margin-bottom:4px}.course-dialog-body .dest{display:flex;gap:8px;flex-wrap:wrap}.course-dialog-body .dest span{font-size:.82rem;border:1px solid rgba(19,7,31,.10);border-radius:999px;padding:.32rem .6rem;background:#fff;color:#51445f}
+body.modal-lock{overflow:hidden}
+
 @media(min-width:700px){.course-grid{grid-template-columns:repeat(2,1fr)}.people.full .people-grid{grid-template-columns:repeat(2,1fr)}.video-grid{grid-template-columns:repeat(2,1fr)}.text-depos{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:1020px){.trail-hero-inner{grid-template-columns:1.1fr .9fr;align-items:end}.course-grid{grid-template-columns:repeat(3,1fr)}.people.full .people-grid{grid-template-columns:repeat(4,1fr)}.video-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:520px){.trail-stats{grid-template-columns:1fr}.trail-action{width:100%;justify-content:center}.person-bio p{font-size:.94rem}.person-full{min-height:480px}}
@@ -110,7 +118,7 @@ h1,h2,h3,p{margin-top:0} h1,h2,h3{letter-spacing:-.045em;line-height:1.02} h1{fo
     <div class="hero-copy reveal">
       <p class="eyebrow">O novo DNA do serviço público</p>
       <h1 id="hero-title">Cultura pública se transforma por dentro.</h1>
-      <p class="hero-sub">A Inova Pública cria experiências de aprendizagem para órgãos públicos que precisam desenvolver servidores, fortalecer lideranças e transformar tecnologia em valor para o cidadão.</p>
+      <p class="hero-sub">Experiências de aprendizagem para órgãos públicos que querem formar servidores protagonistas, inovar com sentido e entregar mais valor ao cidadão.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#proposta">Solicitar uma proposta</a>
         <a class="btn btn-ghost" href="#dna">Entender o método</a>
@@ -128,14 +136,14 @@ h1,h2,h3,p{margin-top:0} h1,h2,h3{letter-spacing:-.045em;line-height:1.02} h1{fo
     <div class="problem-card big reveal">
       <p class="eyebrow dark">O problema invisível</p>
       <h2 id="problema-title">Ferramentas novas não mudam culturas antigas.</h2>
-      <p class="lead">Órgãos públicos investem em métodos, sistemas e capacitações, mas a mudança não se sustenta quando pessoas, sentido e prática institucional continuam desconectados.</p>
+      <p class="lead">Métodos e sistemas não sustentam mudança quando pessoas, sentido e prática continuam desconectados.</p>
     </div>
     <div class="problem-card reveal">
-      <p class="quote">A transformação começa quando o servidor deixa de ser tratado como recurso e passa a ser reconhecido como <strong>protagonista do valor público</strong>.</p>
+      <p class="quote">A mudança começa quando o servidor se reconhece como <strong>protagonista do valor público</strong>.</p>
       <ul class="check-list">
-        <li>Menos cursos decorativos, mais experiências que mudam comportamento.</li>
-        <li>Menos discurso de inovação, mais capacidade institucional instalada.</li>
-        <li>Menos tecnologia como fim, mais tecnologia a serviço do cidadão.</li>
+        <li>Experiências que mudam comportamento.</li>
+        <li>Inovação com capacidade instalada.</li>
+        <li>Tecnologia a serviço do cidadão.</li>
       </ul>
     </div>
   </div>
@@ -143,26 +151,26 @@ h1,h2,h3,p{margin-top:0} h1,h2,h3{letter-spacing:-.045em;line-height:1.02} h1{fo
 <section class="section dna" id="dna" aria-labelledby="dna-title">
   <div class="container">
     <p class="eyebrow">A nossa tese</p>
-    <h2 id="dna-title">O novo DNA público nasce da integração entre pessoas, inovação e transformação digital.</h2>
-    <p class="lead light">A Inova Pública trabalha onde a mudança realmente acontece: na cultura, nas relações, nos rituais de trabalho e na capacidade dos servidores de transformar problemas em entregas melhores para a sociedade.</p>
+    <h2 id="dna-title">Pessoas, inovação e tecnologia precisam atuar juntas.</h2>
+    <p class="lead light">A mudança acontece na cultura, nas relações e na forma como problemas viram entregas públicas.</p>
     <div class="dna-grid">
-      <article class="dna-card reveal" data-index="01"><div class="dna-icon">P</div><h3>Pessoas</h3><p>Nossos programas desenvolvem competências comportamentais, promovem colaboração em equipes e preparam líderes para inspirar e engajar com propósito.</p></article>
-      <article class="dna-card reveal" data-index="02"><div class="dna-icon">I</div><h3>Inovação</h3><p>Apoiamos lideranças e equipes na inovação no setor público, fortalecendo laboratórios e desenvolvendo competências para gerar valor público com criatividade e colaboração.</p></article>
-      <article class="dna-card reveal" data-index="03"><div class="dna-icon">D</div><h3>Transformação digital</h3><p>Apoiamos pessoas e equipes a aproveitar o potencial da transformação digital, repensando formas de trabalho e usando inteligência artificial e automação como aliadas estratégicas.</p></article>
+      <article class="dna-card reveal" data-index="01"><div class="dna-icon">P</div><h3>Pessoas</h3><p>Competências comportamentais, colaboração e liderança com propósito.</p></article>
+      <article class="dna-card reveal" data-index="02"><div class="dna-icon">I</div><h3>Inovação</h3><p>Métodos para transformar desafios reais em valor público.</p></article>
+      <article class="dna-card reveal" data-index="03"><div class="dna-icon">D</div><h3>Transformação digital</h3><p>IA, automação e colaboração digital como aliadas do trabalho humano.</p></article>
     </div>
-    <p class="dna-note reveal">A cultura organizacional é o eixo invisível que sustenta ou bloqueia qualquer mudança. Por isso, nosso trabalho não começa pela ferramenta. Começa pela consciência, pela prática e pelo servidor que decide servir melhor.</p>
+    <p class="dna-note reveal">A cultura sustenta ou bloqueia a mudança. Por isso, começamos pelas pessoas e chegamos à ferramenta com mais clareza.</p>
   </div>
 </section>
 <section class="section method" id="metodo" aria-labelledby="metodo-title">
   <div class="container">
     <p class="eyebrow dark">Como a mudança acontece</p>
-    <h2 id="metodo-title">Experiências que saem da sala de aula e entram na rotina do órgão.</h2>
-    <p class="lead">Cada projeto combina aprendizagem, facilitação e aplicação prática. O objetivo é criar repertório, comportamento e capacidade instalada.</p>
+    <h2 id="metodo-title">Aprendizagem que entra na rotina do órgão.</h2>
+    <p class="lead">Formação, prática e facilitação para criar capacidade institucional.</p>
     <div class="method-grid">
-      <article class="step reveal"><span class="num">1</span><h3>Escuta</h3><p>Entendemos o contexto, a cultura, as dores e o momento institucional.</p></article>
-      <article class="step reveal"><span class="num">2</span><h3>Formação</h3><p>Desenvolvemos competências humanas, gerenciais e digitais com linguagem pública.</p></article>
-      <article class="step reveal"><span class="num">3</span><h3>Prática</h3><p>Aplicamos métodos em desafios reais, conectando aprendizagem e entrega.</p></article>
-      <article class="step reveal"><span class="num">4</span><h3>Rede</h3><p>Formamos multiplicadores capazes de sustentar a mudança de dentro para fora.</p></article>
+      <article class="step reveal"><span class="num">1</span><h3>Escuta</h3><p>Lemos contexto, cultura e momento institucional.</p></article>
+      <article class="step reveal"><span class="num">2</span><h3>Formação</h3><p>Desenvolvemos competências com linguagem pública.</p></article>
+      <article class="step reveal"><span class="num">3</span><h3>Prática</h3><p>Aplicamos métodos em desafios reais.</p></article>
+      <article class="step reveal"><span class="num">4</span><h3>Rede</h3><p>Formamos multiplicadores internos.</p></article>
     </div>
   </div>
 </section>
@@ -170,8 +178,8 @@ h1,h2,h3,p{margin-top:0} h1,h2,h3{letter-spacing:-.045em;line-height:1.02} h1{fo
 <section class="section offer catalog" id="trilhas" aria-labelledby="trilhas-title">
   <div class="container">
     <div class="offer-head">
-      <div><p class="eyebrow dark">Trilhas e programas</p><h2 id="trilhas-title">Caminhos completos para formar protagonistas do novo DNA do serviço público.</h2></div>
-      <p class="lead">A página autoral continua enxuta na narrativa, mas agora traz a relação completa de palestras, cursos, formações, mentorias e programas. Clique em “Ver trilha”.</p>
+      <div><p class="eyebrow dark">Trilhas e programas</p><h2 id="trilhas-title">Trilhas para formar protagonistas do novo serviço público.</h2></div>
+      <p class="lead">Palestras, cursos, formações, mentorias e programas organizados por desafio. Clique em “Ver trilha”.</p>
     </div>
     <div class="catalog-tabs" role="tablist" aria-label="Trilhas da Inova Pública">
       <button class="catalog-tab active" type="button" data-trail="lideranca">Trilha Gerencial</button>
@@ -186,7 +194,7 @@ h1,h2,h3,p{margin-top:0} h1,h2,h3{letter-spacing:-.045em;line-height:1.02} h1{fo
   <div class="container">
     <p class="eyebrow dark">Provas e depoimentos</p>
     <h2 id="provas-title">De quem vive o serviço público para quem deseja novos caminhos de mudança.</h2>
-    <p class="lead">Depoimentos em vídeo e texto de participantes que vivenciaram formações conduzidas por servidores que conhecem o setor público por dentro.</p>
+    <p class="lead">Relatos de quem viveu formações conduzidas por servidores que conhecem o setor público por dentro.</p>
     <div class="logos" aria-label="Instituições com experiências relacionadas"><div class="logo-tile"><img src="assets/logos/jfsp.jpg" alt="Justiça Federal de São Paulo" loading="lazy"></div><div class="logo-tile"><img src="assets/logos/tjac.jpg" alt="Tribunal de Justiça do Acre" loading="lazy"></div><div class="logo-tile"><img src="assets/logos/trt13.png" alt="Tribunal Regional do Trabalho da 13ª Região" loading="lazy"></div></div>
     <blockquote class="testimonial reveal"><p>“Importante ter sido ministrado por servidores públicos. Em outros cursos, para empresas privadas, o conteúdo acaba não se aplicando ao nosso dia a dia. Aqui, foi diferente.”</p><span>Depoimento de participante</span></blockquote>
     <div class="video-grid">
@@ -210,8 +218,8 @@ h1,h2,h3,p{margin-top:0} h1,h2,h3{letter-spacing:-.045em;line-height:1.02} h1{fo
 <section class="section people full" aria-labelledby="people-title">
   <div class="container">
     <p class="eyebrow">Potencializadores</p>
-    <h2 id="people-title">Todos os instrutores da Inova Pública.</h2>
-    <p class="lead light">Servidores e especialistas que potencializam servidores. Passe o mouse ou toque no card para ver o currículo.</p>
+    <h2 id="people-title">Instrutores da Inova Pública.</h2>
+    <p class="lead light">Servidores e especialistas que potencializam servidores. Toque ou passe o mouse para ver o currículo.</p>
     <div class="people-grid">
       <article class="person-full reveal"><img src="assets/img/instrutor-jeanne-ppt.png" alt="Jeanne Nogueira" loading="lazy"><div class="person-front"><h3>Jeanne Nogueira</h3><p>Comunicação. Feedback. Pessoas. Liderança Feminina.</p></div><div class="person-bio"><h3>Jeanne Nogueira</h3><p>Atua há mais de 10 anos no desenvolvimento de pessoas, comunicação eficaz, cultura organizacional e formação de lideranças no serviço público.</p><p>Pedagoga pela UnB, pós-graduada em Gestão de Pessoas e mestre em Gestão Estratégica de Organizações.</p></div></article>
       <article class="person-full reveal"><img src="assets/img/instrutor-anderson-ppt.png" alt="Ânderson Porto" loading="lazy"><div class="person-front"><h3>Ânderson Porto</h3><p>Gestão Pública. Inovação. Negociação. Equipes híbridas.</p></div><div class="person-bio"><h3>Ânderson Porto</h3><p>Facilitador, palestrante e instrutor em programas formativos para órgãos do Judiciário. Mestrando em Gestão Pública pela UnB.</p><p>Criador do Canvas de Negociação Criativa e premiado pelo case Comunidade STJ Officeless.</p></div></article>
@@ -255,6 +263,16 @@ h1,h2,h3,p{margin-top:0} h1,h2,h3{letter-spacing:-.045em;line-height:1.02} h1{fo
   els.forEach(function(e){io.observe(e)});
 })();
 </script>
+
+<div class="course-modal" id="course-modal" aria-hidden="true">
+  <div class="course-dialog" role="dialog" aria-modal="true" aria-labelledby="course-modal-title">
+    <div class="course-dialog-head">
+      <div><span class="tag" id="course-modal-type"></span><h3 id="course-modal-title"></h3></div>
+      <button class="course-close" type="button" aria-label="Fechar detalhes">×</button>
+    </div>
+    <div class="course-dialog-body" id="course-modal-body"></div>
+  </div>
+</div>
 
 <script>
 var CURSOS = [
@@ -317,12 +335,24 @@ function renderTrail(cat){
   var t=TRAILS[cat];
   var items=CURSOS.filter(function(c){return c.cat===cat});
   var groups={}; items.forEach(function(c){(groups[c.sub]||(groups[c.sub]=[])).push(c)});
-  var groupHtml=Object.keys(groups).map(function(g){return '<div class="course-group"><h4>'+esc(g)+'</h4><div class="course-grid">'+groups[g].map(function(c){return '<article class="course-card"><div class="meta"><span class="pill">'+esc(c.tipo)+'</span><span class="pill">'+esc(c.carga)+'</span></div><h5>'+esc(c.nome)+'</h5><div class="tagline">'+esc(c.tag)+'</div><p>'+esc(c.oquee)+'</p><p><strong>Para quem:</strong> '+esc(c.quem)+'</p><p><strong>Formato:</strong> '+esc(c.formato)+'</p><div class="dest">'+(c.dest||[]).map(function(d){return '<span>'+esc(d)+'</span>'}).join('')+'</div></article>'}).join('')+'</div></div>'}).join('');
+  var groupHtml=Object.keys(groups).map(function(g){return '<div class="course-group"><h4>'+esc(g)+'</h4><div class="course-grid">'+groups[g].map(function(c){return '<article class="course-card compact"><div class="meta"><span class="pill">'+esc(c.tipo)+'</span><span class="pill">'+esc(c.carga)+'</span></div><h5>'+esc(c.nome)+'</h5><div class="tagline">'+esc(c.tag)+'</div><div class="dest">'+(c.dest||[]).slice(0,3).map(function(d){return '<span>'+esc(d)+'</span>'}).join('')+'</div><button class="course-detail-btn" type="button" data-course-id="'+esc(c.id)+'">Ver detalhes</button></article>'}).join('')+'</div></div>'}).join('');
   return '<div class="trail-panel '+(cat==='lideranca'?'active':'')+'" data-trail-panel="'+cat+'"><div class="trail-hero" style="--trail-img:url('+t.img+')"><div class="trail-hero-inner"><div><span class="trail-kicker">Inova Pública · Formação</span><h3>'+t.title+'</h3><p>'+t.desc+'</p><div class="trail-stats"><div class="trail-stat"><b>'+items.length+'</b> experiências</div><div class="trail-stat"><b>3</b> formatos</div><div class="trail-stat"><b>Sob medida</b> para o órgão</div></div><div class="trail-actions"><button class="trail-action primary" type="button" data-open-courses>Ver trilha</button><a class="trail-action ghost" href="#proposta">Solicitar proposta</a></div></div><aside class="trail-side"><h4>'+t.title+'</h4><p>'+t.side+'</p></aside></div></div><div class="course-area" data-course-area>'+groupHtml+'</div></div>';
 }
 function initCatalog(){var host=document.getElementById('trail-panels'); if(!host) return; host.innerHTML=['lideranca','inovacao','tecnologia'].map(renderTrail).join(''); document.querySelectorAll('.catalog-tab').forEach(function(btn){btn.addEventListener('click',function(){var cat=btn.dataset.trail; document.querySelectorAll('.catalog-tab').forEach(function(b){b.classList.toggle('active',b===btn)}); document.querySelectorAll('[data-trail-panel]').forEach(function(p){p.classList.toggle('active',p.dataset.trailPanel===cat)});});}); document.addEventListener('click',function(e){var b=e.target.closest('[data-open-courses]'); if(!b)return; var panel=b.closest('[data-trail-panel]'); var area=panel.querySelector('[data-course-area]'); area.classList.toggle('open'); b.textContent=area.classList.contains('open')?'Ocultar trilha':'Ver trilha'; if(area.classList.contains('open')) area.scrollIntoView({behavior:'smooth',block:'start'});});}
 function initPeopleTouch(){document.addEventListener('click',function(e){var card=e.target.closest('.person-full'); if(!card) return; document.querySelectorAll('.person-full.bio-open').forEach(function(c){if(c!==card)c.classList.remove('bio-open')}); card.classList.toggle('bio-open');});}
-document.addEventListener('DOMContentLoaded',function(){initCatalog();initPeopleTouch();});
+
+function openCourseModal(id){
+  var c=CURSOS.find(function(x){return x.id===id}); if(!c) return;
+  var modal=document.getElementById('course-modal');
+  document.getElementById('course-modal-type').textContent=c.tipo+' · '+c.carga;
+  document.getElementById('course-modal-title').textContent=c.nome;
+  document.getElementById('course-modal-body').innerHTML='<p class="tagline">'+esc(c.tag)+'</p><div class="detail-block"><strong>O que é</strong><p>'+esc(c.oquee)+'</p></div><div class="detail-block"><strong>Para quem</strong><p>'+esc(c.quem)+'</p></div><div class="detail-block"><strong>Formato</strong><p>'+esc(c.formato)+'</p></div><div class="detail-block"><strong>Focos da experiência</strong><div class="dest">'+(c.dest||[]).map(function(d){return '<span>'+esc(d)+'</span>'}).join('')+'</div></div>';
+  modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.classList.add('modal-lock');
+  var close=modal.querySelector('.course-close'); if(close) close.focus();
+}
+function closeCourseModal(){var modal=document.getElementById('course-modal'); if(!modal)return; modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.classList.remove('modal-lock');}
+function initCourseModal(){document.addEventListener('click',function(e){var b=e.target.closest('[data-course-id]'); if(b){openCourseModal(b.dataset.courseId);return;} if(e.target.matches('.course-modal,.course-close')) closeCourseModal();}); document.addEventListener('keydown',function(e){if(e.key==='Escape') closeCourseModal();});}
+document.addEventListener('DOMContentLoaded',function(){initCatalog();initPeopleTouch();initCourseModal();});
 </script>
 
 </body>
