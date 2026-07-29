@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Canvas de Negociação Criativa | Inova Pública</title>
+  <meta name="description" content="Metodologia visual para desenvolver gestores públicos capazes de construir acordos inovadores, colaborativos e orientados ao interesse público." />
+  <style>
+    :root {
+      --bg: #071018;
+      --bg-2: #0d1723;
+      --ink: #f5f1e8;
+      --muted: #b9c4cf;
+      --line: rgba(255,255,255,.14);
+      --gold: #d6a84f;
+      --gold-2: #f0cc7c;
+      --cyan: #4cc9f0;
+      --green: #80ed99;
+      --card: rgba(255,255,255,.065);
+      --card-2: rgba(255,255,255,.095);
+      --shadow: 0 24px 80px rgba(0,0,0,.42);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(76,201,240,.20), transparent 34%),
+        radial-gradient(circle at 82% 18%, rgba(214,168,79,.20), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(128,237,153,.10), transparent 28%),
+        linear-gradient(180deg, #061018 0%, #0b1320 48%, #070b12 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.75), transparent 82%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7,16,24,.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+      letter-spacing: .02em;
+      font-weight: 700;
+    }
+
+    .mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: conic-gradient(from 210deg, var(--gold), var(--cyan), var(--green), var(--gold));
+      box-shadow: 0 0 32px rgba(214,168,79,.3);
+      position: relative;
+    }
+    .mark::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid rgba(255,255,255,.2);
+    }
+
+    .links { display: flex; gap: 18px; align-items: center; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; color: var(--muted); }
+    .links a:hover { color: var(--ink); }
+
+    .hero { padding: 92px 0 58px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(214,168,79,.35);
+      background: rgba(214,168,79,.08);
+      color: var(--gold-2);
+      border-radius: 999px;
+      font: 700 12px/1 ui-sans-serif, system-ui, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    h1, h2, h3 { line-height: 1.08; margin: 0; letter-spacing: -.03em; }
+    h1 { font-size: clamp(44px, 7vw, 86px); margin-top: 24px; }
+    h2 { font-size: clamp(34px, 4.8vw, 58px); }
+    h3 { font-size: 26px; }
+    p { color: var(--muted); margin: 0; }
+    .lead { font-size: clamp(18px, 2vw, 23px); margin-top: 24px; max-width: 720px; }
+    .gold { color: var(--gold-2); }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font: 800 14px/1 ui-sans-serif, system-ui, sans-serif;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.35); }
+    .primary { background: linear-gradient(135deg, var(--gold), var(--gold-2)); color: #1a1206; border: 0; }
+    .secondary { background: rgba(255,255,255,.07); }
+    .ai { background: linear-gradient(135deg, rgba(76,201,240,.92), rgba(128,237,153,.92)); color: #061018; border: 0; }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.045));
+      border-radius: 34px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -80px -120px auto auto;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(214,168,79,.32), transparent 66%);
+    }
+    .canvas-mini {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      position: relative;
+    }
+    .cell {
+      min-height: 104px;
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(7,16,24,.62);
+    }
+    .cell b { display: block; font: 800 13px/1.3 ui-sans-serif, system-ui, sans-serif; color: var(--ink); margin-bottom: 8px; }
+    .cell span { color: var(--muted); font: 500 13px/1.45 ui-sans-serif, system-ui, sans-serif; }
+
+    section { padding: 78px 0; }
+    .section-head { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; align-items: end; margin-bottom: 34px; }
+    .section-head p { font-size: 18px; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 14px 44px rgba(0,0,0,.18);
+    }
+    .num { color: var(--gold-2); font: 900 13px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
+    .card p { margin-top: 12px; }
+
+    .pitch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .pitch .card:nth-child(3), .pitch .card:nth-child(4) { min-height: 250px; }
+
+    .steps { display: grid; gap: 14px; }
+    .step {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 18px;
+      padding: 20px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.055);
+    }
+    .step-code { color: var(--gold-2); font: 900 18px/1 ui-sans-serif, system-ui, sans-serif; }
+
+    .course-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .lesson {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 18px 60px rgba(0,0,0,.24);
+    }
+    .video { position: relative; aspect-ratio: 16/9; background: #000; }
+    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .lesson-body { padding: 20px; }
+    .lesson-body small { display: block; color: var(--gold-2); font: 800 12px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
+    .lesson-body p { margin-top: 10px; }
+
+    .ai-panel {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+      padding: 34px;
+      border: 1px solid rgba(76,201,240,.32);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(76,201,240,.20), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.045));
+      box-shadow: var(--shadow);
+    }
+    .ai-list { display: grid; gap: 12px; }
+    .ai-list div { padding: 14px 16px; background: rgba(7,16,24,.52); border: 1px solid var(--line); border-radius: 18px; color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; }
+
+    footer { padding: 42px 0; border-top: 1px solid var(--line); color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .links { display: none; }
+      .hero-grid, .section-head, .pitch, .ai-panel { grid-template-columns: 1fr; }
+      .cards, .course-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 58px; }
+      .canvas-mini { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Canvas de Negociação Criativa">
+        <span class="mark" aria-hidden="true"></span>
+        <span>Canvas de Negociação Criativa</span>
+      </a>
+      <div class="links">
+        <a href="#pitch">Pitch</a>
+        <a href="#canvas">Canvas</a>
+        <a href="#curso">Mini curso</a>
+        <a href="#assistente">Assistente IA</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Inovação pública em sistemas abertos</span>
+          <h1>Negociar melhor é uma competência pública de <span class="gold">inovação</span>.</h1>
+          <p class="lead">Uma metodologia visual para ajudar gestores públicos a preparar e conduzir negociações complexas, transformando conflitos e interesses divergentes em acordos colaborativos, sustentáveis e orientados ao interesse público.</p>
+          <div class="actions">
+            <a class="btn primary" href="#pitch">Ver proposta</a>
+            <a class="btn secondary" href="#curso">Acessar mini curso</a>
+            <a class="btn ai" href="#assistente">Falar com o assistente IA</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Resumo visual do canvas">
+          <div class="canvas-mini">
+            <div class="cell"><b>1. Propósito</b><span>Por que estamos negociando e o que realmente está em jogo?</span></div>
+            <div class="cell"><b>2. Interesses</b><span>Quais necessidades movem cada parte além das posições declaradas?</span></div>
+            <div class="cell"><b>3. Alternativas</b><span>Qual é o mínimo aceitável, a melhor saída e o pior cenário?</span></div>
+            <div class="cell"><b>4. Valor público</b><span>Como expandir possibilidades e construir acordos sustentáveis?</span></div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="pitch">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Estrutura do pitch</h2>
+          <p>O Canvas de Negociação Criativa responde a uma lacuna prática: gestores públicos negociam todos os dias, mas raramente recebem uma ferramenta clara para transformar negociação em método, aprendizagem e criação de valor público.</p>
+        </div>
+        <div class="pitch">
+          <article class="card">
+            <div class="num">Problema</div>
+            <h3>Negociação ainda é tratada como improviso</h3>
+            <p>Conflitos, escassez de recursos, metas institucionais e interesses divergentes fazem parte da rotina pública. Sem método, surgem impasses, decisões reativas, retrabalho e acordos frágeis.</p>
+          </article>
+          <article class="card">
+            <div class="num">Solução</div>
+            <h3>Uma ferramenta visual para preparar acordos</h3>
+            <p>O Canvas organiza propósito, partes envolvidas, interesses, benefícios, riscos, alternativas, impactos e propostas colaborativas em uma estrutura prática para reuniões, oficinas e casos reais.</p>
+          </article>
+          <article class="card">
+            <div class="num">Inovação</div>
+            <h3>Criatividade e negociação no quadrante Sistemas Abertos</h3>
+            <p>A proposta se apoia no modelo de competências gerenciais inspirado em Quinn, conectando negociação, criatividade, persuasão, articulação, visão sistêmica, atuação em rede e gestão da mudança.</p>
+          </article>
+          <article class="card">
+            <div class="num">Impacto</div>
+            <h3>Acordos melhores para problemas complexos</h3>
+            <p>O resultado esperado é melhorar negociações internas e interinstitucionais, reduzir impasses, fortalecer comunicação, desenvolver gestores e ampliar a capacidade de gerar valor para a sociedade.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="canvas">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Como o Canvas conduz a negociação</h2>
+          <p>A ferramenta tira o gestor do piloto automático da barganha posicional e cria uma trilha de pensamento para clarificar, explorar, convergir, cocriar e comprometer.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step-code">01</div><div><h3>Clarificação</h3><p>Identifica o propósito, as partes envolvidas e os interesses reais por trás das posições iniciais.</p></div></div>
+          <div class="step"><div class="step-code">02</div><div><h3>Divergência</h3><p>Amplia possibilidades, levanta benefícios, riscos, alternativas e cenários antes de fechar prematuramente uma solução.</p></div></div>
+          <div class="step"><div class="step-code">03</div><div><h3>Convergência</h3><p>Seleciona caminhos viáveis com critérios objetivos, limites claros e leitura das consequências para cada parte.</p></div></div>
+          <div class="step"><div class="step-code">04</div><div><h3>Integração e compromisso</h3><p>Transforma interesses compartilhados em propostas colaborativas, sustentáveis e orientadas ao interesse público.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="curso">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Mini curso de Negociação Criativa</h2>
+          <p>Uma trilha curta para compreender os fundamentos, superar mitos, diferenciar tipos de negociação, aplicar o Canvas e preparar o terreno com comunicação pré-suasiva ética.</p>
+        </div>
+        <div class="course-grid">
+          <article class="lesson">
+            <div class="video"><iframe src="https://www.youtube.com/embed/Jf66RZLK36M" title="O que é negociação?" allowfullscreen loading="lazy"></iframe></div>
+            <div class="lesson-body"><small>Aula 1</small><h3>O que é negociação?</h3><p>Fundamentos da negociação criativa, escuta ativa, empatia e construção de valor mútuo.</p></div>
+          </article>
+          <article class="lesson">
+            <div class="video"><iframe src="https://www.youtube.com/embed/PPPmRIzIh10" title="Mitos e erros em negociações" allowfullscreen loading="lazy"></iframe></div>
+            <div class="lesson-body"><small>Aula 2</small><h3>Mitos e erros em negociações</h3><p>Crenças equivocadas, comunicação ineficaz, ego, emoções e impacto de longo prazo.</p></div>
+          </article>
+          <article class="lesson">
+            <div class="video"><iframe src="https://www.youtube.com/embed/QqRYOZvUbfs" title="Tipos de Negociação" allowfullscreen loading="lazy"></iframe></div>
+            <div class="lesson-body"><small>Aula 3</small><h3>Tipos de negociação</h3><p>Negociação distributiva, integrativa, baseada em posições, baseada em interesses e estilos colaborativos.</p></div>
+          </article>
+          <article class="lesson">
+            <div class="video"><iframe src="https://www.youtube.com/embed/oRZj63jJA68" title="Canvas de Negociação Criativa Parte 1" allowfullscreen loading="lazy"></iframe></div>
+            <div class="lesson-body"><small>Aula 4.1</small><h3>Canvas, parte 1</h3><p>Clarificação, divergência, partes envolvidas, interesses e ampliação do campo de possibilidades.</p></div>
+          </article>
+          <article class="lesson">
+            <div class="video"><iframe src="https://www.youtube.com/embed/P6fJcqAGlvg" title="Canvas de Negociação Criativa Parte 2" allowfullscreen loading="lazy"></iframe></div>
+            <div class="lesson-body"><small>Aula 4.2</small><h3>Canvas, parte 2</h3><p>Convergência, integração, cocriação, propostas colaborativas e compromisso sustentável.</p></div>
+          </article>
+          <article class="lesson">
+            <div class="video"><iframe src="https://www.youtube.com/embed/czaBYoq-5s8" title="Comunicação Pré-Suasiva na Negociação Criativa" allowfullscreen loading="lazy"></iframe></div>
+            <div class="lesson-body"><small>Aula 5</small><h3>Comunicação pré-suasiva</h3><p>Como preparar atenção, confiança e receptividade antes da proposta, sem manipulação e com ética.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="assistente">
+      <div class="wrap">
+        <div class="ai-panel">
+          <div>
+            <span class="eyebrow">Próxima etapa</span>
+            <h2 style="margin-top:18px">Assistente IA especialista em Negociação Criativa</h2>
+            <p class="lead">Um agente para orientar gestores no preenchimento do Canvas, simular conversas difíceis, sugerir perguntas estratégicas e apoiar a construção de acordos colaborativos.</p>
+            <div class="actions">
+              <a class="btn ai" href="#assistente" data-pendente="link-grupo-telegram" target="_blank" rel="noopener">Assistente IA em breve</a>
+              <a class="btn secondary" href="https://www.youtube.com/@InovaP%C3%BAblica" target="_blank" rel="noopener">Ver canal Inova Pública</a>
+            </div>
+          </div>
+          <div class="ai-list" aria-label="Capacidades do assistente">
+            <div>Diagnosticar o contexto da negociação e os interesses envolvidos.</div>
+            <div>Ajudar a preencher cada campo do Canvas passo a passo.</div>
+            <div>Gerar alternativas, perguntas, critérios objetivos e propostas colaborativas.</div>
+            <div>Simular papéis, resistências e cenários para preparação de reuniões.</div>
+            <div>Manter foco ético, institucional e orientado ao interesse público.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>Canvas de Negociação Criativa · Inova Pública</div>
+      <div>Metodologia visual para acordos públicos melhores.</div>
+    </div>
+  </footer>
+</body>
+</html>
