@@ -255,6 +255,60 @@
     .lesson-body small { display: block; color: var(--gold); font: 800 12px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
     .lesson-body p { margin-top: 10px; }
 
+    .materials {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+    .material-link {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(240,200,120,.20);
+      background: rgba(240,200,120,.055);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .material-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(240,200,120,.42);
+      background: rgba(240,200,120,.09);
+    }
+    .material-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(240,200,120,.24), rgba(255,248,230,.08));
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: .04em;
+    }
+    .material-title {
+      display: block;
+      color: #fff8e6;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .material-meta {
+      display: block;
+      margin-top: 4px;
+      color: #d8d0bf;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .material-open {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
     .ai-panel {
       display: grid;
       grid-template-columns: .9fr 1.1fr;
@@ -387,27 +441,27 @@
         <div class="course-grid">
           <article class="lesson">
             <div class="video"><iframe src="https://www.youtube.com/embed/Jf66RZLK36M" title="O que é negociação?" allowfullscreen loading="lazy"></iframe></div>
-            <div class="lesson-body"><small>Aula 1</small><h3>O que é negociação?</h3><p>Fundamentos da negociação criativa, escuta ativa, empatia e construção de valor mútuo.</p></div>
+            <div class="lesson-body"><small>Aula 1</small><h3>O que é negociação?</h3><p>Fundamentos da negociação criativa, escuta ativa, empatia e construção de valor mútuo.</p><div class="materials"><a class="material-link" href="materiais/01-o-que-e-negociacao.pdf" target="_blank" rel="noopener"><span class="material-icon">PDF</span><span><span class="material-title">O que é Negociação?</span><span class="material-meta">Panorama conceitual sob diferentes perspectivas.</span></span><span class="material-open">Abrir ↗</span></a></div></div>
           </article>
           <article class="lesson">
             <div class="video"><iframe src="https://www.youtube.com/embed/PPPmRIzIh10" title="Mitos e erros em negociações" allowfullscreen loading="lazy"></iframe></div>
-            <div class="lesson-body"><small>Aula 2</small><h3>Mitos e erros em negociações</h3><p>Crenças equivocadas, comunicação ineficaz, ego, emoções e impacto de longo prazo.</p></div>
+            <div class="lesson-body"><small>Aula 2</small><h3>Mitos e erros em negociações</h3><p>Crenças equivocadas, comunicação ineficaz, ego, emoções e impacto de longo prazo.</p><div class="materials"><a class="material-link" href="materiais/02-mitos-e-erros-em-negociacao.pdf" target="_blank" rel="noopener"><span class="material-icon">PDF</span><span><span class="material-title">Mitos e Erros em Negociação</span><span class="material-meta">O que atrapalha a mesa de negociação e como evitar armadilhas comuns.</span></span><span class="material-open">Abrir ↗</span></a></div></div>
           </article>
           <article class="lesson">
             <div class="video"><iframe src="https://www.youtube.com/embed/QqRYOZvUbfs" title="Tipos de Negociação" allowfullscreen loading="lazy"></iframe></div>
-            <div class="lesson-body"><small>Aula 3</small><h3>Tipos de negociação</h3><p>Negociação distributiva, integrativa, baseada em posições, baseada em interesses e estilos colaborativos.</p></div>
+            <div class="lesson-body"><small>Aula 3</small><h3>Tipos de negociação</h3><p>Negociação distributiva, integrativa, baseada em posições, baseada em interesses e estilos colaborativos.</p><div class="materials"><a class="material-link" href="materiais/03-tipos-de-negociacao.pdf" target="_blank" rel="noopener"><span class="material-icon">PDF</span><span><span class="material-title">Tipos de Negociação</span><span class="material-meta">Abordagens, aplicações, limites e escolha estratégica do caminho de negociação.</span></span><span class="material-open">Abrir ↗</span></a></div></div>
           </article>
           <article class="lesson">
             <div class="video"><iframe src="https://www.youtube.com/embed/oRZj63jJA68" title="Canvas de Negociação Criativa Parte 1" allowfullscreen loading="lazy"></iframe></div>
-            <div class="lesson-body"><small>Aula 4.1</small><h3>Canvas, parte 1</h3><p>Clarificação, divergência, partes envolvidas, interesses e ampliação do campo de possibilidades.</p></div>
+            <div class="lesson-body"><small>Aula 4.1</small><h3>Canvas, parte 1</h3><p>Clarificação, divergência, partes envolvidas, interesses e ampliação do campo de possibilidades.</p><div class="materials"><a class="material-link" href="materiais/04-negociacao-criativa.pdf" target="_blank" rel="noopener"><span class="material-icon">PDF</span><span><span class="material-title">Negociação Criativa</span><span class="material-meta">Base criativa, divergência, convergência, terceiro lado e aplicação ao Canvas.</span></span><span class="material-open">Abrir ↗</span></a></div></div>
           </article>
           <article class="lesson">
             <div class="video"><iframe src="https://www.youtube.com/embed/P6fJcqAGlvg" title="Canvas de Negociação Criativa Parte 2" allowfullscreen loading="lazy"></iframe></div>
-            <div class="lesson-body"><small>Aula 4.2</small><h3>Canvas, parte 2</h3><p>Convergência, integração, cocriação, propostas colaborativas e compromisso sustentável.</p></div>
+            <div class="lesson-body"><small>Aula 4.2</small><h3>Canvas, parte 2</h3><p>Convergência, integração, cocriação, propostas colaborativas e compromisso sustentável.</p><div class="materials"><a class="material-link" href="materiais/04-negociacao-criativa.pdf" target="_blank" rel="noopener"><span class="material-icon">PDF</span><span><span class="material-title">Negociação Criativa</span><span class="material-meta">Material de apoio da Aula 4, usado nas duas partes do Canvas.</span></span><span class="material-open">Abrir ↗</span></a></div></div>
           </article>
           <article class="lesson">
             <div class="video"><iframe src="https://www.youtube.com/embed/czaBYoq-5s8" title="Comunicação Pré-Suasiva na Negociação Criativa" allowfullscreen loading="lazy"></iframe></div>
-            <div class="lesson-body"><small>Aula 5</small><h3>Comunicação pré-suasiva</h3><p>Como preparar atenção, confiança e receptividade antes da proposta, sem manipulação e com ética.</p></div>
+            <div class="lesson-body"><small>Aula 5</small><h3>Comunicação pré-suasiva</h3><p>Como preparar atenção, confiança e receptividade antes da proposta, sem manipulação e com ética.</p><div class="materials"><a class="material-link" href="materiais/05-comunicacao-pre-suasiva.pdf" target="_blank" rel="noopener"><span class="material-icon">PDF</span><span><span class="material-title">Comunicação Pré-Suasiva na Negociação Criativa</span><span class="material-meta">Modelos de abertura, divergência, convergência, fechamento e compromisso.</span></span><span class="material-open">Abrir ↗</span></a></div></div>
           </article>
         </div>
       </div>
