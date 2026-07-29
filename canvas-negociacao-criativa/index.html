@@ -9,13 +9,13 @@
     :root {
       --bg: #050403;
       --bg-2: #0b0905;
-      --ink: #fff6d6;
-      --muted: #cbbd94;
+      --ink: #ffffff;
+      --muted: #d8d0bf;
       --line: rgba(240,200,120,.18);
       --gold: #f0c878;
-      --gold-2: #dcc864;
-      --copper: #a66a2c;
-      --paper: #f7e3b3;
+      --gold-2: #fff4d6;
+      --copper: #c8943f;
+      --paper: #fff8e6;
       --card: rgba(255,246,214,.055);
       --card-2: rgba(240,200,120,.10);
       --shadow: 0 24px 80px rgba(0,0,0,.42);
@@ -113,20 +113,21 @@
       padding: 8px 12px;
       border: 1px solid rgba(240,200,120,.42);
       background: rgba(240,200,120,.075);
-      color: var(--gold-2);
+      color: var(--gold);
       border-radius: 999px;
       font: 700 12px/1 ui-sans-serif, system-ui, sans-serif;
       text-transform: uppercase;
       letter-spacing: .12em;
     }
 
-    h1, h2, h3 { line-height: 1.08; margin: 0; letter-spacing: -.03em; }
+    /* Tipografia V1 premium institucional: branco para leitura, dourado para sinalização */
+    h1, h2, h3 { line-height: 1.08; margin: 0; letter-spacing: -.03em; color: #ffffff; }
     h1 { font-size: clamp(44px, 7vw, 86px); margin-top: 24px; }
-    h2 { font-size: clamp(34px, 4.8vw, 58px); }
-    h3 { font-size: 26px; }
-    p { color: var(--muted); margin: 0; }
-    .lead { font-size: clamp(18px, 2vw, 23px); margin-top: 24px; max-width: 720px; }
-    .gold { color: var(--gold-2); }
+    h2 { font-size: clamp(34px, 4.8vw, 58px); color: #fff8e6; }
+    h3 { font-size: 26px; color: #fff4d6; }
+    p { color: #d8d0bf; margin: 0; }
+    .lead { font-size: clamp(18px, 2vw, 23px); margin-top: 24px; max-width: 720px; color: #e8e0cf; }
+    .gold { color: var(--gold); }
 
     .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
     .btn {
@@ -141,9 +142,9 @@
       transition: transform .2s ease, background .2s ease, border-color .2s ease;
     }
     .btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.35); }
-    .primary { background: linear-gradient(135deg, var(--gold), var(--paper)); color: #1a1206; border: 0; }
+    .primary { background: linear-gradient(135deg, var(--gold), var(--paper)); color: #120d05; border: 0; }
     .secondary { background: rgba(240,200,120,.065); }
-    .ai { background: linear-gradient(135deg, var(--copper), var(--gold)); color: #1a1206; border: 0; }
+    .ai { background: linear-gradient(135deg, var(--copper), var(--gold)); color: #120d05; border: 0; }
 
     .hero-card {
       border: 1px solid var(--line);
@@ -185,8 +186,8 @@
       border: 1px solid rgba(240,200,120,.16);
       background: rgba(5,4,3,.74);
     }
-    .cell b { display: block; font: 800 13px/1.3 ui-sans-serif, system-ui, sans-serif; color: var(--ink); margin-bottom: 8px; }
-    .cell span { color: var(--muted); font: 500 13px/1.45 ui-sans-serif, system-ui, sans-serif; }
+    .cell b { display: block; font: 800 13px/1.3 ui-sans-serif, system-ui, sans-serif; color: #fff8e6; margin-bottom: 8px; }
+    .cell span { color: #d8d0bf; font: 500 13px/1.45 ui-sans-serif, system-ui, sans-serif; }
 
     section { padding: 78px 0; }
     .section-head { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; align-items: end; margin-bottom: 34px; }
@@ -200,7 +201,7 @@
       border-radius: var(--radius);
       box-shadow: 0 14px 44px rgba(0,0,0,.18);
     }
-    .num { color: var(--gold-2); font: 900 13px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
+    .num { color: var(--gold); font: 900 13px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
     .card p { margin-top: 12px; }
 
     .pitch {
@@ -220,7 +221,7 @@
       border: 1px solid var(--line);
       background: rgba(255,255,255,.055);
     }
-    .step-code { color: var(--gold-2); font: 900 18px/1 ui-sans-serif, system-ui, sans-serif; }
+    .step-code { color: var(--gold); font: 900 18px/1 ui-sans-serif, system-ui, sans-serif; }
 
 
     .print-cta {
@@ -251,7 +252,7 @@
     .video { position: relative; aspect-ratio: 16/9; background: #000; }
     .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .lesson-body { padding: 20px; }
-    .lesson-body small { display: block; color: var(--gold-2); font: 800 12px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
+    .lesson-body small { display: block; color: var(--gold); font: 800 12px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
     .lesson-body p { margin-top: 10px; }
 
     .ai-panel {
