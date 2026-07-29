@@ -410,13 +410,74 @@
     .ai-list { display: grid; gap: 12px; }
     .ai-list div { padding: 14px 16px; background: rgba(3,3,3,.72); border: 1px solid var(--line); border-radius: 18px; color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; }
 
+    .author-section {
+      padding-top: 24px;
+    }
+    .author-card {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 36px;
+      align-items: center;
+      padding: 34px;
+      border-radius: 34px;
+      border: 1px solid rgba(240,200,120,.18);
+      background:
+        radial-gradient(circle at 14% 18%, rgba(240,200,120,.10), transparent 28%),
+        rgba(255,255,255,.045);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .author-photo {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      min-height: 420px;
+      background: #050505;
+      border: 1px solid rgba(240,200,120,.20);
+    }
+    .author-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(.96) contrast(1.04);
+    }
+    .author-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 54%, rgba(3,3,3,.46));
+      pointer-events: none;
+    }
+    .author-copy .eyebrow { margin-bottom: 18px; }
+    .author-copy h2 { margin-bottom: 18px; }
+    .author-copy p + p { margin-top: 14px; }
+    .author-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .author-tags span {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(240,200,120,.20);
+      color: #fff8e6;
+      background: rgba(240,200,120,.06);
+      font: 800 12px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+      letter-spacing: .04em;
+    }
+
     footer { padding: 42px 0; border-top: 1px solid var(--line); color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 
     @media (max-width: 900px) {
       .links { display: none; }
-      .hero-grid, .section-head, .pitch, .ai-panel { grid-template-columns: 1fr; }
+      .hero-grid, .section-head, .pitch, .ai-panel, .author-card { grid-template-columns: 1fr; }
       .cards, .course-grid, .print-cta { grid-template-columns: 1fr; }
+      .author-photo, .author-photo img { min-height: 340px; }
       .hero { padding-top: 58px; }
       section { padding: 58px 0; }
     }
@@ -607,6 +668,29 @@
             <div>Gerar alternativas, perguntas, critérios objetivos e propostas colaborativas.</div>
             <div>Simular papéis, resistências e cenários para preparação de reuniões.</div>
             <div>Manter foco ético, institucional e orientado ao interesse público.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="autor" class="author-section">
+      <div class="wrap">
+        <div class="author-card">
+          <figure class="author-photo">
+            <img src="assets/anderson-porto.jpg" alt="Ânderson Porto" loading="lazy" />
+          </figure>
+          <div class="author-copy">
+            <span class="eyebrow">Autoria da proposta</span>
+            <h2>Ânderson Porto</h2>
+            <p>Ânderson Porto atua há mais de 12 anos como facilitador, palestrante e instrutor em programas formativos para órgãos do Poder Judiciário. É mestrando em Gestão Pública pela Universidade de Brasília e especialista em Inovação em Tecnologias Educacionais, com formações em Negociação pela FGV, Design Thinking, Gestão da Mudança e Gestão de Equipes Híbridas.</p>
+            <p>É cofundador da rede Inova Pública, uma iniciativa que reúne servidores e especialistas comprometidos em desenvolver pessoas, culturas e organizações públicas por meio de experiências formativas, inovação colaborativa e tecnologias éticas. O propósito da rede é ativar um novo DNA do serviço público, centrado no cidadão, na aprendizagem contínua e na geração de valor público.</p>
+            <p>Criou a proposta da Negociação Criativa e o Canvas de Negociação Criativa, metodologia que evoluiu para curso, palestra e materiais de apoio já aplicados em órgãos públicos, ajudando gestores e equipes a estruturar conversas difíceis, ampliar possibilidades e construir acordos mais colaborativos e sustentáveis.</p>
+            <div class="author-tags">
+              <span>Gestão Pública</span>
+              <span>Inovação</span>
+              <span>Negociação Criativa</span>
+              <span>Equipes Híbridas</span>
+            </div>
           </div>
         </div>
       </div>
