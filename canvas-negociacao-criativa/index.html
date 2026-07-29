@@ -211,43 +211,83 @@
     }
     .double-diamond {
       position: relative;
-      padding: 16px 8px 6px;
+      min-height: 470px;
+      display: grid;
+      place-items: center;
+      perspective: 1200px;
+      overflow: hidden;
+      border-radius: 28px;
     }
-    .diamond-svg {
+    .prism-stage {
+      width: min(100%, 680px);
+      aspect-ratio: 16 / 10;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: prismFloat 8s ease-in-out infinite;
+    }
+    .prism-stage::before {
+      content: "";
+      position: absolute;
+      inset: 18% 4%;
+      background: radial-gradient(ellipse at center, rgba(240,200,120,.22), transparent 62%);
+      filter: blur(30px);
+      transform: translateZ(-120px);
+      opacity: .72;
+      animation: prismGlow 5.5s ease-in-out infinite;
+    }
+    .prism-svg {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 20px 44px rgba(0,0,0,.35));
+      height: 100%;
+      overflow: visible;
+      transform-style: preserve-3d;
+      filter: drop-shadow(0 34px 60px rgba(0,0,0,.62));
     }
-    .diamond-line {
-      fill: rgba(240,200,120,.055);
-      stroke: rgba(240,200,120,.82);
+    .prism-wire {
+      fill: rgba(255,255,255,.018);
+      stroke: rgba(255,248,230,.72);
+      stroke-width: 1.8;
+      vector-effect: non-scaling-stroke;
+    }
+    .prism-face-a { fill: url(#prismGold); opacity: .56; }
+    .prism-face-b { fill: url(#prismWhite); opacity: .38; }
+    .prism-face-c { fill: url(#prismCopper); opacity: .28; }
+    .prism-line {
+      stroke: rgba(240,200,120,.86);
       stroke-width: 2.2;
+      fill: none;
+      vector-effect: non-scaling-stroke;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
-    .diamond-core {
-      fill: rgba(255,255,255,.06);
-      stroke: rgba(255,248,230,.42);
-      stroke-width: 1.4;
+    .prism-line-soft {
+      stroke: rgba(255,248,230,.32);
+      stroke-width: 1.3;
+      fill: none;
+      vector-effect: non-scaling-stroke;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
-    .diamond-label {
-      fill: #fff8e6;
-      font: 800 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
-      letter-spacing: .02em;
+    .prism-spark {
+      fill: rgba(255,248,230,.86);
+      filter: drop-shadow(0 0 10px rgba(240,200,120,.8));
+      animation: sparkPulse 3.2s ease-in-out infinite;
     }
-    .diamond-small {
-      fill: #d8d0bf;
-      font: 600 12px ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+    .prism-spark:nth-of-type(2) { animation-delay: -1.1s; }
+    .prism-spark:nth-of-type(3) { animation-delay: -2.2s; }
+    @keyframes prismFloat {
+      0%, 100% { transform: rotateX(58deg) rotateZ(-7deg) translateY(0) scale(1); }
+      50% { transform: rotateX(58deg) rotateZ(7deg) translateY(-12px) scale(1.02); }
     }
-    .diamond-dot { fill: var(--gold); }
-    .diamond-caption {
-      margin-top: 18px;
-      padding: 18px;
-      border-radius: 22px;
-      border: 1px solid rgba(240,200,120,.18);
-      background: rgba(255,255,255,.045);
+    @keyframes prismGlow {
+      0%, 100% { opacity: .45; transform: translateZ(-120px) scale(.94); }
+      50% { opacity: .82; transform: translateZ(-120px) scale(1.08); }
     }
-    .diamond-caption b { color: #fff8e6; }
-    .diamond-caption p { margin-top: 8px; }
+    @keyframes sparkPulse {
+      0%, 100% { opacity: .24; transform: scale(.85); }
+      50% { opacity: 1; transform: scale(1.18); }
+    }
 
     section { padding: 78px 0; }
     .section-head { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; align-items: end; margin-bottom: 34px; }
@@ -428,31 +468,46 @@
           </div>
         </div>
         <aside class="hero-card" aria-label="Resumo visual do canvas">
-          <div class="double-diamond" aria-label="Duplo diamante da negociação criativa">
-            <svg class="diamond-svg" viewBox="0 0 760 420" role="img" aria-labelledby="diamondTitle diamondDesc">
-              <title id="diamondTitle">Duplo diamante da negociação criativa</title>
-              <desc id="diamondDesc">A negociação criativa alterna divergência e convergência para ampliar possibilidades e consolidar acordos.</desc>
-              <polygon class="diamond-line" points="40,210 190,70 350,210 190,350" />
-              <polygon class="diamond-line" points="350,210 520,70 720,210 520,350" />
-              <polygon class="diamond-core" points="318,210 350,180 382,210 350,240" />
-              <circle class="diamond-dot" cx="40" cy="210" r="6" />
-              <circle class="diamond-dot" cx="350" cy="210" r="7" />
-              <circle class="diamond-dot" cx="720" cy="210" r="6" />
-              <text class="diamond-label" x="112" y="118">Divergência</text>
-              <text class="diamond-small" x="102" y="144">abrir possibilidades</text>
-              <text class="diamond-label" x="112" y="312">Convergência</text>
-              <text class="diamond-small" x="98" y="338">escolher com critérios</text>
-              <text class="diamond-label" x="446" y="118">Cocriação</text>
-              <text class="diamond-small" x="430" y="144">expandir valor público</text>
-              <text class="diamond-label" x="436" y="312">Compromisso</text>
-              <text class="diamond-small" x="426" y="338">acordos sustentáveis</text>
-              <text class="diamond-small" x="24" y="238">desafio</text>
-              <text class="diamond-small" x="322" y="178">síntese</text>
-              <text class="diamond-small" x="670" y="238">acordo</text>
-            </svg>
-            <div class="diamond-caption">
-              <b>O coração da negociação criativa é alternar divergência e convergência.</b>
-              <p>Primeiro, abre-se o campo para interesses, perspectivas e possibilidades. Depois, convergem-se critérios, alternativas e compromissos para construir acordos viáveis, colaborativos e orientados ao interesse público.</p>
+          <div class="double-diamond" aria-label="Duplo diamante 3D da negociação criativa">
+            <div class="prism-stage" aria-hidden="true">
+              <svg class="prism-svg" viewBox="0 0 900 540" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <linearGradient id="prismGold" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0" stop-color="#fff8e6" stop-opacity=".60" />
+                    <stop offset=".45" stop-color="#f0c878" stop-opacity=".48" />
+                    <stop offset="1" stop-color="#c8943f" stop-opacity=".22" />
+                  </linearGradient>
+                  <linearGradient id="prismWhite" x1="1" x2="0" y1="0" y2="1">
+                    <stop offset="0" stop-color="#ffffff" stop-opacity=".42" />
+                    <stop offset="1" stop-color="#f0c878" stop-opacity=".12" />
+                  </linearGradient>
+                  <linearGradient id="prismCopper" x1="0" x2="1" y1="1" y2="0">
+                    <stop offset="0" stop-color="#c8943f" stop-opacity=".42" />
+                    <stop offset="1" stop-color="#050505" stop-opacity=".08" />
+                  </linearGradient>
+                </defs>
+
+                <polygon class="prism-face-a" points="70,270 230,92 405,270 230,448" />
+                <polygon class="prism-face-b" points="230,92 405,270 230,270" />
+                <polygon class="prism-face-c" points="70,270 230,270 230,448" />
+                <polygon class="prism-wire" points="70,270 230,92 405,270 230,448" />
+                <path class="prism-line" d="M70 270 L230 92 L405 270 L230 448 Z M230 92 L230 448 M70 270 L405 270" />
+                <path class="prism-line-soft" d="M140 270 L230 170 L328 270 L230 370 Z" />
+
+                <polygon class="prism-face-a" points="405,270 600,92 830,270 600,448" />
+                <polygon class="prism-face-b" points="600,92 830,270 600,270" />
+                <polygon class="prism-face-c" points="405,270 600,270 600,448" />
+                <polygon class="prism-wire" points="405,270 600,92 830,270 600,448" />
+                <path class="prism-line" d="M405 270 L600 92 L830 270 L600 448 Z M600 92 L600 448 M405 270 L830 270" />
+                <path class="prism-line-soft" d="M500 270 L600 170 L720 270 L600 370 Z" />
+
+                <polygon class="prism-face-b" points="360,270 405,226 450,270 405,314" />
+                <path class="prism-line" d="M360 270 L405 226 L450 270 L405 314 Z" />
+
+                <circle class="prism-spark" cx="230" cy="92" r="4" />
+                <circle class="prism-spark" cx="600" cy="92" r="4" />
+                <circle class="prism-spark" cx="830" cy="270" r="3.5" />
+              </svg>
             </div>
           </div>
         </aside>
