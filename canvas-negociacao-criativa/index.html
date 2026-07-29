@@ -7,8 +7,8 @@
   <meta name="description" content="Metodologia visual para desenvolver gestores públicos capazes de construir acordos inovadores, colaborativos e orientados ao interesse público." />
   <style>
     :root {
-      --bg: #050403;
-      --bg-2: #0b0905;
+      --bg: #030303;
+      --bg-2: #080808;
       --ink: #ffffff;
       --muted: #d8d0bf;
       --line: rgba(240,200,120,.18);
@@ -29,9 +29,10 @@
       margin: 0;
       font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
       background:
-        radial-gradient(circle at 18% 10%, rgba(240,200,120,.13), transparent 28%),
-        radial-gradient(circle at 82% 18%, rgba(240,200,120,.10), transparent 26%),
-        linear-gradient(180deg, #050403 0%, #080704 52%, #030302 100%);
+        radial-gradient(circle at 18% 10%, rgba(240,200,120,.10), transparent 26%),
+        radial-gradient(circle at 86% 16%, rgba(255,255,255,.055), transparent 24%),
+        radial-gradient(circle at 50% 92%, rgba(200,148,63,.10), transparent 30%),
+        linear-gradient(180deg, #030303 0%, #060606 52%, #020202 100%);
       color: var(--ink);
       line-height: 1.6;
     }
@@ -41,13 +42,48 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background-image:
-        linear-gradient(rgba(240,200,120,.115) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(240,200,120,.085) 1px, transparent 1px),
-        radial-gradient(circle at 26% 22%, rgba(240,200,120,.09), transparent 1px);
-      background-size: 72px 72px, 72px 72px, 18px 18px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.92), rgba(0,0,0,.58) 54%, transparent 90%);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(240,200,120,.10), transparent 2px),
+        radial-gradient(circle at 70% 30%, rgba(255,248,230,.08), transparent 1px),
+        radial-gradient(circle at 45% 72%, rgba(200,148,63,.09), transparent 2px);
+      background-size: 220px 220px, 320px 320px, 260px 260px;
+      opacity: .62;
+      animation: ambientDrift 24s linear infinite;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.80), rgba(0,0,0,.44) 58%, transparent 92%);
     }
+
+    @keyframes ambientDrift {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(-28px,18px,0) scale(1.04); }
+      100% { transform: translate3d(0,0,0) scale(1); }
+    }
+
+    @keyframes slowPulse {
+      0%, 100% { opacity: .44; transform: translate3d(0,0,0) scale(1); }
+      50% { opacity: .78; transform: translate3d(18px,-12px,0) scale(1.06); }
+    }
+
+    .ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .ambient span {
+      position: absolute;
+      width: 34vw;
+      height: 34vw;
+      border-radius: 50%;
+      filter: blur(58px);
+      background: radial-gradient(circle, rgba(240,200,120,.14), transparent 64%);
+      animation: slowPulse 14s ease-in-out infinite;
+    }
+    .ambient span:nth-child(1) { left: -12vw; top: 10vh; }
+    .ambient span:nth-child(2) { right: -14vw; top: 32vh; animation-delay: -5s; background: radial-gradient(circle, rgba(255,255,255,.08), transparent 66%); }
+    .ambient span:nth-child(3) { left: 34vw; bottom: -18vw; animation-delay: -9s; background: radial-gradient(circle, rgba(200,148,63,.13), transparent 62%); }
+
+    .nav, main, footer { position: relative; z-index: 1; }
 
     a { color: inherit; text-decoration: none; }
     .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
@@ -57,7 +93,7 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(18px);
-      background: rgba(5,4,3,.82);
+      background: rgba(3,3,3,.84);
       border-bottom: 1px solid var(--line);
     }
 
@@ -173,21 +209,45 @@
         linear-gradient(25deg, transparent 0 56%, rgba(240,200,120,.10) 56.2%, transparent 56.8%);
       opacity: .7;
     }
-    .canvas-mini {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+    .double-diamond {
       position: relative;
+      padding: 16px 8px 6px;
     }
-    .cell {
-      min-height: 104px;
-      padding: 16px;
-      border-radius: 20px;
-      border: 1px solid rgba(240,200,120,.16);
-      background: rgba(5,4,3,.74);
+    .diamond-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 20px 44px rgba(0,0,0,.35));
     }
-    .cell b { display: block; font: 800 13px/1.3 ui-sans-serif, system-ui, sans-serif; color: #fff8e6; margin-bottom: 8px; }
-    .cell span { color: #d8d0bf; font: 500 13px/1.45 ui-sans-serif, system-ui, sans-serif; }
+    .diamond-line {
+      fill: rgba(240,200,120,.055);
+      stroke: rgba(240,200,120,.82);
+      stroke-width: 2.2;
+    }
+    .diamond-core {
+      fill: rgba(255,255,255,.06);
+      stroke: rgba(255,248,230,.42);
+      stroke-width: 1.4;
+    }
+    .diamond-label {
+      fill: #fff8e6;
+      font: 800 15px ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+      letter-spacing: .02em;
+    }
+    .diamond-small {
+      fill: #d8d0bf;
+      font: 600 12px ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+    }
+    .diamond-dot { fill: var(--gold); }
+    .diamond-caption {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(240,200,120,.18);
+      background: rgba(255,255,255,.045);
+    }
+    .diamond-caption b { color: #fff8e6; }
+    .diamond-caption p { margin-top: 8px; }
 
     section { padding: 78px 0; }
     .section-head { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; align-items: end; margin-bottom: 34px; }
@@ -235,7 +295,7 @@
       border-radius: 30px;
       background:
         linear-gradient(135deg, rgba(240,200,120,.12), rgba(240,200,120,.035)),
-        rgba(5,4,3,.72);
+        rgba(3,3,3,.72);
       box-shadow: 0 18px 60px rgba(0,0,0,.25);
     }
     .print-cta h3 { margin-top: 14px; }
@@ -322,7 +382,7 @@
       box-shadow: var(--shadow);
     }
     .ai-list { display: grid; gap: 12px; }
-    .ai-list div { padding: 14px 16px; background: rgba(5,4,3,.72); border: 1px solid var(--line); border-radius: 18px; color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; }
+    .ai-list div { padding: 14px 16px; background: rgba(3,3,3,.72); border: 1px solid var(--line); border-radius: 18px; color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; }
 
     footer { padding: 42px 0; border-top: 1px solid var(--line); color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -332,12 +392,12 @@
       .hero-grid, .section-head, .pitch, .ai-panel { grid-template-columns: 1fr; }
       .cards, .course-grid, .print-cta { grid-template-columns: 1fr; }
       .hero { padding-top: 58px; }
-      .canvas-mini { grid-template-columns: 1fr; }
       section { padding: 58px 0; }
     }
   </style>
 </head>
 <body>
+  <div class="ambient" aria-hidden="true"><span></span><span></span><span></span></div>
   <nav class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="Canvas de Negociação Criativa">
@@ -368,11 +428,32 @@
           </div>
         </div>
         <aside class="hero-card" aria-label="Resumo visual do canvas">
-          <div class="canvas-mini">
-            <div class="cell"><b>1. Propósito</b><span>Por que estamos negociando e o que realmente está em jogo?</span></div>
-            <div class="cell"><b>2. Interesses</b><span>Quais necessidades movem cada parte além das posições declaradas?</span></div>
-            <div class="cell"><b>3. Alternativas</b><span>Qual é o mínimo aceitável, a melhor saída e o pior cenário?</span></div>
-            <div class="cell"><b>4. Valor público</b><span>Como expandir possibilidades e construir acordos sustentáveis?</span></div>
+          <div class="double-diamond" aria-label="Duplo diamante da negociação criativa">
+            <svg class="diamond-svg" viewBox="0 0 760 420" role="img" aria-labelledby="diamondTitle diamondDesc">
+              <title id="diamondTitle">Duplo diamante da negociação criativa</title>
+              <desc id="diamondDesc">A negociação criativa alterna divergência e convergência para ampliar possibilidades e consolidar acordos.</desc>
+              <polygon class="diamond-line" points="40,210 190,70 350,210 190,350" />
+              <polygon class="diamond-line" points="350,210 520,70 720,210 520,350" />
+              <polygon class="diamond-core" points="318,210 350,180 382,210 350,240" />
+              <circle class="diamond-dot" cx="40" cy="210" r="6" />
+              <circle class="diamond-dot" cx="350" cy="210" r="7" />
+              <circle class="diamond-dot" cx="720" cy="210" r="6" />
+              <text class="diamond-label" x="112" y="118">Divergência</text>
+              <text class="diamond-small" x="102" y="144">abrir possibilidades</text>
+              <text class="diamond-label" x="112" y="312">Convergência</text>
+              <text class="diamond-small" x="98" y="338">escolher com critérios</text>
+              <text class="diamond-label" x="446" y="118">Cocriação</text>
+              <text class="diamond-small" x="430" y="144">expandir valor público</text>
+              <text class="diamond-label" x="436" y="312">Compromisso</text>
+              <text class="diamond-small" x="426" y="338">acordos sustentáveis</text>
+              <text class="diamond-small" x="24" y="238">desafio</text>
+              <text class="diamond-small" x="322" y="178">síntese</text>
+              <text class="diamond-small" x="670" y="238">acordo</text>
+            </svg>
+            <div class="diamond-caption">
+              <b>O coração da negociação criativa é alternar divergência e convergência.</b>
+              <p>Primeiro, abre-se o campo para interesses, perspectivas e possibilidades. Depois, convergem-se critérios, alternativas e compromissos para construir acordos viáveis, colaborativos e orientados ao interesse público.</p>
+            </div>
           </div>
         </aside>
       </div>
