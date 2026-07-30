@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Canvas Interativo de Negociação Criativa | Inova Pública</title>
+  <meta name="description" content="Página interativa para explorar cada parte do Canvas de Negociação Criativa, com explicações visuais e textuais para gestores públicos." />
+  <style>
+    :root {
+      --bg:#030303;
+      --bg2:#080705;
+      --ink:#ffffff;
+      --muted:#d8d0bf;
+      --soft:#fff8e6;
+      --gold:#f0c878;
+      --yellow:#ffd43b;
+      --copper:#c8943f;
+      --line:rgba(240,200,120,.22);
+      --line2:rgba(255,255,255,.11);
+      --card:rgba(255,246,214,.065);
+      --card2:rgba(240,200,120,.12);
+      --danger:#ff8f70;
+      --ok:#9ff0c0;
+      --blue:#9ed8ff;
+      --max:1220px;
+      --radius:24px;
+      --shadow:0 24px 80px rgba(0,0,0,.48);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--ink);
+      font-family:ui-serif, Georgia, Cambria, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(240,200,120,.14), transparent 28%),
+        radial-gradient(circle at 86% 20%, rgba(255,255,255,.07), transparent 22%),
+        radial-gradient(circle at 48% 100%, rgba(200,148,63,.16), transparent 36%),
+        linear-gradient(180deg,#030303 0%,#070604 54%,#020202 100%);
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.55;
+      background:
+        linear-gradient(115deg, transparent 0 38%, rgba(240,200,120,.05) 39%, transparent 40% 100%),
+        radial-gradient(circle at 20% 28%, rgba(240,200,120,.09), transparent 1px),
+        radial-gradient(circle at 64% 72%, rgba(255,255,255,.08), transparent 1px);
+      background-size:100% 100%, 210px 210px, 310px 310px;
+      animation:drift 26s linear infinite;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.55) 65%, transparent 98%);
+    }
+    @keyframes drift{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(-22px,18px,0)}100%{transform:translate3d(0,0,0)}}
+    @keyframes glow{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.9;transform:scale(1.04)}}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .wrap{width:min(var(--max),calc(100% - 36px));margin:0 auto;position:relative;z-index:1}
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(3,3,3,.84);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(18px);
+    }
+    .nav-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:12px;font:800 14px/1.2 ui-sans-serif,system-ui,sans-serif;letter-spacing:.02em}
+    .mark{width:38px;height:38px;border-radius:50%;background:conic-gradient(from 220deg,var(--gold),var(--copper),var(--soft),var(--gold));box-shadow:0 0 34px rgba(240,200,120,.35);position:relative;flex:0 0 auto}
+    .mark::after{content:"";position:absolute;inset:8px;border-radius:50%;background:#030303;border:1px solid rgba(255,255,255,.22)}
+    .links{display:flex;align-items:center;gap:16px;color:var(--muted);font:700 13px/1 ui-sans-serif,system-ui,sans-serif}
+    .links a:hover{color:var(--ink)}
+    .hero{padding:72px 0 34px}
+    .hero-grid{display:grid;grid-template-columns:1fr .78fr;gap:44px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid rgba(240,200,120,.44);background:rgba(240,200,120,.075);color:var(--gold);border-radius:999px;font:800 12px/1 ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+    h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.03em;color:#fff}
+    h1{font-size:clamp(42px,6.8vw,86px);margin-top:22px;max-width:880px}
+    h2{font-size:clamp(32px,4.8vw,58px);color:var(--soft)}
+    h3{font-size:clamp(24px,2.5vw,34px);color:#fff4d6}
+    p{margin:0;color:var(--muted)}
+    .lead{font-size:clamp(18px,2vw,22px);margin-top:22px;max-width:760px;color:#e8e0cf}
+    .gold{color:var(--gold)}
+    .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 20px;border-radius:999px;border:1px solid var(--line);font:900 14px/1 ui-sans-serif,system-ui,sans-serif;transition:.2s ease;cursor:pointer}
+    .btn:hover{transform:translateY(-2px)}
+    .primary{background:linear-gradient(135deg,var(--yellow),#fff176);color:#060504;border:0;box-shadow:0 14px 34px rgba(255,212,59,.25)}
+    .secondary{background:rgba(255,212,59,.10);border-color:rgba(255,212,59,.34);color:#fff8e6}
+    .ghost{background:rgba(255,255,255,.055);color:#fff;border-color:rgba(255,255,255,.16)}
+    .hero-orb{position:relative;min-height:360px;border:1px solid rgba(240,200,120,.22);border-radius:36px;background:linear-gradient(135deg,rgba(255,246,214,.09),rgba(255,255,255,.025));box-shadow:var(--shadow);overflow:hidden}
+    .hero-orb::before{content:"";position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle,rgba(240,200,120,.30),transparent 62%);filter:blur(22px);animation:glow 7s ease-in-out infinite}
+    .mini-canvas{position:absolute;inset:42px;display:grid;grid-template-columns:1fr 1fr;gap:12px;transform:rotate(-4deg)}
+    .mini-canvas span{border:1px solid rgba(240,200,120,.32);border-radius:18px;background:rgba(3,3,3,.48);box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}
+    .mini-canvas span:nth-child(3){grid-column:1/3}.mini-canvas span:nth-child(6){grid-column:1/3}
+    .hint-card{position:absolute;left:28px;right:28px;bottom:26px;padding:18px;border-radius:22px;background:rgba(3,3,3,.78);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px)}
+    .hint-card strong{color:var(--yellow)}
+    section{padding:58px 0}
+    .section-head{display:grid;grid-template-columns:.85fr 1.15fr;gap:32px;align-items:end;margin-bottom:30px}
+    .section-head p{font-size:18px}
+    .interactive-shell{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:24px;align-items:start}
+    .canvas-board{position:relative;border:1px solid rgba(240,200,120,.28);border-radius:34px;padding:20px;background:linear-gradient(135deg,rgba(240,200,120,.10),rgba(255,255,255,.035));box-shadow:var(--shadow);overflow:hidden}
+    .canvas-board::before{content:"";position:absolute;left:50%;top:18px;bottom:18px;width:1px;background:linear-gradient(transparent,rgba(240,200,120,.38),transparent)}
+    .board-top{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;position:relative;z-index:1}
+    .lane-title{padding:12px 14px;border-radius:18px;background:rgba(3,3,3,.55);border:1px solid rgba(255,255,255,.10);font:900 12px/1 ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.13em;color:var(--gold)}
+    .canvas-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .field{
+      min-height:112px;
+      padding:14px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:20px;
+      background:rgba(3,3,3,.60);
+      color:#fff;
+      text-align:left;
+      cursor:pointer;
+      transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .field::after{content:"";position:absolute;inset:auto 12px 10px auto;width:8px;height:8px;border-radius:50%;background:var(--gold);opacity:.55}
+    .field:hover,.field:focus-visible,.field.active{transform:translateY(-2px);border-color:rgba(255,212,59,.72);background:rgba(255,212,59,.10);box-shadow:0 16px 34px rgba(0,0,0,.24),0 0 0 1px rgba(255,212,59,.18)}
+    .field:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+    .field small{display:block;margin-bottom:10px;color:var(--gold);font:900 11px/1 ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+    .field span{display:block;font:900 18px/1.12 ui-sans-serif,system-ui,sans-serif;color:#fff8e6}
+    .field p{margin-top:10px;font-size:13px;color:#d8d0bf;line-height:1.35}
+    .span-2{grid-column:span 2}.span-4{grid-column:span 4}.tall{min-height:150px}.danger small{color:var(--danger)}.ok small{color:var(--ok)}.blue small{color:var(--blue)}
+    .detail-panel{position:sticky;top:94px;border:1px solid rgba(240,200,120,.30);border-radius:30px;background:rgba(3,3,3,.78);box-shadow:var(--shadow);overflow:hidden}
+    .detail-visual{height:130px;background:radial-gradient(circle at 24% 40%,rgba(240,200,120,.28),transparent 42%),linear-gradient(135deg,rgba(255,212,59,.18),rgba(255,255,255,.03));position:relative}
+    .detail-visual::before,.detail-visual::after{content:"";position:absolute;border:1px solid rgba(255,248,230,.36);transform:rotate(45deg)}
+    .detail-visual::before{width:70px;height:70px;left:46px;top:30px}.detail-visual::after{width:95px;height:95px;right:52px;top:16px;border-color:rgba(240,200,120,.44)}
+    .detail-body{padding:24px}
+    .phase{display:inline-flex;margin-bottom:16px;color:var(--gold);font:900 12px/1 ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.13em}
+    .detail-body h3{font-size:30px}.detail-body p{margin-top:14px;color:#e2dac9}
+    .detail-list{display:grid;gap:12px;margin-top:20px}
+    .detail-item{padding:14px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(255,255,255,.045)}
+    .detail-item strong{display:block;color:var(--yellow);font:900 12px/1 ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+    .detail-item span{color:#e8e0cf;font-size:15px}
+    .navigator{display:flex;gap:10px;margin-top:20px}.navigator button{flex:1}
+    .mobile-list{display:none;gap:14px}
+    .accordion{border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.055);overflow:hidden}.accordion button{width:100%;padding:18px;background:transparent;color:#fff;border:0;text-align:left;display:flex;justify-content:space-between;gap:12px;font:900 16px/1.2 ui-sans-serif,system-ui,sans-serif}.accordion .content{display:none;padding:0 18px 18px}.accordion.open .content{display:block}.accordion .content p{margin-top:10px}.accordion .content strong{color:var(--yellow)}
+    .use-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.case{padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}.case h3{font-size:24px}.case p{margin-top:12px}
+    footer{padding:34px 0 46px;border-top:1px solid var(--line);color:var(--muted);font:700 13px/1.4 ui-sans-serif,system-ui,sans-serif;position:relative;z-index:1}
+    @media (max-width:980px){.hero-grid,.section-head,.interactive-shell{grid-template-columns:1fr}.detail-panel{position:relative;top:auto}.hero-orb{min-height:300px}.use-cases{grid-template-columns:1fr}.canvas-grid{grid-template-columns:repeat(2,1fr)}.span-4{grid-column:span 2}.desktop-only{display:none}.mobile-list{display:grid}.canvas-board{display:none}}
+    @media (max-width:620px){.wrap{width:min(100% - 24px,var(--max))}.links{display:none}.hero{padding-top:42px}.actions .btn{width:100%}.canvas-grid{grid-template-columns:1fr}.span-2,.span-4{grid-column:span 1}.hero-orb{display:none}.section-head{gap:18px}section{padding:42px 0}.detail-body{padding:20px}.navigator{flex-direction:column}}
+    @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span><span>Canvas de Negociação Criativa</span></a>
+      <div class="links"><a href="index.html">Página principal</a><a href="#explorar">Explorar Canvas</a><a href="#uso">Como usar</a></div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Canvas interativo</span>
+          <h1>Toque em cada campo e veja a negociação ganhar <span class="gold">método</span>.</h1>
+          <p class="lead">Esta versão interativa explica visualmente cada parte do Canvas de Negociação Criativa para apoiar magistrados e gestores públicos na preparação, condução e avaliação de negociações complexas.</p>
+          <div class="actions">
+            <a class="btn primary" href="#explorar">Explorar campos</a>
+            <a class="btn secondary" href="https://drive.google.com/file/d/1Cu5Wzv3hOCvrUnJSXgstlHlvcbmONLBm/view?usp=drivesdk" target="_blank" rel="noopener">Baixar PDF para impressão</a>
+            <a class="btn ghost" href="index.html">Voltar para a proposta</a>
+          </div>
+        </div>
+        <aside class="hero-orb" aria-label="Prévia visual do Canvas interativo">
+          <div class="mini-canvas" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="hint-card"><strong>Dica:</strong> no computador, passe o mouse. No celular, toque em qualquer campo.</div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="explorar">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>O Canvas como mapa vivo da conversa</h2>
+          <p>Cada campo força uma pergunta estratégica. Juntos, eles ajudam a sair da barganha posicional e construir acordos colaborativos, sustentáveis e orientados ao interesse público.</p>
+        </div>
+
+        <div class="interactive-shell">
+          <div class="canvas-board" aria-label="Canvas interativo de negociação criativa">
+            <div class="board-top"><div class="lane-title">Minha unidade</div><div class="lane-title">Outra parte</div></div>
+            <div class="canvas-grid" id="canvasGrid"></div>
+          </div>
+
+          <div class="mobile-list" id="mobileList" aria-label="Campos do Canvas em formato mobile"></div>
+
+          <aside class="detail-panel" aria-live="polite">
+            <div class="detail-visual" aria-hidden="true"></div>
+            <div class="detail-body">
+              <div class="phase" id="detailPhase">Clarificação</div>
+              <h3 id="detailTitle">Por que estou negociando?</h3>
+              <p id="detailText">Comece pelo propósito. Antes de discutir soluções, nomeie o problema, a decisão ou o acordo que precisa ser construído.</p>
+              <div class="detail-list">
+                <div class="detail-item"><strong>Pergunta-guia</strong><span id="detailQuestion">Qual acordo, decisão ou mudança precisa sair dessa negociação?</span></div>
+                <div class="detail-item"><strong>Erro comum</strong><span id="detailMistake">Entrar discutindo proposta sem clareza sobre o propósito.</span></div>
+                <div class="detail-item"><strong>Boa formulação</strong><span id="detailExample">“Estamos negociando para definir um fluxo viável que reduza retrabalho sem ferir responsabilidades institucionais.”</span></div>
+              </div>
+              <div class="navigator"><button class="btn secondary" id="prevBtn" type="button">Campo anterior</button><button class="btn primary" id="nextBtn" type="button">Próximo campo</button></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="uso">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Três formas de usar em formação e trabalho real</h2>
+          <p>A versão interativa serve como explicação didática. A versão impressa segue sendo a ferramenta de oficina, reunião e simulação.</p>
+        </div>
+        <div class="use-cases">
+          <article class="case"><h3>Antes da reunião</h3><p>Use os campos para preparar propósito, interesses, alternativas, riscos e critérios objetivos antes de abrir a conversa.</p></article>
+          <article class="case"><h3>Durante a oficina</h3><p>Projete a página interativa para explicar cada bloco e depois distribua o PDF impresso para preenchimento em grupos.</p></article>
+          <article class="case"><h3>Depois da negociação</h3><p>Revise o Canvas para avaliar o que gerou valor, o que travou a conversa e quais aprendizados ficam para próximas negociações.</p></article>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="https://t.me/+J0_IY5VeDyA4MzIx" target="_blank" rel="noopener">Abrir assistente no Telegram</a>
+          <a class="btn secondary" href="index.html#curso">Ver mini curso</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">Canvas Interativo de Negociação Criativa · Inova Pública</div></footer>
+
+  <script>
+    const fields = [
+      {phase:'Clarificação', title:'Por que estou negociando?', tag:'Propósito', size:'span-2', text:'Define o motivo real da negociação. Ajuda a distinguir problema, decisão, acordo desejado e valor público que se pretende gerar.', question:'Qual acordo, decisão ou mudança precisa sair dessa negociação?', mistake:'Entrar discutindo proposta sem clareza sobre o propósito.', example:'Estamos negociando para definir um fluxo viável que reduza retrabalho sem ferir responsabilidades institucionais.'},
+      {phase:'Clarificação', title:'Partes envolvidas', tag:'Atores', size:'span-2', text:'Mapeia unidades, equipes, coordenações, magistrados, gestores, parceiros e pessoas que influenciam ou serão impactadas.', question:'Quem decide, quem influencia, quem executa e quem será afetado pelo acordo?', mistake:'Conversar só com quem aparece na mesa e ignorar atores de bastidor.', example:'Secretaria, coordenação demandante, equipe executora, área jurídica e usuários internos impactados.'},
+      {phase:'Interesses', title:'Por que a outra parte está negociando?', tag:'Interesse do outro', size:'span-2', text:'Investiga o que move a outra parte além da posição declarada: medos, metas, restrições, incentivos, reputação e responsabilidades.', question:'Que necessidade legítima pode estar por trás da resistência ou exigência da outra parte?', mistake:'Confundir a posição inicial da outra parte com o seu interesse real.', example:'A outra unidade resiste porque teme aumento de carga, perda de controle e cobrança sem recursos adicionais.'},
+      {phase:'Interesses', title:'Benefícios da minha unidade', tag:'Valor para mim', size:'', text:'Explicita os ganhos esperados para sua unidade, evitando propostas vagas ou centradas apenas em preferências pessoais.', question:'O que minha unidade ganha se esse acordo for bem construído?', mistake:'Defender uma solução sem conseguir demonstrar benefício institucional.', example:'Menos retrabalho, previsibilidade de prazos, clareza de responsabilidade e melhor entrega ao cidadão.'},
+      {phase:'Interesses', title:'Benefícios da outra parte', tag:'Valor para o outro', size:'', text:'Ajuda a formular propostas que também façam sentido para quem precisa cooperar, aprovar ou implementar.', question:'Que ganho real a outra parte pode reconhecer nessa solução?', mistake:'Achar que colaboração nasce apenas de convencimento ou autoridade.', example:'A outra área ganha previsibilidade, participação na governança e redução de cobranças improvisadas.'},
+      {phase:'Alternativas', title:'BATNA da minha unidade', tag:'Meu plano B', size:'', text:'Identifica o que sua unidade pode fazer se não houver acordo. Isso reduz ansiedade e evita concessões ruins.', question:'Qual é minha melhor alternativa realista se a negociação não avançar?', mistake:'Negociar como se não houvesse alternativa nenhuma.', example:'Manter o fluxo atual por mais 60 dias enquanto piloto uma solução menor com outra unidade.'},
+      {phase:'Alternativas', title:'BATNA da outra parte', tag:'Plano B do outro', size:'', text:'Ajuda a estimar o poder de barganha e a atratividade do acordo para a outra parte.', question:'O que a outra parte fará se não fechar acordo comigo?', mistake:'Supor que o outro precisa do acordo tanto quanto eu.', example:'A outra unidade pode escalar a decisão, manter o procedimento atual ou buscar apoio de outra área.'},
+      {phase:'Limites', title:'Meus benefícios pessoais ou políticos', tag:'Interesses sensíveis', size:'', text:'Reconhece interesses de reputação, segurança psicológica, reconhecimento ou exposição. No setor público, devem ser tratados com ética e transparência.', question:'Existe algum benefício individual, simbólico ou reputacional influenciando minha posição?', mistake:'Negar fatores humanos e deixar que eles atuem sem consciência.', example:'Quero que a equipe perceba que estamos liderando a solução, mas isso não pode se sobrepor ao interesse público.'},
+      {phase:'Limites', title:'Pior alternativa', tag:'Risco mínimo', size:'danger', text:'Nomeia o cenário que precisa ser evitado. Serve para proteger a negociação de acordos frágeis ou decisões impulsivas.', question:'Qual desfecho seria pior do que não fechar acordo?', mistake:'Aceitar qualquer acordo só para encerrar o conflito.', example:'Fechar um fluxo sem adesão da área executora e gerar descumprimento, retrabalho e perda de confiança.'},
+      {phase:'Limites', title:'Mínimo aceitável', tag:'Linha de proteção', size:'danger', text:'Define o limite abaixo do qual o acordo deixa de ser viável, legítimo ou sustentável.', question:'Qual condição mínima precisa estar presente para eu recomendar esse acordo?', mistake:'Descobrir o limite somente depois de já ter cedido demais.', example:'Preciso de responsáveis definidos, prazo de teste, critério de avaliação e validação da área competente.'},
+      {phase:'Limites', title:'Melhor alternativa', tag:'Cenário desejado', size:'ok', text:'Descreve o melhor acordo plausível, não como fantasia, mas como norte para criação de valor.', question:'Se a negociação funcionasse muito bem, que solução seria boa para todos?', mistake:'Mirar apenas no meio-termo e perder possibilidades melhores.', example:'Um piloto conjunto com governança leve, indicadores simples e compromisso de revisão em 45 dias.'},
+      {phase:'Consequências', title:'Impactos na minha unidade', tag:'Efeitos internos', size:'', text:'Avalia consequências operacionais, políticas, humanas e institucionais da decisão para sua área.', question:'Que custos, benefícios, riscos e mudanças esse acordo traz para minha unidade?', mistake:'Considerar apenas o ganho imediato e ignorar implementação.', example:'Exigirá treinamento curto, ajuste de rotina e comunicação clara com a equipe.'},
+      {phase:'Consequências', title:'Impactos na outra parte', tag:'Efeitos no outro', size:'', text:'Amplia empatia estratégica ao considerar como a solução afeta a outra unidade ou instituição.', question:'Que ônus ou exposição o acordo cria para a outra parte?', mistake:'Propor uma solução elegante para mim, mas pesada para quem executa.', example:'A outra área precisará reorganizar agenda e explicar a mudança para sua equipe.'},
+      {phase:'Criação de valor', title:'Possibilidades de expansão do valor', tag:'Ampliar o bolo', size:'span-2 blue tall', text:'Abre espaço para criatividade: piloto, faseamento, troca não financeira, governança, tecnologia, aprendizagem, reputação e melhoria de serviço.', question:'Que opção atende mais de um interesse ao mesmo tempo?', mistake:'Negociar só concessões e deixar de criar opções novas.', example:'Transformar a demanda em piloto de 45 dias com aprendizado documentado e possibilidade de escala.'},
+      {phase:'Criação de valor', title:'Interesses compartilhados', tag:'Campo comum', size:'span-2 ok tall', text:'Identifica o que une as partes: missão institucional, qualidade do serviço, redução de retrabalho, segurança jurídica, confiança e valor público.', question:'Que objetivo comum pode reorganizar a conversa?', mistake:'Tratar a negociação como “minha área contra a sua área”.', example:'Ambas as unidades querem reduzir ruído, cumprir prazos e entregar melhor ao público atendido.'},
+      {phase:'Compromisso', title:'Propostas colaborativas', tag:'Acordo possível', size:'span-4 ok', text:'Converte interesses e opções em proposta clara: quem faz o quê, até quando, com quais critérios e como será avaliado.', question:'Qual proposta é específica, legítima, testável e sustentável?', mistake:'Encerrar com intenção genérica, sem responsáveis, prazos e critérios.', example:'Executar piloto por 45 dias, com ponto focal em cada unidade, reunião quinzenal e avaliação por três indicadores.'}
+    ];
+
+    let current = 0;
+    const grid = document.getElementById('canvasGrid');
+    const mobile = document.getElementById('mobileList');
+    const els = {
+      phase: document.getElementById('detailPhase'), title: document.getElementById('detailTitle'), text: document.getElementById('detailText'),
+      question: document.getElementById('detailQuestion'), mistake: document.getElementById('detailMistake'), example: document.getElementById('detailExample')
+    };
+    function cardHTML(f,i){return `<small>${String(i+1).padStart(2,'0')} · ${f.tag}</small><span>${f.title}</span><p>${f.phase}</p>`}
+    fields.forEach((f,i)=>{
+      const btn=document.createElement('button');
+      btn.type='button'; btn.className=`field ${f.size||''}`; btn.innerHTML=cardHTML(f,i); btn.setAttribute('aria-label',`Explicar ${f.title}`);
+      btn.addEventListener('mouseenter',()=>setActive(i)); btn.addEventListener('focus',()=>setActive(i)); btn.addEventListener('click',()=>setActive(i,true));
+      grid.appendChild(btn);
+      const acc=document.createElement('div'); acc.className='accordion';
+      acc.innerHTML=`<button type="button"><span>${String(i+1).padStart(2,'0')} · ${f.title}</span><span>+</span></button><div class="content"><p>${f.text}</p><p><strong>Pergunta-guia:</strong> ${f.question}</p><p><strong>Boa formulação:</strong> ${f.example}</p></div>`;
+      acc.querySelector('button').addEventListener('click',()=>{acc.classList.toggle('open')});
+      mobile.appendChild(acc);
+    });
+    const fieldButtons=[...document.querySelectorAll('.field')];
+    function setActive(i,scrollPanel=false){
+      current=(i+fields.length)%fields.length; const f=fields[current];
+      fieldButtons.forEach((b,idx)=>b.classList.toggle('active',idx===current));
+      els.phase.textContent=f.phase; els.title.textContent=f.title; els.text.textContent=f.text; els.question.textContent=f.question; els.mistake.textContent=f.mistake; els.example.textContent=f.example;
+      if(scrollPanel && window.matchMedia('(max-width:980px)').matches){document.querySelector('.detail-panel').scrollIntoView({behavior:'smooth',block:'start'});}
+    }
+    document.getElementById('prevBtn').addEventListener('click',()=>setActive(current-1));
+    document.getElementById('nextBtn').addEventListener('click',()=>setActive(current+1));
+    setActive(0);
+  </script>
+</body>
+</html>
