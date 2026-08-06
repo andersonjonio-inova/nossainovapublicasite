@@ -459,6 +459,14 @@
   /* === PORTFÓLIO v3 : grupos, cards clicáveis, modal, catálogo ampliado === */
   .cgroups{margin-top:1.5rem;display:none}
   .cgroups.open{display:block;animation:fade .35s ease}
+  .ctype-filter-wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin:0 0 1.4rem;padding-bottom:1rem;border-bottom:1px solid #e7e0ef}
+  .ctype-filter-label{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem}
+  .ctype-filters{display:flex;flex-wrap:wrap;gap:.55rem}
+  .ctype-filter{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:.55rem .92rem;border:1.5px solid #ddd4ec;border-radius:999px;background:#fff;color:var(--c3);font-family:var(--sans);font-size:.82rem;font-weight:800;line-height:1.15;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s,box-shadow .2s}
+  .ctype-filter:hover{border-color:var(--c2);color:var(--c1);transform:translateY(-1px)}
+  .ctype-filter[aria-pressed="true"]{border-color:var(--c1);background:var(--c1);color:#fff;box-shadow:0 .45rem 1rem rgba(50,28,171,.2)}
+  .ctype-filter:focus-visible{outline:3px solid rgba(194,161,77,.55);outline-offset:3px}
+  .ctype-filter-status{flex:0 0 auto;color:var(--muted);font-size:.8rem;font-weight:700;white-space:nowrap;padding-bottom:.65rem}
   .cgroup{margin-top:1.9rem}
   .cgroup-h{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-weight:800;font-size:clamp(1rem,1.5vw,1.18rem);color:var(--c1);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1.1rem;padding:.72rem 1rem;background:var(--soft);border-left:4px solid var(--gold);border-radius:.55rem;transition:background .25s ease,color .25s ease}
   .cgroup-h:hover{background:#e2d7f2}
@@ -480,7 +488,7 @@
   .catalog-full[open] summary::before{content:"－"}
   .catalog-full ul{margin:.9rem 0 0;padding-left:1.1rem;columns:2;column-gap:2.4rem}
   .catalog-full li{margin-bottom:.45rem;font-size:.86rem;color:var(--muted);break-inside:avoid}
-  @media(max-width:680px){.catalog-full ul{columns:1}}
+  @media(max-width:680px){.catalog-full ul{columns:1}.ctype-filter-wrap{display:block}.ctype-filter-status{padding:.8rem 0 0;white-space:normal}.ctype-filter{flex:1 1 calc(50% - .55rem)}}
   /* Modal de detalhe */
   .cmodal{position:fixed;inset:0;background:rgba(17,6,29,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
   .cmodal.open{display:flex;animation:cmfade .25s ease}
@@ -1368,18 +1376,43 @@
 
   function _esc(s){ var d=document.createElement('div'); d.textContent=(s==null?'':s); return d.innerHTML; }
 
+  var TYPE_FILTERS = [
+    {key:"todos",label:"Todos"},
+    {key:"palestra",label:"Palestras"},
+    {key:"curso",label:"Cursos e workshops"},
+    {key:"formacao",label:"Formações"},
+    {key:"mentoria",label:"Mentorias"},
+    {key:"programa",label:"Programas"}
+  ];
+  function _typeKeys(tipo){
+    var t=(tipo||"").toLowerCase();
+    var keys=[];
+    if(t.indexOf("palestra")>-1) keys.push("palestra");
+    if(t.indexOf("curso")>-1 || t.indexOf("workshop")>-1) keys.push("curso");
+    if(t.indexOf("formação")>-1 || t.indexOf("formacao")>-1) keys.push("formacao");
+    if(t.indexOf("mentoria")>-1) keys.push("mentoria");
+    if(t.indexOf("programa")>-1 || t.indexOf("implementação")>-1 || t.indexOf("implementacao")>-1) keys.push("programa");
+    return keys.join(" ");
+  }
+
   var WA_ICON='<svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20Zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3A2.8 2.8 0 0 0 6 8.3a4.9 4.9 0 0 0 1 2.6 11 11 0 0 0 4.3 3.8c1.6.7 1.9.6 2.3.5a2.4 2.4 0 0 0 1.5-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3Z"/></svg>';
   function renderTrilhas(){
     Object.keys(GROUP_ORDER).forEach(function(cat){
       var host=document.querySelector('.cgroups[data-cat="'+cat+'"]'); if(!host) return;
-      var html=''; var idx=0;
+      var total=CURSOS.filter(function(c){return c.cat===cat;}).length;
+      var html='<div class="ctype-filter-wrap"><div><div class="ctype-filter-label">Filtrar por formato</div><div class="ctype-filters" role="group" aria-label="Filtrar ações por formato">';
+      TYPE_FILTERS.forEach(function(f){
+        html+='<button class="ctype-filter" type="button" data-type-filter="'+f.key+'" aria-pressed="'+(f.key==='todos'?'true':'false')+'">'+_esc(f.label)+'</button>';
+      });
+      html+='</div></div><div class="ctype-filter-status" role="status" aria-live="polite">'+total+' ações</div></div>';
+      var idx=0;
       GROUP_ORDER[cat].forEach(function(grp){
         var items=CURSOS.filter(function(c){return c.cat===cat && c.sub===grp;});
         if(!items.length) return;
         html+='<div class="cgroup"><div class="cgroup-h">'+_esc(grp)+'</div><div class="cgrid">';
         items.forEach(function(c){
           var tone='tone'+(idx%4); idx++;
-          html+='<div class="ccard '+tone+'" tabindex="0" role="button" aria-label="'+_esc(c.nome)+'" data-id="'+_esc(c.id)+'">'
+          html+='<div class="ccard '+tone+'" tabindex="0" role="button" aria-label="'+_esc(c.nome)+'" data-id="'+_esc(c.id)+'" data-types="'+_esc(_typeKeys(c.tipo))+'">'
             +'<div class="crow"><span class="ctype">'+_esc(c.tipo)+'</span><span class="cdur"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'+_esc(c.carga)+'</span></div>'
             +'<h5>'+(c.star?'<span class="star">★</span> ':'')+_esc(c.nome)+'</h5><p>'+_esc(c.tag)+'</p><span class="cmore">Ver detalhes →</span>'
             +'</div>';
@@ -1395,6 +1428,31 @@
     });
   }
   renderTrilhas();
+
+  function applyTypeFilter(host,key,label){
+    var visible=0;
+    host.querySelectorAll('.ccard[data-types]').forEach(function(card){
+      var show=key==='todos' || (' '+card.getAttribute('data-types')+' ').indexOf(' '+key+' ')>-1;
+      card.hidden=!show;
+      if(show) visible++;
+    });
+    host.querySelectorAll('.cgroup').forEach(function(group){
+      group.hidden=!group.querySelector('.ccard[data-types]:not([hidden])');
+    });
+    host.querySelectorAll('.ctype-filter').forEach(function(btn){
+      btn.setAttribute('aria-pressed',btn.getAttribute('data-type-filter')===key?'true':'false');
+    });
+    var expanded=host.querySelector('.catalog-full');
+    if(expanded) expanded.hidden=key!=='todos';
+    var status=host.querySelector('.ctype-filter-status');
+    if(status) status.textContent=key==='todos' ? visible+' ações' : visible+' '+label.toLowerCase();
+  }
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest?e.target.closest('.ctype-filter[data-type-filter]'):null;
+    if(!btn) return;
+    var host=btn.closest('.cgroups');
+    if(host) applyTypeFilter(host,btn.getAttribute('data-type-filter'),btn.textContent.trim());
+  });
 
   /* preenche o select "Capacitação de interesse" do formulário com todas as ações */
   (function(){
