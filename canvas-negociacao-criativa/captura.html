@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colabore com a Negociação Criativa | Inova Pública</title>
+  <meta name="description" content="Cadastre-se para colaborar com o desenvolvimento da Negociação Criativa no setor público.">
+  <style>
+    :root{--black:#050504;--ink:#fffdf7;--muted:#d8d0bf;--gold:#f0c878;--yellow:#ffd43b;--line:rgba(240,200,120,.28);--glass:rgba(255,248,230,.07)}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:var(--black);color:var(--ink)}
+    body{font-family:Georgia,Cambria,"Times New Roman",serif;background:radial-gradient(circle at 12% 14%,rgba(240,200,120,.15),transparent 30%),radial-gradient(circle at 90% 84%,rgba(200,148,63,.1),transparent 32%),#050504}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;background-image:radial-gradient(circle,rgba(255,248,230,.25) 0 1px,transparent 1.5px);background-size:76px 76px;mask-image:linear-gradient(120deg,#000,transparent 75%)}
+    main{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);gap:clamp(36px,7vw,110px);align-items:center;width:min(1180px,calc(100% - 40px));min-height:100vh;margin:auto;padding:64px 0}
+    .kicker{margin:0 0 20px;color:var(--gold);font:800 13px/1.2 system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+    h1{max-width:760px;margin:0;font-size:clamp(48px,6.6vw,96px);line-height:.98;letter-spacing:-.045em}
+    h1 span{color:var(--gold)}
+    .lead{max-width:680px;margin:28px 0 0;color:var(--muted);font-size:clamp(19px,2vw,28px);line-height:1.45}
+    .promise{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+    .promise span{padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:var(--glass);font:700 13px/1 system-ui,sans-serif;color:var(--muted)}
+    .card{padding:clamp(28px,4vw,46px);border:1px solid var(--line);border-radius:28px;background:rgba(15,14,11,.9);box-shadow:0 30px 90px rgba(0,0,0,.45);backdrop-filter:blur(14px)}
+    .card h2{margin:0 0 8px;font-size:clamp(28px,3vw,40px);line-height:1.08}
+    .card>p{margin:0 0 27px;color:var(--muted);font:500 15px/1.5 system-ui,sans-serif}
+    label{display:block;margin-top:17px;color:var(--muted);font:800 12px/1.2 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+    input[type=text],input[type=tel]{width:100%;margin-top:8px;padding:15px 16px;border:1px solid var(--line);border-radius:13px;outline:0;background:rgba(255,255,255,.055);color:var(--ink);font:600 17px/1.2 system-ui,sans-serif}
+    input:focus{border-color:var(--yellow);box-shadow:0 0 0 3px rgba(255,212,59,.12)}
+    .consent{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start;margin:20px 0 0;color:var(--muted);font:500 12px/1.45 system-ui,sans-serif;text-transform:none;letter-spacing:0}
+    .consent input{width:17px;height:17px;margin:1px 0 0;accent-color:var(--yellow)}
+    button{width:100%;margin-top:22px;padding:16px 20px;border:0;border-radius:999px;background:var(--yellow);color:#090705;cursor:pointer;font:900 16px/1 system-ui,sans-serif;transition:transform .2s,filter .2s}
+    button:hover{transform:translateY(-2px);filter:brightness(1.04)}button:disabled{cursor:wait;opacity:.68;transform:none}
+    .status{min-height:20px;margin:14px 0 0;text-align:center;color:var(--muted);font:700 12px/1.4 system-ui,sans-serif}
+    .hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+    @media(max-width:850px){main{grid-template-columns:1fr;padding:52px 0}.intro{text-align:center}.lead{margin-left:auto;margin-right:auto}.promise{justify-content:center}}
+  </style>
+</head>
+<body>
+  <main>
+    <section class="intro">
+      <p class="kicker">Canvas de Negociação Criativa</p>
+      <h1>Ajude a inovação a <span>atravessar a organização.</span></h1>
+      <p class="lead">Colabore com o desenvolvimento da Negociação Criativa e conecte-se a uma rede de pessoas interessadas em transformar boas ideias em acordos implementáveis.</p>
+      <div class="promise"><span>Valor público</span><span>Inovação colaborativa</span><span>Acordos criativos</span></div>
+    </section>
+    <section class="card" aria-labelledby="form-title">
+      <h2 id="form-title">Quero colaborar</h2>
+      <p>Preencha seus dados para conhecer a proposta completa e acompanhar os próximos passos.</p>
+      <form id="leadForm" method="post" action="https://script.google.com/macros/s/AKfycbzIMY7R5T9Ut3mZ-jR8ElDw7BzjtY9Ys3lyjnUfI6gUZxMaTVwiA3DcwBOlvN-LWeUF/exec" target="submitFrame">
+        <label for="nome">Nome</label>
+        <input id="nome" name="nome" type="text" autocomplete="name" maxlength="120" required>
+        <label for="whatsapp">Telefone (WhatsApp)</label>
+        <input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" maxlength="24" placeholder="(61) 99999-9999" pattern="[0-9()+ .-]{8,24}" required>
+        <label for="orgao">Órgão de origem</label>
+        <input id="orgao" name="orgao" type="text" autocomplete="organization" maxlength="160" required>
+        <div class="hp" aria-hidden="true"><label for="website">Não preencher</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <input name="origem" type="hidden" value="Fest Talks 2026">
+        <label class="consent"><input name="consentimento" type="checkbox" value="sim" required><span>Autorizo o uso destes dados para contato sobre a Negociação Criativa. Os dados não serão divulgados publicamente.</span></label>
+        <button id="submitButton" type="submit">Enviar e acessar o Canvas</button>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+      <iframe name="submitFrame" id="submitFrame" title="Envio do formulário" hidden></iframe>
+    </section>
+  </main>
+  <script>
+    const form=document.querySelector('#leadForm'),button=document.querySelector('#submitButton'),statusBox=document.querySelector('#status'),frame=document.querySelector('#submitFrame');
+    let submitted=false;
+    form.addEventListener('submit',event=>{
+      if(form.action.includes('GOOGLE_APPS_SCRIPT_EXEC_URL')){event.preventDefault();statusBox.textContent='Formulário aguardando ativação do Google Sheets.';return}
+      submitted=true;button.disabled=true;button.textContent='Registrando seus dados...';statusBox.textContent='Aguarde um instante.';
+    });
+    frame.addEventListener('load',()=>{
+      if(!submitted)return;
+      statusBox.textContent='Cadastro realizado. Abrindo o Canvas...';
+      setTimeout(()=>location.href='https://www.inovapublica.com.br/canvas-negociacao-criativa/',700);
+    });
+  </script>
+</body>
+</html>
