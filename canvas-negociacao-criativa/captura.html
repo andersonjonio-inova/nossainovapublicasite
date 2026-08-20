@@ -11,12 +11,12 @@
     html,body{margin:0;min-height:100%;background:var(--black);color:var(--ink)}
     body{font-family:Georgia,Cambria,"Times New Roman",serif;background:radial-gradient(circle at 12% 14%,rgba(240,200,120,.15),transparent 30%),radial-gradient(circle at 90% 84%,rgba(200,148,63,.1),transparent 32%),#050504}
     body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;background-image:radial-gradient(circle,rgba(255,248,230,.25) 0 1px,transparent 1.5px);background-size:76px 76px;mask-image:linear-gradient(120deg,#000,transparent 75%)}
-    main{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);gap:clamp(36px,7vw,110px);align-items:center;width:min(1180px,calc(100% - 40px));min-height:100vh;margin:auto;padding:64px 0}
-    .kicker{margin:0 0 20px;color:var(--gold);font:800 13px/1.2 system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase}
-    h1{max-width:760px;margin:0;font-size:clamp(48px,6.6vw,96px);line-height:.98;letter-spacing:-.045em}
+    main{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(380px,.8fr);gap:clamp(32px,6vw,88px);align-items:center;width:min(1120px,calc(100% - 40px));min-height:100vh;margin:auto;padding:40px 0}
+    .kicker{margin:0 0 14px;color:var(--gold);font:800 12px/1.2 system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+    h1{max-width:650px;margin:0;font-size:clamp(42px,5vw,72px);line-height:1;letter-spacing:-.04em}
     h1 span{color:var(--gold)}
-    .lead{max-width:680px;margin:28px 0 0;color:var(--muted);font-size:clamp(19px,2vw,28px);line-height:1.45}
-    .promise{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+    .lead{max-width:600px;margin:20px 0 0;color:var(--muted);font-size:clamp(17px,1.6vw,21px);line-height:1.4}
+    .promise{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
     .promise span{padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:var(--glass);font:700 13px/1 system-ui,sans-serif;color:var(--muted)}
     .card{padding:clamp(28px,4vw,46px);border:1px solid var(--line);border-radius:28px;background:rgba(15,14,11,.9);box-shadow:0 30px 90px rgba(0,0,0,.45);backdrop-filter:blur(14px)}
     .card h2{margin:0 0 8px;font-size:clamp(28px,3vw,40px);line-height:1.08}
@@ -30,15 +30,15 @@
     button:hover{transform:translateY(-2px);filter:brightness(1.04)}button:disabled{cursor:wait;opacity:.68;transform:none}
     .status{min-height:20px;margin:14px 0 0;text-align:center;color:var(--muted);font:700 12px/1.4 system-ui,sans-serif}
     .hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
-    @media(max-width:850px){main{grid-template-columns:1fr;padding:52px 0}.intro{text-align:center}.lead{margin-left:auto;margin-right:auto}.promise{justify-content:center}}
+    @media(max-width:850px){main{grid-template-columns:1fr;gap:18px;width:min(100% - 24px,560px);padding:20px 0 28px;align-items:start}.intro{text-align:center}.kicker{margin-bottom:8px}h1{font-size:clamp(32px,9vw,44px);line-height:1.02}.lead{margin:10px auto 0;font-size:15px;line-height:1.35}.promise{display:none}.card{padding:24px 20px;border-radius:22px}.card h2{font-size:28px}.card>p{margin-bottom:16px;font-size:14px}label{margin-top:13px}input[type=text],input[type=tel]{padding:13px 14px}.consent{margin-top:16px}button{margin-top:17px}}
   </style>
 </head>
 <body>
   <main>
     <section class="intro">
       <p class="kicker">Canvas de Negociação Criativa</p>
-      <h1>Ajude a inovação a <span>atravessar a organização.</span></h1>
-      <p class="lead">Colabore com o desenvolvimento da Negociação Criativa e conecte-se a uma rede de pessoas interessadas em transformar boas ideias em acordos implementáveis.</p>
+      <h1>Colabore com a <span>Negociação Criativa.</span></h1>
+      <p class="lead">Deixe seus dados e ajude a transformar boas ideias em acordos possíveis.</p>
       <div class="promise"><span>Valor público</span><span>Inovação colaborativa</span><span>Acordos criativos</span></div>
     </section>
     <section class="card" aria-labelledby="form-title">
