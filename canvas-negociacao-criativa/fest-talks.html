@@ -33,9 +33,35 @@
     .cta-links{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}.cta-links a{padding:13px 18px;border-radius:999px;text-decoration:none;color:#090705;background:var(--yellow);font:900 14px/1 system-ui,sans-serif}.cta-links a.alt{color:var(--ink);background:transparent;border:1px solid var(--line)}
     .chrome{position:fixed;z-index:20;left:28px;right:28px;bottom:20px;display:flex;align-items:center;gap:14px;font:800 12px/1 system-ui,sans-serif;color:var(--muted)}.progress{height:2px;background:rgba(255,255,255,.14);flex:1}.progress i{display:block;height:100%;width:10%;background:var(--gold);transition:width .45s var(--ease)}.counter{min-width:48px}.timer{min-width:50px;text-align:right}.control{border:1px solid var(--line);color:var(--muted);background:rgba(3,3,3,.75);border-radius:999px;padding:8px 11px;cursor:pointer}.control:hover,.control:focus-visible{color:#fff;border-color:var(--gold);outline:0}
     .notes{position:fixed;z-index:30;left:50%;bottom:52px;width:min(760px,calc(100% - 32px));transform:translate(-50%,30px);padding:20px 24px;border:1px solid var(--line);border-radius:20px;background:rgba(3,3,3,.94);box-shadow:0 20px 70px #000;opacity:0;visibility:hidden;transition:.25s var(--ease);font:500 15px/1.5 system-ui,sans-serif;color:#eee}.notes.show{opacity:1;visibility:visible;transform:translate(-50%,0)}.notes b{color:var(--gold);display:block;margin-bottom:5px}
+    /* Coreografia breve: primeiro a tese, depois as evidências. */
+    @keyframes stageReveal{0%{opacity:0;transform:translateY(22px);filter:blur(5px)}100%{opacity:1;transform:none;filter:blur(0)}}
+    @keyframes stageCard{0%{opacity:0;transform:translateY(18px) scale(.975);filter:blur(3px)}100%{opacity:1;transform:none;filter:blur(0)}}
+    @keyframes stageQuote{0%{opacity:0;transform:translateX(-24px);clip-path:inset(0 100% 0 0)}100%{opacity:1;transform:none;clip-path:inset(0)}}
+    @keyframes stageBeam{0%{opacity:0;transform:translateX(-28vw) skewX(-14deg)}35%{opacity:.65}100%{opacity:0;transform:translateX(128vw) skewX(-14deg)}}
+    @keyframes stageDiamond{0%{opacity:0;transform:translateY(-50%) rotate(38deg) scale(.88)}100%{opacity:1;transform:translateY(-50%) rotate(45deg) scale(1)}}
+    @keyframes stageHalo{0%{opacity:0;transform:translateY(-50%) scale(.72);filter:blur(22px)}100%{opacity:1;transform:translateY(-50%) scale(1);filter:blur(8px)}}
+    @keyframes stageQr{0%{opacity:0;transform:translateY(18px) scale(.92);box-shadow:0 0 0 rgba(240,200,120,0)}70%{opacity:1;transform:translateY(-3px) scale(1.015);box-shadow:0 22px 80px rgba(240,200,120,.16)}100%{opacity:1;transform:none;box-shadow:0 16px 65px rgba(0,0,0,.35)}}
+    .slide:after{content:"";position:absolute;z-index:1;top:-20%;bottom:-20%;left:-18%;width:11vw;pointer-events:none;opacity:0;background:linear-gradient(90deg,transparent,rgba(240,200,120,.09),rgba(255,253,247,.14),transparent);filter:blur(8px)}
+    .slide.active:after{animation:stageBeam .78s var(--ease) both}
+    .slide.active .kicker{animation:stageReveal .42s .08s var(--ease) backwards}
+    .slide.active h1,.slide.active h2{animation:stageReveal .58s .14s var(--ease) backwards}
+    .slide.active>.lead,.slide.active>.signature,.slide.active>.position,.slide.active>.micro{animation:stageReveal .5s .28s var(--ease) backwards}
+    .slide.active>.quote{animation:stageQuote .68s .14s var(--ease) backwards}
+    .slide.active>.citation{animation:stageReveal .42s .58s var(--ease) backwards}
+    .slide.active .cards>*,.slide.active .impact>*,.slide.active .path>*,.slide.active .canvas>*,.slide.active .ecosystem>*,.slide.active .tension>*,.slide.active .formula>*,.slide.active .cta-links>*{animation:stageCard .46s var(--ease) backwards}
+    .slide.active .cards>*:nth-child(1),.slide.active .impact>*:nth-child(1),.slide.active .path>*:nth-child(1),.slide.active .ecosystem>*:nth-child(1),.slide.active .tension>*:nth-child(1),.slide.active .formula>*:nth-child(1){animation-delay:.30s}
+    .slide.active .cards>*:nth-child(2),.slide.active .impact>*:nth-child(2),.slide.active .path>*:nth-child(2),.slide.active .ecosystem>*:nth-child(2),.slide.active .tension>*:nth-child(2),.slide.active .formula>*:nth-child(2){animation-delay:.37s}
+    .slide.active .cards>*:nth-child(3),.slide.active .impact>*:nth-child(3),.slide.active .path>*:nth-child(3),.slide.active .ecosystem>*:nth-child(3),.slide.active .tension>*:nth-child(3),.slide.active .formula>*:nth-child(3){animation-delay:.44s}
+    .slide.active .cards>*:nth-child(4),.slide.active .impact>*:nth-child(4),.slide.active .path>*:nth-child(4),.slide.active .ecosystem>*:nth-child(4),.slide.active .formula>*:nth-child(4){animation-delay:.51s}
+    .slide.active .formula>*:nth-child(5){animation-delay:.58s}
+    .slide.active .canvas>*:nth-child(4n+1){animation-delay:.28s}.slide.active .canvas>*:nth-child(4n+2){animation-delay:.34s}.slide.active .canvas>*:nth-child(4n+3){animation-delay:.40s}.slide.active .canvas>*:nth-child(4n){animation-delay:.46s}
+    .slide.active .canvas>*:nth-child(n+5):nth-child(-n+8){animation-delay:calc(.36s + (var(--i,0) * .01s))}.slide.active .canvas>*:nth-child(n+9):nth-child(-n+12){animation-delay:.44s}.slide.active .canvas>*:nth-child(n+13){animation-delay:.52s}
+    .slide.active .cta-links>*:nth-child(1){animation-delay:.42s}.slide.active .cta-links>*:nth-child(2){animation-delay:.49s}
+    .slide.active .qr-card{animation:stageQr .66s .34s var(--ease) backwards}
+    .slide.active .diamond{animation:stageDiamond .82s .22s var(--ease) backwards}.slide.active .halo{animation:stageHalo .9s .12s var(--ease) backwards}
     @media(max-width:900px){.slide{padding:58px 34px 70px}.split{grid-template-columns:1fr}.diamond,.halo{opacity:.25}.cards,.impact{grid-template-columns:1fr 1fr}.path,.ecosystem{grid-template-columns:repeat(2,1fr)}.phase{min-height:210px}.phase:after{display:none}.canvas{grid-template-columns:repeat(2,1fr)}.full{grid-column:span 2}.qr-card{display:none}.tension{grid-template-columns:1fr}.bridge{height:50px}.formula{grid-template-columns:1fr}.formula .op{display:none}.citation{left:34px}}
     @media(max-width:600px){h1{font-size:49px}h2{font-size:42px}.cards,.path,.ecosystem{grid-template-columns:1fr}.slide{overflow-y:auto;align-content:start;padding-top:70px}.phase,.eco,.card{min-height:auto}.canvas{display:none}.chrome{left:14px;right:14px}.control{display:none}}
-    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.slide .kicker,.slide h1,.slide h2,.slide>.lead,.slide>.signature,.slide>.quote,.slide>.position,.slide>.micro,.slide>.citation,.cards>*,.impact>*,.path>*,.canvas>*,.ecosystem>*,.tension>*,.formula>*,.cta-links>*,.qr-card,.slide .diamond,.slide .halo{opacity:1!important}}
   </style>
 </head>
 <body>
@@ -82,7 +108,7 @@
     document.querySelector('#prev').onclick=()=>show(current-1);document.querySelector('#next').onclick=()=>show(current+1);document.querySelector('#notesBtn').onclick=toggleNotes;document.querySelector('#full').onclick=toggleFull;
     addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();show(current+1)}if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(current-1)}if(e.key.toLowerCase()==='n')toggleNotes();if(e.key.toLowerCase()==='f')toggleFull();if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1)});
     let touchX=0;addEventListener('touchstart',e=>touchX=e.changedTouches[0].screenX,{passive:true});addEventListener('touchend',e=>{const d=e.changedTouches[0].screenX-touchX;if(Math.abs(d)>50)show(current+(d<0?1:-1))},{passive:true});
-    const hash=Math.max(1,Math.min(slides.length,parseInt(location.hash.slice(1))||1));current=hash-1;slides.forEach((s,i)=>s.classList.toggle('active',i===current));sync();timerId=setInterval(()=>{const s=Math.floor((Date.now()-start)/1000);document.querySelector('#timer').textContent=`${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`},1000);
+    const hash=Math.max(1,Math.min(slides.length,parseInt(location.hash.slice(1))||1));current=hash-1;slides.forEach(s=>s.classList.remove('active'));requestAnimationFrame(()=>requestAnimationFrame(()=>slides[current].classList.add('active')));sync();timerId=setInterval(()=>{const s=Math.floor((Date.now()-start)/1000);document.querySelector('#timer').textContent=`${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`},1000);
   </script>
 </body>
 </html>
