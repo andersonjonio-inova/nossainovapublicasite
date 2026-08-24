@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plano de Ação CJF 2026-2028</title>
+  <meta name="description" content="Plano de ação executivo extraído do Plano de Gestão CJF 2026-2028.">
+  <style>
+    :root {
+      --ink: #13283a;
+      --muted: #5d6f7f;
+      --line: #d7e0e7;
+      --soft: #f3f7f8;
+      --paper: #ffffff;
+      --navy: #12324a;
+      --blue: #1f6f9d;
+      --teal: #168b86;
+      --green: #5f8f3f;
+      --gold: #c79535;
+      --rose: #a64f63;
+      --shadow: 0 18px 50px rgba(19, 40, 58, .12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #eef4f6;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(215, 224, 231, .85);
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: 0;
+    }
+
+    .seal {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 900;
+      border-radius: 50%;
+    }
+
+    nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      background:
+        linear-gradient(115deg, rgba(18, 50, 74, .98), rgba(21, 116, 124, .92)),
+        linear-gradient(45deg, #12324a, #168b86);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      min-height: 560px;
+      padding: 74px 24px 54px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+      align-items: center;
+      gap: 44px;
+      position: relative;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: #d6edf0;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .95;
+      letter-spacing: 0;
+      max-width: 720px;
+    }
+
+    .lead {
+      max-width: 650px;
+      margin: 24px 0 0;
+      color: #e8f4f4;
+      font-size: 19px;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 34px;
+      max-width: 760px;
+    }
+
+    .meta-item {
+      border-left: 4px solid var(--gold);
+      background: rgba(255, 255, 255, .09);
+      padding: 14px 16px;
+      min-height: 84px;
+    }
+
+    .meta-value {
+      display: block;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .meta-label {
+      display: block;
+      color: #d8e8ea;
+      font-size: 13px;
+    }
+
+    .scoreboard {
+      border: 1px solid rgba(255, 255, 255, .32);
+      background: rgba(255, 255, 255, .1);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    .score-title {
+      margin: 0 0 18px;
+      font-size: 16px;
+      color: #f1fbfb;
+      font-weight: 800;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .score-cell {
+      min-height: 118px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .12);
+      padding: 14px;
+      border-radius: 6px;
+    }
+
+    .score-cell strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .score-cell span {
+      color: #dcecee;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 54px 24px 84px;
+    }
+
+    section {
+      margin: 0 0 58px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 22px;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 16px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(27px, 4vw, 42px);
+      line-height: 1.1;
+      color: var(--navy);
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      margin: 0;
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .focus-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .statement {
+      background: var(--paper);
+      border-top: 6px solid var(--teal);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border-radius: 8px;
+    }
+
+    .statement h3,
+    .priority h3,
+    .timeline-card h3,
+    .risk-card h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 21px;
+      line-height: 1.2;
+    }
+
+    .statement p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .priorities {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .priority {
+      min-height: 210px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .priority::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: var(--accent, var(--blue));
+    }
+
+    .priority .tag {
+      display: inline-block;
+      margin: 0 0 18px;
+      color: var(--accent, var(--blue));
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .priority p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .timeline-card {
+      background: var(--paper);
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .timeline-card .number {
+      display: inline-grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 16px;
+      color: #fff;
+      background: var(--accent, var(--blue));
+      border-radius: 50%;
+      font-weight: 900;
+    }
+
+    ul {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 20px;
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .72em;
+      width: 8px;
+      height: 2px;
+      background: var(--accent, var(--blue));
+    }
+
+    .workstreams {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .workstream {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--accent, var(--blue));
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .workstream h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 19px;
+    }
+
+    .workstream .connection {
+      margin: 0 0 12px;
+      color: var(--accent, var(--blue));
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .metric {
+      background: var(--navy);
+      color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      min-height: 126px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 26px;
+      line-height: 1;
+      margin-bottom: 12px;
+      color: #f0c46a;
+    }
+
+    .metric span {
+      color: #d8e8ea;
+      font-size: 14px;
+    }
+
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .risk-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      min-height: 180px;
+    }
+
+    .risk-card h3 {
+      font-size: 16px;
+    }
+
+    .risk-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .decisions {
+      background: var(--paper);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      border-top: 6px solid var(--gold);
+    }
+
+    .decision-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .decision {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      min-height: 110px;
+    }
+
+    footer {
+      padding: 28px 24px 42px;
+      background: #10283b;
+      color: #dcecee;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .focus-panel,
+      .timeline,
+      .workstreams,
+      .metrics,
+      .risk-grid,
+      .decision-list {
+        grid-template-columns: 1fr;
+      }
+
+      .priorities {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .hero-inner {
+        min-height: 0;
+        padding-top: 50px;
+      }
+
+      .score-grid,
+      .priorities {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="seal">CJF</span><span>Plano de Ação 2026-2028</span></div>
+      <nav aria-label="Navegação principal">
+        <a href="#foco">Foco</a>
+        <a href="#frentes">Frentes</a>
+        <a href="#horizontes">Horizontes</a>
+        <a href="#indicadores">Indicadores</a>
+        <a href="#decisoes">Decisões</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Conselho da Justiça Federal • Documento executivo</p>
+        <h1>Plano de Ação para atuação no CJF</h1>
+        <p class="lead">Síntese operacional extraída do Plano de Gestão CJF 2026-2028, com foco em desenvolvimento de pessoas, inovação, inteligência artificial, integração CJF-STJ e governança de entregas.</p>
+        <div class="hero-meta" aria-label="Resumo do plano">
+          <div class="meta-item"><span class="meta-value">5</span><span class="meta-label">frentes prioritárias</span></div>
+          <div class="meta-item"><span class="meta-value">30 • 90 • 180</span><span class="meta-label">dias de execução</span></div>
+          <div class="meta-item"><span class="meta-value">2026-2028</span><span class="meta-label">biênio de referência</span></div>
+        </div>
+      </div>
+      <aside class="scoreboard" aria-labelledby="bsc-title">
+        <h2 class="score-title" id="bsc-title">Mapa BSC de referência</h2>
+        <div class="score-grid">
+          <div class="score-cell"><strong>Valor Público e Sociedade</strong><span>Comunicação clara, itinerância, transparência e proximidade com o cidadão.</span></div>
+          <div class="score-cell"><strong>Processos Internos</strong><span>Governança baseada em evidências, dados, IA e transformação digital.</span></div>
+          <div class="score-cell"><strong>Pessoas, Aprendizado e Inovação</strong><span>Liderança, trilhas, competências, Ipê-Lab e rede de inovação.</span></div>
+          <div class="score-cell"><strong>Recursos e Governança</strong><span>Integração CJF-STJ, orçamento, infraestrutura e segurança institucional.</span></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main>
+    <section id="foco">
+      <div class="section-head">
+        <h2>Foco Estratégico</h2>
+        <p class="section-note">A atuação sugerida concentra energia em agendas onde há aderência direta ao perfil técnico de Anderson e às prioridades do Plano de Gestão.</p>
+      </div>
+      <div class="focus-panel">
+        <div class="statement">
+          <h3>Posicionamento</h3>
+          <p>Apoiar tecnicamente a execução das agendas do CJF relacionadas a desenvolvimento de pessoas, aprendizagem institucional, inovação, inteligência artificial, gestão do conhecimento e integração CJF-STJ.</p>
+        </div>
+        <div class="statement">
+          <h3>Critério de prioridade</h3>
+          <p>Começar por entregas com alto valor institucional, dependência moderada, possibilidade de piloto em até 180 dias e capacidade de gerar indicadores objetivos para acompanhamento da Presidência e das unidades técnicas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="frentes">
+      <div class="section-head">
+        <h2>Frentes Prioritárias</h2>
+        <p class="section-note">Cinco frentes organizam a contribuição de Anderson sem invadir competências formais das unidades responsáveis.</p>
+      </div>
+      <div class="priorities">
+        <article class="priority" style="--accent: var(--teal)">
+          <span class="tag">Frente 1</span>
+          <h3>Capital humano e liderança</h3>
+          <p>Trilhas, liderança, PAC, sucessão, saúde organizacional e capacitação em IA organizados em carteira de entregas.</p>
+        </article>
+        <article class="priority" style="--accent: var(--blue)">
+          <span class="tag">Frente 2</span>
+          <h3>IA e letramento digital</h3>
+          <p>Programa de formação e uso responsável de IA, com prompts institucionais e governança técnica.</p>
+        </article>
+        <article class="priority" style="--accent: var(--green)">
+          <span class="tag">Frente 3</span>
+          <h3>Inovação e laboratórios</h3>
+          <p>Agenda integrada com Ipê-Lab/CJF, laboratórios regionais, pesquisa aplicada e boas práticas.</p>
+        </article>
+        <article class="priority" style="--accent: var(--gold)">
+          <span class="tag">Frente 4</span>
+          <h3>Integração CJF-STJ</h3>
+          <p>Plano de integração de aprendizagem, comunicação interna, pertencimento e cooperação educacional.</p>
+        </article>
+        <article class="priority" style="--accent: var(--rose)">
+          <span class="tag">Frente 5</span>
+          <h3>Governança de execução</h3>
+          <p>Rotina de acompanhamento com entregas trimestrais, indicadores, responsáveis, riscos e decisões.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="horizontes">
+      <div class="section-head">
+        <h2>Horizontes de Execução</h2>
+        <p class="section-note">O plano trabalha com entregas progressivas para reduzir incerteza e gerar valor visível no curto prazo.</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-card" style="--accent: var(--teal)">
+          <span class="number">30</span>
+          <h3>Alinhamento e diagnóstico</h3>
+          <ul>
+            <li>Validar escopo formal de atuação.</li>
+            <li>Mapear interlocutores: SE/CJF, SGP, CEJ, CEFOR/STJ, Ipê-Lab, STI, SG e DG.</li>
+            <li>Levantar organograma, PAC, matriz detalhada, atos de integração e indicadores.</li>
+            <li>Preparar briefing executivo com prioridades, lacunas e decisões necessárias.</li>
+          </ul>
+        </article>
+        <article class="timeline-card" style="--accent: var(--blue)">
+          <span class="number">90</span>
+          <h3>Desenho das frentes</h3>
+          <ul>
+            <li>Propor arquitetura do Programa de Liderança.</li>
+            <li>Desenhar trilha de IA por perfil e protocolo de segurança.</li>
+            <li>Mapear laboratórios e boas práticas de inovação.</li>
+            <li>Estruturar ciclo Conheça o STJ e o CJF.</li>
+            <li>Criar carteira de iniciativas com status quinzenal.</li>
+          </ul>
+        </article>
+        <article class="timeline-card" style="--accent: var(--gold)">
+          <span class="number">180</span>
+          <h3>Resultados mensuráveis</h3>
+          <ul>
+            <li>Piloto do Programa de Liderança iniciado.</li>
+            <li>Trilha de IA validada ou em execução.</li>
+            <li>Protótipo de PROMPTECA educacional/administrativa estruturado.</li>
+            <li>Oficinas de inovação com fluxos internos redesenhados.</li>
+            <li>Painel de acompanhamento do PAC em operação.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Plano por Frente</h2>
+        <p class="section-note">Cada frente tem entregas específicas e interlocutores naturais a validar no primeiro ciclo de 30 dias.</p>
+      </div>
+      <div class="workstreams">
+        <article class="workstream" style="--accent: var(--teal)">
+          <p class="connection">Eixo 4</p>
+          <h3>Capital humano e liderança</h3>
+          <ul>
+            <li>Matriz de competências críticas: liderança, riscos, IA, inovação, projetos e comunicação pública.</li>
+            <li>Arquitetura do Programa de Liderança, com públicos, trilhas e módulos.</li>
+            <li>Modelo de avaliação de efetividade das capacitações.</li>
+            <li>Painel mínimo de acompanhamento do PAC.</li>
+          </ul>
+        </article>
+        <article class="workstream" style="--accent: var(--blue)">
+          <p class="connection">Eixos 2, 4 e 5</p>
+          <h3>IA, letramento digital e prompts</h3>
+          <ul>
+            <li>Trilha obrigatória de IA por perfil: alta direção, gestores, área-fim e área-meio.</li>
+            <li>Guia de uso responsável de IA para aprendizagem e gestão.</li>
+            <li>Catálogo inicial de prompts seguros para educação, gestão e análise institucional.</li>
+            <li>Integração com PROMPTECA, Hub de IA e governança técnica.</li>
+          </ul>
+        </article>
+        <article class="workstream" style="--accent: var(--green)">
+          <p class="connection">Eixo 5</p>
+          <h3>Inovação e rede de laboratórios</h3>
+          <ul>
+            <li>Mapa de iniciativas e laboratórios da Justiça Federal.</li>
+            <li>Proposta de governança mínima do Ipê-Lab/CJF.</li>
+            <li>Calendário de oficinas internas de inovação.</li>
+            <li>Modelo de curadoria de boas práticas e pauta para encontro nacional.</li>
+          </ul>
+        </article>
+        <article class="workstream" style="--accent: var(--gold)">
+          <p class="connection">Pilar de sustentação</p>
+          <h3>Integração CJF-STJ</h3>
+          <ul>
+            <li>Ciclo Conheça o STJ e o CJF com trilha curta de imersão.</li>
+            <li>Matriz de oportunidades CJF-STJ para capacitação.</li>
+            <li>Roteiro de vídeos curtos sobre estrutura e competências.</li>
+            <li>Articulação entre CEFOR/STJ e CEJ para cooperação educacional.</li>
+          </ul>
+        </article>
+        <article class="workstream" style="--accent: var(--rose)">
+          <p class="connection">Execução transversal</p>
+          <h3>Governança de execução</h3>
+          <ul>
+            <li>Carteira de iniciativas acompanhadas por Anderson.</li>
+            <li>Para cada iniciativa: objetivo, responsável, marco trimestral, indicador, risco e próxima decisão.</li>
+            <li>Ritual quinzenal de acompanhamento.</li>
+            <li>Relatório mensal executivo com status verde, amarelo e vermelho.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="indicadores">
+      <div class="section-head">
+        <h2>Indicadores Sugeridos</h2>
+        <p class="section-note">Os indicadores são preliminares e devem ser ajustados com as unidades responsáveis.</p>
+      </div>
+      <div class="metrics">
+        <div class="metric"><strong>85%</strong><span>Meta de execução do PAC até 2027, conforme Plano de Gestão.</span></div>
+        <div class="metric"><strong>40%</strong><span>Adesão mínima desejada às pesquisas internas até 2027.</span></div>
+        <div class="metric"><strong>31/12/2026</strong><span>Marco previsto para conclusão do Portal do CJF.</span></div>
+        <div class="metric"><strong>Mensal</strong><span>Status executivo das iniciativas acompanhadas por frente.</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Riscos e Mitigação</h2>
+        <p class="section-note">A gestão de riscos evita retrabalho, sobreposição institucional e fragilidade de indicadores.</p>
+      </div>
+      <div class="risk-grid">
+        <article class="risk-card">
+          <h3>Sobreposição institucional</h3>
+          <p>Mitigar com mapa de governança e validação de papéis antes das entregas.</p>
+        </article>
+        <article class="risk-card">
+          <h3>Matriz de execução incompleta</h3>
+          <p>Criar matriz preliminar e validar prazos, responsáveis e indicadores.</p>
+        </article>
+        <article class="risk-card">
+          <h3>IA sem diretriz comum</h3>
+          <p>Alinhar com governança de IA, STI, segurança e normas do CNJ.</p>
+        </article>
+        <article class="risk-card">
+          <h3>Baixa adesão</h3>
+          <p>Usar comunicação segmentada, patrocínio da liderança e devolutivas rápidas.</p>
+        </article>
+        <article class="risk-card">
+          <h3>Dependência CJF-STJ</h3>
+          <p>Formalizar pontos focais e decisões necessárias para cada frente integrada.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="decisoes">
+      <div class="decisions">
+        <h2>Próximas Decisões</h2>
+        <div class="decision-list">
+          <div class="decision">Confirmar se o foco inicial será Eixo 4 e Eixo 5, com apoio transversal à IA e integração CJF-STJ.</div>
+          <div class="decision">Definir quais unidades devem ser consultadas primeiro.</div>
+          <div class="decision">Escolher o formato do primeiro produto: briefing, cronograma 30-60-90, matriz de projetos ou apresentação.</div>
+          <div class="decision">Informar se há reunião já marcada para adaptar o plano a uma pauta concreta.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>Plano de Ação CJF 2026-2028 • Minuta executiva para validação</span>
+      <span>Fonte: Plano de Gestão CJF 2026-2028 e memória de trabalho da Assessoria CJF</span>
+    </div>
+  </footer>
+</body>
+</html>
